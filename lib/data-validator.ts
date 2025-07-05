@@ -113,9 +113,6 @@ function validateAgentFeatureSupport(support: any, filename: string, index: numb
   if (!Array.isArray(support.examples)) {
     errors.push(new ValidationError(filename, `${prefix}.examples`, support.examples, 'must be an array'))
   }
-  if (!Array.isArray(support.links)) {
-    errors.push(new ValidationError(filename, `${prefix}.links`, support.links, 'must be an array'))
-  }
   if (!support.last_verified || typeof support.last_verified !== 'string') {
     errors.push(new ValidationError(filename, `${prefix}.last_verified`, support.last_verified, 'must be a non-empty string'))
   }

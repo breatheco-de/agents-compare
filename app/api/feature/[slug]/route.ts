@@ -35,7 +35,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       support_level: support.level,
       notes: support.notes,
       examples: support.examples,
-      links: support.links
+      sources: support.sources
     }))
 
     const responseData = {

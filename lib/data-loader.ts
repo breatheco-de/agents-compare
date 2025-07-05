@@ -60,7 +60,6 @@ export async function loadAgentFeatureSupport(agentId?: string, featureId?: stri
           support_level: support.support_level,
           notes: support.notes,
           examples: support.examples,
-          links: support.links,
           last_verified: support.last_verified,
           sources: support.sources
         })
@@ -104,7 +103,7 @@ export async function getFeatureSupport(featureId: string): Promise<Array<{
   level: string
   notes?: string
   examples?: string[]
-  links?: string[]
+  sources?: string[]
 }>> {
   // Get all agents and support data for this feature
   const agents = await loadAgents()
@@ -119,7 +118,7 @@ export async function getFeatureSupport(featureId: string): Promise<Array<{
       level: support?.support_level || 'unknown',
       notes: support?.notes,
       examples: support?.examples,
-      links: support?.links
+      sources: support?.sources
     }
   })
   
