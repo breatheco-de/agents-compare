@@ -8,7 +8,6 @@
       support_level: "partial",
       notes: "Can integrate with MCP servers via extensions and configuration, but lacks native protocol understanding.",
       examples: ["Using MCP extensions for external tool access"],
-      links: ["https://docs.cursor.sh/extensions"],
       last_verified: "2024-01-15",
       sources: ["https://docs.cursor.sh/extensions"]
     },
@@ -17,7 +16,6 @@
       support_level: "yes",
       notes: "Supports large context windows up to 200k tokens with Claude and GPT-4 Turbo models.",
       examples: ["Processing entire codebases in a single context"],
-      links: ["https://docs.cursor.sh/models"],
       last_verified: "2024-01-15",
       sources: ["https://docs.cursor.sh/models"]
     },
@@ -26,7 +24,6 @@
       support_level: "yes",
       notes: "Native support for Claude 3 Opus, Sonnet, and Haiku models.",
       examples: ["Using Claude 3 Opus for complex reasoning tasks"],
-      links: ["https://docs.cursor.sh/models"],
       last_verified: "2024-01-15",
       sources: ["https://docs.cursor.sh/models"]
     },
@@ -35,18 +32,16 @@
       support_level: "yes",
       notes: "Full filesystem access within the workspace with user permission.",
       examples: ["Creating, reading, and modifying files across the project"],
-      links: ["https://docs.cursor.sh/permissions"],
       last_verified: "2024-01-15",
       sources: ["https://docs.cursor.sh/permissions"]
     },
     {
       feature_id: "planner-strategy",
       support_level: "partial",
-      notes: "Has planning capabilities but limited multi-step execution without user intervention.",
-      examples: ["Breaking down refactoring tasks into steps"],
-      links: ["https://docs.cursor.sh/chat"],
-      last_verified: "2024-01-15",
-      sources: ["https://docs.cursor.sh/chat"]
+      notes: "Cursor 'Agent To-dos' feature is automatic, when you prompt it to do something, it will break down the task into steps and execute them one by one.",
+      examples: ["Just ask cursor to do something to see examples"],
+      last_verified: "2025-07-05",
+      sources: ["https://cursor.com/changelog/1-2"]
     }
   ]
 } 

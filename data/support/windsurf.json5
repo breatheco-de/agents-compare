@@ -8,7 +8,6 @@
       support_level: "unknown",
       notes: "MCP support status unclear from available documentation.",
       examples: [],
-      links: [],
       last_verified: "2024-01-15",
       sources: []
     },
@@ -17,7 +16,6 @@
       support_level: "yes",
       notes: "Supports large context windows through integrated language models.",
       examples: ["Processing large codebases"],
-      links: ["https://codeium.com/windsurf"],
       last_verified: "2024-01-15",
       sources: ["https://codeium.com/windsurf"]
     },
@@ -26,7 +24,6 @@
       support_level: "partial",
       notes: "May support Claude 3 through API integrations but not natively confirmed.",
       examples: [],
-      links: ["https://codeium.com/windsurf"],
       last_verified: "2024-01-15",
       sources: ["https://codeium.com/windsurf"]
     },
@@ -35,7 +32,6 @@
       support_level: "yes",
       notes: "Full filesystem access as a native IDE with AI integration.",
       examples: ["Creating and modifying files autonomously"],
-      links: ["https://codeium.com/windsurf"],
       last_verified: "2024-01-15",
       sources: ["https://codeium.com/windsurf"]
     },
@@ -44,7 +40,6 @@
       support_level: "yes",
       notes: "Advanced planning and autonomous task execution capabilities.",
       examples: ["Multi-file refactoring with strategic planning"],
-      links: ["https://codeium.com/windsurf"],
       last_verified: "2024-01-15",
       sources: ["https://codeium.com/windsurf"]
     }

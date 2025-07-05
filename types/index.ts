@@ -36,7 +36,6 @@ export interface AgentFeatureSupport {
   support_level: SupportLevel
   notes: string
   examples: string[]
-  links: string[]
   last_verified: string
   sources: string[]
 }

@@ -31,17 +31,20 @@ declare namespace __next_route_internal_types__ {
   type StaticRoutes = 
     | `/`
     | `/agent`
-    | `/feature`
     | `/api/agent`
+    | `/api/compare`
     | `/api/feature`
+    | `/comparison`
+    | `/feature`
+    | `/compare`
     | `/agent/[slug].json`
     | `/feature/[slug].json`
     | `/compare/[slugs].json`
   type DynamicRoutes<T extends string = string> = 
     | `/agent/${SafeSlug<T>}`
-    | `/feature/${SafeSlug<T>}`
     | `/api/agent/${SafeSlug<T>}`
     | `/api/feature/${SafeSlug<T>}`
+    | `/feature/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes

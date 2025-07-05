@@ -8,7 +8,6 @@
       support_level: "yes",
       notes: "Built with MCP support for external tool integration and server communication.",
       examples: ["Using MCP servers for database queries, API calls"],
-      links: ["https://github.com/saoudrizwan/claude-dev"],
       last_verified: "2024-01-15",
       sources: ["https://github.com/saoudrizwan/claude-dev"]
     },
@@ -17,7 +16,6 @@
       support_level: "yes",
       notes: "Leverages Claude's native large context window capabilities.",
       examples: ["Analyzing entire codebases in context"],
-      links: ["https://github.com/saoudrizwan/claude-dev"],
       last_verified: "2024-01-15",
       sources: ["https://github.com/saoudrizwan/claude-dev"]
     },
@@ -26,7 +24,6 @@
       support_level: "yes",
       notes: "Native Claude 3 support as it's built specifically for Claude models.",
       examples: ["Direct integration with Claude 3 Opus and Sonnet"],
-      links: ["https://github.com/saoudrizwan/claude-dev"],
       last_verified: "2024-01-15",
       sources: ["https://github.com/saoudrizwan/claude-dev"]
     },
@@ -35,7 +32,6 @@
       support_level: "yes",
       notes: "Autonomous filesystem operations with safety checks and user approval.",
       examples: ["Creating, reading, writing, and deleting files"],
-      links: ["https://github.com/saoudrizwan/claude-dev"],
       last_verified: "2024-01-15",
       sources: ["https://github.com/saoudrizwan/claude-dev"]
     },
@@ -44,7 +40,6 @@
       support_level: "yes",
       notes: "Sophisticated planning with step-by-step task breakdown and execution.",
       examples: ["Complex multi-file software development tasks"],
-      links: ["https://github.com/saoudrizwan/claude-dev"],
       last_verified: "2024-01-15",
       sources: ["https://github.com/saoudrizwan/claude-dev"]
     }

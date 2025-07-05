@@ -2,6 +2,7 @@ import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-lo
 import { Table, TableHeader, TableBody, TableRow, TableCell } from '@/components/tables/Table'
 import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
 import PageContainer from '@/components/layout/PageContainer'
+import { CompareSelector } from '@/components/home/CompareSelector'
 
 export default async function HomePage() {
   const agents = await loadAgents()
@@ -19,21 +20,8 @@ export default async function HomePage() {
           Find the perfect AI coding assistant for your needs. Compare agents like Cursor, Windsurf, and Claude Dev across key features including MCP support, context windows, and planning capabilities.
         </p>
         
-        {/* Search Box */}
-        <div className="max-w-md mx-auto mb-8">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search for an agent or feature"
-              className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
-            />
-            <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                             <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-          </div>
-        </div>
+        {/* Compare Selector */}
+        <CompareSelector agents={agents} features={features} />
       </section>
 
       {/* Preview Comparison Table (3x5) */}
