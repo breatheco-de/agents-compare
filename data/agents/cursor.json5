@@ -1,0 +1,24 @@
+{
+  // Cursor AI coding agent
+  id: "cursor",
+  name: "Cursor",
+  aliases: ["Cursor.sh", "Cursor AI", "Cursor Editor"],
+  provider: "Cursor.sh",
+  website: "https://www.cursor.sh",
+  supported_ide: ["VSCode (fork)"],
+  description: "A VSCode-based AI agent for editing, refactoring, and task-based coding with powerful autocomplete and chat features.",
+  faq: [
+    {
+      question: "What models does Cursor support?",
+      answer: "Cursor supports Claude 3 (Opus, Sonnet, Haiku), GPT-4, GPT-4 Turbo, and other OpenAI models. You can switch between models based on your task requirements."
+    },
+    {
+      question: "How does Cursor differ from GitHub Copilot?",
+      answer: "Cursor provides a full IDE experience with integrated chat, multi-file editing, and more advanced AI features. It's a fork of VSCode with AI deeply integrated, while Copilot is an extension that focuses primarily on code completion."
+    },
+    {
+      question: "Can Cursor work with my existing VSCode extensions?",
+      answer: "Yes, Cursor is compatible with most VSCode extensions since it's built on the VSCode codebase. You can install extensions from the VSCode marketplace just like in regular VSCode."
+    }
+  ]
+} 

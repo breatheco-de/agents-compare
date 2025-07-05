@@ -1,0 +1,161 @@
+---
+alwaysApply: false
+---
+# Table Consistency Rules
+
+## 🎯 CRITICAL: ALL Tables Must Use Standardized Components
+
+**NEVER create custom table components or use raw `<table>` elements.**
+
+## Required Components
+
+### Import Pattern
+```typescript
+import { 
+  Table, 
+  TableHeader, 
+  TableBody, 
+  TableRow, 
+  TableCell, 
+} from '@/components/tables/Table'
+```
+
+#### Related Components
+- `SupportLevelBadge` - Standardized support level indicators (located in `/components/ui/`)
+
+## Styling Standards (ENFORCED)
+
+- **Borders**: `border-gray-600` for ALL table borders
+- **Headers**: `bg-gray-800/50` background 
+- **Hover**: `hover:bg-gray-800/30` for interactive rows
+- **Padding**: `p-4` for all cells
+- **Support Levels**: ALWAYS use `SupportLevelBadge` component
+
+## ✅ Correct Table Implementation
+
+```typescript
+<Table ariaLabel="Description of table content">
+  <TableHeader>
+    <TableRow isHeader>
+      <TableCell isHeader scope="col">Feature</TableCell>
+      <TableCell isHeader scope="col">Support</TableCell>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell isHeader scope="row">Feature Name</TableCell>
+      <TableCell>
+        <SupportLevelBadge level="yes" showIcon />
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## ❌ FORBIDDEN Patterns
+
+```typescript
+// ❌ NEVER do this - creates inconsistent styling
+<table className="w-full border border-gray-700">
+  <thead><tr><th>Header</th></tr></thead>
+  <tbody><tr><td>Data</td></tr></tbody>
+</table>
+
+// ❌ NEVER do this - inconsistent support badges  
+<span className="text-green-500 bg-green-600/20">Full Support</span>
+
+// ❌ NEVER do this - wrong border colors
+<table className="border-gray-800">
+```
+
+## Component Props Reference
+
+### Table
+- `ariaLabel` (required) - Accessibility description
+- `className` (optional) - Additional CSS classes
+
+### TableRow
+- `isHeader` - Adds header background styling
+- `isSticky` - Makes row stick to top during scroll
+- `hover` - Enable/disable hover effects (default: true)
+- `id` - HTML id attribute
+- `hidden` - Hide/show row
+- `data-feature` - Data attribute for feature identification
+
+### TableCell  
+- `isHeader` - Renders as `<th>` instead of `<td>`
+- `scope` - Accessibility scope attribute
+- `colSpan` - Column span for merged cells
+
+### SupportLevelBadge
+- `level` - 'yes' | 'partial' | 'no' | 'unknown'
+- `showIcon` - Display emoji icons (recommended: always use `showIcon`)
+- `children` - Custom label override (optional)
+
+## Advanced Features
+
+### Sticky Category Headers
+```typescript
+<TableRow isHeader isSticky hover={false}>
+  <TableCell isHeader scope="rowgroup" colSpan={3}>
+    Category Name
+  </TableCell>
+</TableRow>
+```
+
+### Expandable Details
+```typescript
+<TableRow 
+  id={`details-${featureId}`}
+  className="bg-gray-800/50"
+  hidden={!isExpanded}
+  hover={false}
+>
+  <TableCell colSpan={3}>
+    <div className="space-y-3">
+      Expandable content here
+    </div>
+  </TableCell>
+</TableRow>
+```
+
+## Accessibility Requirements
+
+- **ARIA Labels**: All tables need `ariaLabel`
+- **Scope Attributes**: Use proper `scope` on headers
+- **Semantic Markup**: Correct `<th>` vs `<td>` usage
+- **Keyboard Navigation**: Support Enter/Space for interactions
+
+## Migration Checklist
+
+When updating existing tables:
+
+1. ✅ Import table components from `@/components/tables/Table`
+2. ✅ Replace `<table>` → `<Table>`
+3. ✅ Replace `<thead>` → `<TableHeader>`
+4. ✅ Replace `<tbody>` → `<TableBody>`
+5. ✅ Replace `<tr>` → `<TableRow>`
+6. ✅ Replace `<th>/<td>` → `<TableCell>`
+7. ✅ Add `isHeader` prop to header cells
+8. ✅ Add proper `scope` attributes
+9. ✅ Replace support spans with `<SupportLevelBadge>`
+10. ✅ Add `ariaLabel` to table
+
+## Current Implementation Status
+
+### ✅ Fully Standardized Tables
+- **Homepage**: Quick Feature Comparison table - ✅ COMPLETE
+- **Agent Pages**: Support Matrix tables - ✅ COMPLETE
+
+**RESULT**: All tables now have identical styling:
+- Same borders, backgrounds, spacing, and hover effects  
+- Same support level badges with icons (`<SupportLevelBadge showIcon />`)
+- Same responsive behavior and accessibility
+- Zero custom badge implementations anywhere
+
+### 🔒 Future Tables
+ALL new tables MUST use these components from day one.
+
+---
+
+**⚠️ ENFORCEMENT: Any PR with custom table markup will be rejected.** 

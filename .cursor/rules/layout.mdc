@@ -1,0 +1,311 @@
+---
+globs: app/**page.tsx
+alwaysApply: false
+---
+# Layout Consistency Rules
+
+## 🎯 CRITICAL: ALL Pages Must Use Standardized PageContainer
+
+**NEVER create custom page containers or use raw container classes.**
+
+## Required Component
+
+### Import Pattern
+```typescript
+import PageContainer from '@/components/layout/PageContainer'
+```
+
+## Layout Standards (ENFORCED)
+
+- **Container**: `container mx-auto px-4 py-8` (standardized)
+- **Responsive**: Built-in responsive max-widths
+- **Consistency**: Same margins/padding across ALL pages
+
+## ✅ Correct Page Layout
+
+```typescript
+import PageContainer from '@/components/layout/PageContainer'
+
+export default function MyPage() {
+  return (
+    <PageContainer>
+      {/* Page content */}
+    </PageContainer>
+  )
+}
+```
+
+## PageContainer Options
+
+### Max Width Variants
+```typescript
+// Standard width (default - uses container responsive widths)
+<PageContainer>
+
+// Narrow content (max-w-4xl - good for articles/prose)
+<PageContainer maxWidth="narrow">
+
+// Wide layout (max-w-6xl - good for dashboards/complex layouts)
+<PageContainer maxWidth="wide">
+
+// Full width (max-w-full - edge-to-edge layouts)
+<PageContainer maxWidth="full">
+```
+
+### Layout Variants
+```typescript
+// Standard page (default)
+<PageContainer>
+
+// Full screen with dark background (for agent pages)
+<PageContainer variant="fullscreen">
+```
+
+## ❌ FORBIDDEN Patterns
+
+```typescript
+// ❌ NEVER create custom containers
+<div className="container mx-auto px-4 py-8">
+
+// ❌ NEVER use inconsistent spacing
+<div className="container mx-auto px-6 py-10">
+
+// ❌ NEVER add extra wrappers
+<div className="min-h-screen bg-gray-900">
+  <div className="container mx-auto px-4 py-8 max-w-6xl">
+
+// ❌ NEVER use different padding/margins
+<div className="max-w-4xl mx-auto p-8">
+```
+
+## Page Type Guidelines
+
+### Homepage
+```typescript
+<PageContainer>
+  {/* Standard container width */}
+</PageContainer>
+```
+
+### Agent Detail Pages
+```typescript
+<PageContainer variant="fullscreen" maxWidth="wide">
+  {/* Full screen dark background + wider content */}
+</PageContainer>
+```
+
+### Article/Content Pages
+```typescript
+<PageContainer maxWidth="narrow">
+  {/* Optimized for reading */}
+</PageContainer>
+```
+
+### Dashboard/Complex Layouts
+```typescript
+<PageContainer maxWidth="wide">
+  {/* More space for complex interfaces */}
+</PageContainer>
+```
+
+## Component Implementation
+
+The PageContainer component automatically handles:
+- ✅ Consistent margins: `container mx-auto px-4 py-8`
+- ✅ Responsive behavior across all screen sizes
+- ✅ Dark theme background when needed
+- ✅ Proper max-width constraints
+- ✅ TypeScript interfaces for safety
+
+## Migration Checklist
+
+When updating existing pages:
+
+1. ✅ Import `PageContainer` from `@/components/layout/PageContainer`
+2. ✅ Remove custom container divs
+3. ✅ Replace with `<PageContainer>` wrapper
+4. ✅ Choose appropriate `maxWidth` based on content type
+5. ✅ Use `variant="fullscreen"` for pages needing dark backgrounds
+6. ✅ Remove any custom margin/padding classes
+7. ✅ Test responsive behavior across screen sizes
+
+## Current Implementation Status
+
+### ✅ Converted Pages
+- **Homepage**: Uses standard `<PageContainer>`
+- **Agent Pages**: Uses `<PageContainer variant="fullscreen" maxWidth="wide">`
+
+### 🔒 Future Pages
+ALL new pages MUST use PageContainer from day one.
+
+## Responsive Behavior
+
+The PageContainer automatically provides:
+- **Mobile**: Full width with appropriate padding
+- **Tablet**: Responsive container widths
+- **Desktop**: Proper max-widths based on variant
+- **Large Screens**: Prevents content from being too wide
+
+## Accessibility Benefits
+
+- ✅ Consistent content width improves readability
+- ✅ Proper margins improve scan-ability
+- ✅ Responsive design ensures mobile accessibility
+- ✅ Focus management not disrupted by layout inconsistencies
+
+---
+
+**⚠️ ENFORCEMENT: Any PR with custom container markup will be rejected.** # Layout Consistency Rules
+
+## 🎯 CRITICAL: ALL Pages Must Use Standardized PageContainer
+
+**NEVER create custom page containers or use raw container classes.**
+
+## Required Component
+
+### Import Pattern
+```typescript
+import PageContainer from '@/components/layout/PageContainer'
+```
+
+## Layout Standards (ENFORCED)
+
+- **Container**: `container mx-auto px-4 py-8` (standardized)
+- **Responsive**: Built-in responsive max-widths
+- **Consistency**: Same margins/padding across ALL pages
+
+## ✅ Correct Page Layout
+
+```typescript
+import PageContainer from '@/components/layout/PageContainer'
+
+export default function MyPage() {
+  return (
+    <PageContainer>
+      {/* Page content */}
+    </PageContainer>
+  )
+}
+```
+
+## PageContainer Options
+
+### Max Width Variants
+```typescript
+// Standard width (default - uses container responsive widths)
+<PageContainer>
+
+// Narrow content (max-w-4xl - good for articles/prose)
+<PageContainer maxWidth="narrow">
+
+// Wide layout (max-w-6xl - good for dashboards/complex layouts)
+<PageContainer maxWidth="wide">
+
+// Full width (max-w-full - edge-to-edge layouts)
+<PageContainer maxWidth="full">
+```
+
+### Layout Variants
+```typescript
+// Standard page (default)
+<PageContainer>
+
+// Full screen with dark background (for agent pages)
+<PageContainer variant="fullscreen">
+```
+
+## ❌ FORBIDDEN Patterns
+
+```typescript
+// ❌ NEVER create custom containers
+<div className="container mx-auto px-4 py-8">
+
+// ❌ NEVER use inconsistent spacing
+<div className="container mx-auto px-6 py-10">
+
+// ❌ NEVER add extra wrappers
+<div className="min-h-screen bg-gray-900">
+  <div className="container mx-auto px-4 py-8 max-w-6xl">
+
+// ❌ NEVER use different padding/margins
+<div className="max-w-4xl mx-auto p-8">
+```
+
+## Page Type Guidelines
+
+### Homepage
+```typescript
+<PageContainer>
+  {/* Standard container width */}
+</PageContainer>
+```
+
+### Agent Detail Pages
+```typescript
+<PageContainer variant="fullscreen" maxWidth="wide">
+  {/* Full screen dark background + wider content */}
+</PageContainer>
+```
+
+### Article/Content Pages
+```typescript
+<PageContainer maxWidth="narrow">
+  {/* Optimized for reading */}
+</PageContainer>
+```
+
+### Dashboard/Complex Layouts
+```typescript
+<PageContainer maxWidth="wide">
+  {/* More space for complex interfaces */}
+</PageContainer>
+```
+
+## Component Implementation
+
+The PageContainer component automatically handles:
+- ✅ Consistent margins: `container mx-auto px-4 py-8`
+- ✅ Responsive behavior across all screen sizes
+- ✅ Dark theme background when needed
+- ✅ Proper max-width constraints
+- ✅ TypeScript interfaces for safety
+
+## Migration Checklist
+
+When updating existing pages:
+
+1. ✅ Import `PageContainer` from `@/components/layout/PageContainer`
+2. ✅ Remove custom container divs
+3. ✅ Replace with `<PageContainer>` wrapper
+4. ✅ Choose appropriate `maxWidth` based on content type
+5. ✅ Use `variant="fullscreen"` for pages needing dark backgrounds
+6. ✅ Remove any custom margin/padding classes
+7. ✅ Test responsive behavior across screen sizes
+
+## Current Implementation Status
+
+### ✅ Converted Pages
+- **Homepage**: Uses standard `<PageContainer>`
+- **Agent Pages**: Uses `<PageContainer variant="fullscreen" maxWidth="wide">`
+
+### 🔒 Future Pages
+ALL new pages MUST use PageContainer from day one.
+
+## Responsive Behavior
+
+The PageContainer automatically provides:
+- **Mobile**: Full width with appropriate padding
+- **Tablet**: Responsive container widths
+- **Desktop**: Proper max-widths based on variant
+- **Large Screens**: Prevents content from being too wide
+
+## Accessibility Benefits
+
+- ✅ Consistent content width improves readability
+- ✅ Proper margins improve scan-ability
+- ✅ Responsive design ensures mobile accessibility
+- ✅ Focus management not disrupted by layout inconsistencies
+
+---
+
+**⚠️ ENFORCEMENT: Any PR with custom container markup will be rejected.** 

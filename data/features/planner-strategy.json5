@@ -1,0 +1,8 @@
+{
+  // Planning and Strategy Capabilities
+  id: "planner-strategy",
+  name: "Planner Strategy",
+  aliases: ["planning", "strategy", "multi-step reasoning", "task planning"],
+  category: "Planning",
+  description: "Advanced planning capabilities to break down complex tasks into steps and execute multi-file changes systematically."
+} 

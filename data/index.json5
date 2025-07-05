@@ -1,0 +1,20 @@
+{
+  // Main index of available agents, features, and comparisons
+  features: [
+    "mcp-support", 
+    "context-window", 
+    "claude3-support", 
+    "filesystem-access", 
+    "planner-strategy"
+  ],
+  agents: [
+    "cursor", 
+    "windsurf", 
+    "claude-dev"
+  ],
+  comparisons: [
+    "claude-dev-vs-cursor",
+    "claude-dev-vs-windsurf", 
+    "cursor-vs-windsurf"
+  ]
+} 

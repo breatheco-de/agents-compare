@@ -1,0 +1,208 @@
+---
+alwaysApply: false
+---
+# Component Organization Rules
+
+## Component Directory Structure (CRITICAL)
+
+**ALL reusable components MUST be placed in `/components` directory.**
+
+### Location Rules
+- ✅ ALWAYS use: `/components` directory for ALL reusable components
+- ❌ NEVER create: component folders inside page directories (e.g., `app/*/components/`)
+- ✅ Use subdirectories in `/components` to organize by type:
+  - `/components/tables/` - Table and data display components
+  - `/components/forms/` - Form-related components  
+  - `/components/layout/` - Headers, footers, navigation
+  - `/components/common/` - Generic UI components
+  - `/components/ui/` - Base UI components and atoms
+
+### Import Patterns (CRITICAL)
+- ✅ ALWAYS use: `import Component from '@/components/...'`
+- ❌ NEVER use: `import Component from './components/...'` from page directories
+- ❌ NEVER use: `import Component from '../../../components/...'`
+
+### Component Standards
+- All components MUST be TypeScript with proper interfaces
+- All components MUST meet ARIA accessibility standards
+- All interactive components MUST support keyboard navigation
+- Components should be self-contained with their own styles and logic
+
+## Support Level Display (CRITICAL)
+
+**ALWAYS use the `SupportLevelBadge` component for displaying support levels.**
+
+### ✅ Correct Usage
+```typescript
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+
+// Always use this for support levels
+<SupportLevelBadge level="yes" showIcon />
+<SupportLevelBadge level="partial" showIcon />
+<SupportLevelBadge level="no" showIcon />
+<SupportLevelBadge level="unknown" showIcon />
+```
+
+### ❌ FORBIDDEN Patterns
+```typescript
+// NEVER create custom support icons or badges
+const SUPPORT_ICONS = { yes: '✅', no: '❌' } // ❌ DON'T DO THIS
+
+// NEVER use custom spans for support levels
+<span className="text-green-400">✅ Yes</span> // ❌ DON'T DO THIS
+
+// NEVER create inconsistent support displays
+<div className="text-yellow-500">Partial Support</div> // ❌ DON'T DO THIS
+```
+
+The `SupportLevelBadge` component ensures:
+- Consistent visual appearance across the entire app
+- Proper color coding and icons
+- Accessibility compliance
+- Standardized text labels
+
+## Current Structure
+```
+components/
+├── FAQAccordion.tsx      # Generic accordion component
+├── tables/
+│   └── SupportMatrix.tsx # Interactive support matrix table
+├── ui/                   # Base UI components
+│   └── SupportLevelBadge.tsx # Standardized support level display
+└── README.md             # Component documentation
+```
+
+## Examples
+
+### ✅ Correct Component Creation
+```typescript
+// Place in /components/common/MyComponent.tsx
+'use client'
+
+import React from 'react'
+
+interface MyComponentProps {
+  // Proper TypeScript interface
+}
+
+export default function MyComponent({ ...props }: MyComponentProps) {
+  // Component implementation with accessibility
+}
+```
+
+### ✅ Correct Component Import
+```typescript
+import FAQAccordion from '@/components/FAQAccordion'
+import SupportMatrix from '@/components/tables/SupportMatrix'
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+```
+
+### ❌ Incorrect Patterns to Avoid
+```typescript
+// Don't create: app/feature/components/Component.tsx
+// Don't import: import Component from './components/Component'
+// Don't skip: TypeScript interfaces, ARIA attributes, keyboard support
+// Don't create: custom support level displays
+``` # Component Organization Rules
+
+## Component Directory Structure (CRITICAL)
+
+**ALL reusable components MUST be placed in `/components` directory.**
+
+### Location Rules
+- ✅ ALWAYS use: `/components` directory for ALL reusable components
+- ❌ NEVER create: component folders inside page directories (e.g., `app/*/components/`)
+- ✅ Use subdirectories in `/components` to organize by type:
+  - `/components/tables/` - Table and data display components
+  - `/components/forms/` - Form-related components  
+  - `/components/layout/` - Headers, footers, navigation
+  - `/components/common/` - Generic UI components
+  - `/components/ui/` - Base UI components and atoms
+
+### Import Patterns (CRITICAL)
+- ✅ ALWAYS use: `import Component from '@/components/...'`
+- ❌ NEVER use: `import Component from './components/...'` from page directories
+- ❌ NEVER use: `import Component from '../../../components/...'`
+
+### Component Standards
+- All components MUST be TypeScript with proper interfaces
+- All components MUST meet ARIA accessibility standards
+- All interactive components MUST support keyboard navigation
+- Components should be self-contained with their own styles and logic
+
+## Support Level Display (CRITICAL)
+
+**ALWAYS use the `SupportLevelBadge` component for displaying support levels.**
+
+### ✅ Correct Usage
+```typescript
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+
+// Always use this for support levels
+<SupportLevelBadge level="yes" showIcon />
+<SupportLevelBadge level="partial" showIcon />
+<SupportLevelBadge level="no" showIcon />
+<SupportLevelBadge level="unknown" showIcon />
+```
+
+### ❌ FORBIDDEN Patterns
+```typescript
+// NEVER create custom support icons or badges
+const SUPPORT_ICONS = { yes: '✅', no: '❌' } // ❌ DON'T DO THIS
+
+// NEVER use custom spans for support levels
+<span className="text-green-400">✅ Yes</span> // ❌ DON'T DO THIS
+
+// NEVER create inconsistent support displays
+<div className="text-yellow-500">Partial Support</div> // ❌ DON'T DO THIS
+```
+
+The `SupportLevelBadge` component ensures:
+- Consistent visual appearance across the entire app
+- Proper color coding and icons
+- Accessibility compliance
+- Standardized text labels
+
+## Current Structure
+```
+components/
+├── FAQAccordion.tsx      # Generic accordion component
+├── tables/
+│   └── SupportMatrix.tsx # Interactive support matrix table
+├── ui/                   # Base UI components
+│   └── SupportLevelBadge.tsx # Standardized support level display
+└── README.md             # Component documentation
+```
+
+## Examples
+
+### ✅ Correct Component Creation
+```typescript
+// Place in /components/common/MyComponent.tsx
+'use client'
+
+import React from 'react'
+
+interface MyComponentProps {
+  // Proper TypeScript interface
+}
+
+export default function MyComponent({ ...props }: MyComponentProps) {
+  // Component implementation with accessibility
+}
+```
+
+### ✅ Correct Component Import
+```typescript
+import FAQAccordion from '@/components/FAQAccordion'
+import SupportMatrix from '@/components/tables/SupportMatrix'
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+```
+
+### ❌ Incorrect Patterns to Avoid
+```typescript
+// Don't create: app/feature/components/Component.tsx
+// Don't import: import Component from './components/Component'
+// Don't skip: TypeScript interfaces, ARIA attributes, keyboard support
+// Don't create: custom support level displays
+``` 

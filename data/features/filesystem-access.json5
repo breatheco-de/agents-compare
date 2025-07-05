@@ -1,0 +1,8 @@
+{
+  // Filesystem Access Capabilities
+  id: "filesystem-access",
+  name: "Filesystem Access",
+  aliases: ["file operations", "file system", "read write files"],
+  category: "Execution",
+  description: "Ability to autonomously read, write, create, and modify files in the project directory and beyond."
+} 

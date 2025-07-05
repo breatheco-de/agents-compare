@@ -1,0 +1,24 @@
+{
+  // Windsurf AI coding agent
+  id: "windsurf",
+  name: "Windsurf",
+  aliases: ["Windsurf IDE", "Codeium Windsurf"],
+  provider: "Codeium",
+  website: "https://codeium.com/windsurf",
+  supported_ide: ["Windsurf (custom IDE)"],
+  description: "An AI-first code editor with deep integration of language models for autonomous coding tasks and intelligent assistance.",
+  faq: [
+    {
+      question: "What makes Windsurf different from other AI coding assistants?",
+      answer: "Windsurf is an AI-first IDE with deep integration of language models. It's designed specifically for autonomous coding tasks and can handle complex multi-file operations with minimal user intervention."
+    },
+    {
+      question: "Which AI models does Windsurf use?",
+      answer: "Windsurf uses Codeium's proprietary models along with support for Claude 3 and other leading language models. The specific model can be selected based on the task at hand."
+    },
+    {
+      question: "Is Windsurf free to use?",
+      answer: "Windsurf offers a free tier with limited usage, as well as paid plans for professional developers and teams with higher usage limits and additional features."
+    }
+  ]
+} 

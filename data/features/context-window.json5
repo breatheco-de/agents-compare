@@ -1,0 +1,37 @@
+{
+  // Context Window Size and Management
+  id: "context-window",
+  name: "Context Window Management",
+  aliases: ["context size", "context length", "window size"],
+  category: "Model Support",
+  description: "The maximum number of tokens the agent can process in a single context, including conversation history and file contents.",
+  
+  // Extended information for feature pages
+  overview: "Context window refers to the maximum amount of information an AI coding agent can hold in its 'working memory' at once. This includes your conversation history, code files, documentation, and any other relevant context. Larger context windows allow agents to work with more files simultaneously and maintain longer conversations without losing important details.",
+  
+  importance: "Context window size directly impacts how effectively an AI agent can work on complex projects. A larger context window means the agent can analyze multiple files together, understand broader codebases, and maintain context across longer coding sessions without forgetting earlier parts of the conversation.",
+  
+  use_cases: [
+    "Working with large codebases that require understanding multiple interconnected files",
+    "Refactoring code across multiple modules while maintaining consistency",
+    "Debugging complex issues that span several components",
+    "Implementing features that require changes to many files",
+    "Maintaining context during long pair-programming sessions"
+  ],
+  
+  // FAQ section for SEO and user information
+  faq: [
+    {
+      question: "What is a context window in AI coding agents?",
+      answer: "A context window is the maximum amount of text (measured in tokens) that an AI agent can process at once. It includes your entire conversation, any code files you're working with, and other relevant information. Think of it as the agent's working memory."
+    },
+    {
+      question: "How does context window size affect coding performance?",
+      answer: "Larger context windows allow AI agents to work with more files simultaneously, understand complex relationships between different parts of your code, and maintain longer conversations without losing track of earlier context. This is especially important for large refactoring tasks or debugging complex issues."
+    },
+    {
+      question: "What happens when the context window is full?",
+      answer: "When the context window fills up, different agents handle it differently. Some automatically summarize earlier parts of the conversation, others might drop older context, and some allow you to manually manage what stays in context. The specific behavior depends on the agent's implementation."
+    }
+  ]
+} 
