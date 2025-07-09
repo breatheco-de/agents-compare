@@ -122,7 +122,7 @@ export function ComparePageClient({ agents, features, supportMatrix, statistics 
   const [showNotes, setShowNotes] = useState(true);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen text-white">
       {/* Header Section */}
       <ComparisonHeader statistics={statistics} />
       
