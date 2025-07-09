@@ -114,20 +114,20 @@ export function ComparisonCellModal({ agent, feature, support, onClose }: Compar
                 </div>
               )}
 
-              {support?.links && support.links.length > 0 && (
+              {support?.sources && support.sources.length > 0 && (
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-gray-300 mb-2">Related Links</h4>
                   <div className="space-y-1">
-                    {support.links.map((link, index) => (
+                    {support.sources.map((source, index) => (
                       <a
                         key={index}
-                        href={link}
+                        href={source}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1"
                       >
                         <LinkIcon className="h-3 w-3" />
-                        {link}
+                        {source}
                       </a>
                     ))}
                   </div>
