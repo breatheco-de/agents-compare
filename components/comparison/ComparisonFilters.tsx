@@ -2,11 +2,25 @@
 
 import { useState, useEffect } from 'react'
 import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import type { Agent, Feature } from '@/types'
+import type { Agent, Feature, SupportLevel } from '@/types'
 
 interface ComparisonFiltersProps {
   agents: Agent[]
   features: Feature[]
+  selectedAgents: string[]
+  setSelectedAgents: (agents: string[]) => void
+  selectedFeatures: string[]
+  setSelectedFeatures: (features: string[]) => void
+  selectedCategories: string[]
+  setSelectedCategories: (categories: string[]) => void
+  selectedSupportLevels: SupportLevel[]
+  setSelectedSupportLevels: (levels: SupportLevel[]) => void
+  searchQuery: string
+  setSearchQuery: (query: string) => void
+  viewMode: 'compact' | 'expanded'
+  setViewMode: (mode: 'compact' | 'expanded') => void
+  showNotes: boolean
+  setShowNotes: (show: boolean) => void
   onFiltersChange?: (filters: FilterState) => void
 }
 
@@ -19,7 +33,25 @@ export interface FilterState {
   showUnknown: boolean
 }
 
-export function ComparisonFilters({ agents, features, onFiltersChange }: ComparisonFiltersProps) {
+export function ComparisonFilters({ 
+  agents, 
+  features, 
+  selectedAgents,
+  setSelectedAgents,
+  selectedFeatures,
+  setSelectedFeatures,
+  selectedCategories,
+  setSelectedCategories,
+  selectedSupportLevels,
+  setSelectedSupportLevels,
+  searchQuery,
+  setSearchQuery,
+  viewMode,
+  setViewMode,
+  showNotes,
+  setShowNotes,
+  onFiltersChange 
+}: ComparisonFiltersProps) {
   const [filters, setFilters] = useState<FilterState>({
     searchTerm: '',
     selectedAgents: [],
@@ -101,11 +133,9 @@ export function ComparisonFilters({ agents, features, onFiltersChange }: Compari
                 {agents.map(agent => (
                   <button
                     key={agent.id}
-                    onClick={() => updateFilters({ 
-                      selectedAgents: toggleArrayFilter(filters.selectedAgents, agent.id) 
-                    })}
+                    onClick={() => setSelectedAgents(toggleArrayFilter(selectedAgents, agent.id))}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                      filters.selectedAgents.includes(agent.id)
+                      selectedAgents.includes(agent.id)
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
@@ -123,11 +153,9 @@ export function ComparisonFilters({ agents, features, onFiltersChange }: Compari
                 {categories.map(category => (
                   <button
                     key={category}
-                    onClick={() => updateFilters({ 
-                      selectedCategories: toggleArrayFilter(filters.selectedCategories, category) 
-                    })}
+                    onClick={() => setSelectedCategories(toggleArrayFilter(selectedCategories, category))}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                      filters.selectedCategories.includes(category)
+                      selectedCategories.includes(category)
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
@@ -150,11 +178,9 @@ export function ComparisonFilters({ agents, features, onFiltersChange }: Compari
                 ].map(level => (
                   <button
                     key={level.value}
-                    onClick={() => updateFilters({ 
-                      supportLevels: toggleArrayFilter(filters.supportLevels, level.value) 
-                    })}
+                    onClick={() => setSelectedSupportLevels(toggleArrayFilter(selectedSupportLevels, level.value as SupportLevel) as SupportLevel[])}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                      filters.supportLevels.includes(level.value)
+                      selectedSupportLevels.includes(level.value as SupportLevel)
                         ? `${level.color} text-white`
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     }`}
@@ -195,23 +221,23 @@ export function ComparisonFilters({ agents, features, onFiltersChange }: Compari
         )}
 
         {/* Active Filters Summary */}
-        {(filters.selectedAgents.length > 0 || filters.selectedCategories.length > 0 || filters.searchTerm) && (
+        {(selectedAgents.length > 0 || selectedCategories.length > 0 || filters.searchTerm) && (
           <div className="mt-4 pt-4 border-t border-gray-700">
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <span>Active filters:</span>
               {filters.searchTerm && (
                 <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">
-                  Search: "{filters.searchTerm}"
+                  Search: &quot;{filters.searchTerm}&quot;
                 </span>
               )}
-              {filters.selectedAgents.length > 0 && (
+              {selectedAgents.length > 0 && (
                 <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">
-                  {filters.selectedAgents.length} agent{filters.selectedAgents.length > 1 ? 's' : ''}
+                  {selectedAgents.length} agent{selectedAgents.length > 1 ? 's' : ''}
                 </span>
               )}
-              {filters.selectedCategories.length > 0 && (
+              {selectedCategories.length > 0 && (
                 <span className="bg-purple-600 text-white px-2 py-1 rounded text-xs">
-                  {filters.selectedCategories.length} categor{filters.selectedCategories.length > 1 ? 'ies' : 'y'}
+                  {selectedCategories.length} categor{selectedCategories.length > 1 ? 'ies' : 'y'}
                 </span>
               )}
             </div>

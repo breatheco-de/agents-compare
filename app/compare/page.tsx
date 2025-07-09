@@ -1,9 +1,6 @@
 import { Metadata } from 'next'
 import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-loader'
-import { ComparisonTable } from '@/components/comparison/ComparisonTable'
-import { ComparisonHeader } from '@/components/comparison/ComparisonHeader'
-import { ComparisonFilters } from '@/components/comparison/ComparisonFilters'
-import { ComparisonStats } from '@/components/comparison/ComparisonStats'
+import { ComparePageClient } from '@/components/comparison/ComparisonContent'
 import PageContainer from '@/components/layout/PageContainer'
 import type { Agent, Feature, AgentFeatureSupport } from '@/types'
 
@@ -102,32 +99,12 @@ export default async function ComparePage() {
       />
       
       <PageContainer>
-        <div className="min-h-screen bg-gray-950 text-white">
-          {/* Header Section */}
-          <ComparisonHeader statistics={data.statistics} />
-          
-          {/* Filters Section */}
-          <ComparisonFilters 
-            agents={data.agents} 
-            features={data.features} 
-          />
-          
-          {/* Main Comparison Table */}
-          <div className="mb-12">
-            <ComparisonTable 
-              agents={data.agents}
-              features={data.features}
-              supportMatrix={data.supportMatrix}
-            />
-          </div>
-          
-          {/* Statistics Section */}
-          <ComparisonStats 
-            agents={data.agents}
-            features={data.features}
-            supportMatrix={data.supportMatrix}
-          />
-        </div>
+        <ComparePageClient 
+          agents={data.agents}
+          features={data.features}
+          supportMatrix={data.supportMatrix}
+          statistics={data.statistics}
+        />
       </PageContainer>
     </>
   )

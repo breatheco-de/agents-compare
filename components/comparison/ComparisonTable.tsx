@@ -6,11 +6,16 @@ import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
 import { ComparisonCellModal } from './ComparisonCellModal'
 import type { Agent, Feature, AgentFeatureSupport, SupportLevel } from '@/types'
+import type { ComparisonMatrix } from '@/types/comparison'
 
 interface ComparisonTableProps {
   agents: Agent[]
   features: Feature[]
-  supportMatrix: AgentFeatureSupport[]
+  matrix: ComparisonMatrix['matrix']
+  viewMode: 'compact' | 'expanded'
+  showNotes: boolean
+  selectedSupportLevels: SupportLevel[]
+  supportMatrix?: AgentFeatureSupport[]
   filters?: {
     searchTerm: string
     selectedAgents: string[]
@@ -25,13 +30,42 @@ interface GroupedFeatures {
   [category: string]: Feature[]
 }
 
-export function ComparisonTable({ agents, features, supportMatrix, filters }: ComparisonTableProps) {
+export function ComparisonTable({ 
+  agents, 
+  features, 
+  matrix,
+  viewMode,
+  showNotes,
+  selectedSupportLevels,
+  supportMatrix: providedSupportMatrix,
+  filters 
+}: ComparisonTableProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
   const [selectedCell, setSelectedCell] = useState<{
     agent: Agent
     feature: Feature
     support: AgentFeatureSupport | null
   } | null>(null)
+
+  // Convert matrix to supportMatrix if not provided
+  const supportMatrix = providedSupportMatrix || (() => {
+    const result: AgentFeatureSupport[] = []
+    for (const agentId in matrix) {
+      for (const featureId in matrix[agentId]) {
+        const support = matrix[agentId][featureId]
+        result.push({
+          agent_id: agentId,
+          feature_id: featureId,
+          support_level: support.level,
+          notes: support.notes || '',
+          examples: support.examples || [],
+          last_verified: '',
+          sources: []
+        })
+      }
+    }
+    return result
+  })()
 
   // Group features by category
   const groupedFeatures: GroupedFeatures = useMemo(() => {

@@ -6,8 +6,10 @@ import { ComparisonHeader } from './ComparisonHeader';
 import { ComparisonFilters } from './ComparisonFilters';
 import { ComparisonTable } from './ComparisonTable';
 import { ComparisonStatistics } from './ComparisonStatistics';
+import { ComparisonStats } from './ComparisonStats';
 import { ComparisonMatrix } from '@/types/comparison';
 import { SupportLevel } from '@/types';
+import type { Agent, Feature, AgentFeatureSupport } from '@/types';
 
 interface ComparisonContentProps {
   initialData: ComparisonMatrix;
@@ -94,6 +96,75 @@ export function ComparisonContent({ initialData }: ComparisonContentProps) {
           filteredFeatures={filteredFeatures}
         />
       </div>
+    </div>
+  );
+}
+
+// New client component for /compare page
+interface ComparePageClientProps {
+  agents: Agent[]
+  features: Feature[]
+  supportMatrix: AgentFeatureSupport[]
+  statistics: {
+    totalAgents: number
+    totalFeatures: number
+    totalComparisons: number
+    lastUpdated: string
+  }
+}
+
+export function ComparePageClient({ agents, features, supportMatrix, statistics }: ComparePageClientProps) {
+  const [selectedAgents, setSelectedAgents] = useState<string[]>([]);
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSupportLevels, setSelectedSupportLevels] = useState<SupportLevel[]>(['yes', 'partial', 'no', 'unknown']);
+  const [viewMode, setViewMode] = useState<'compact' | 'expanded'>('expanded');
+  const [showNotes, setShowNotes] = useState(true);
+
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      {/* Header Section */}
+      <ComparisonHeader statistics={statistics} />
+      
+      {/* Filters Section */}
+      <ComparisonFilters 
+        agents={agents} 
+        features={features}
+        selectedAgents={selectedAgents}
+        setSelectedAgents={setSelectedAgents}
+        selectedFeatures={selectedFeatures}
+        setSelectedFeatures={setSelectedFeatures}
+        selectedCategories={selectedCategories}
+        setSelectedCategories={setSelectedCategories}
+        selectedSupportLevels={selectedSupportLevels}
+        setSelectedSupportLevels={setSelectedSupportLevels}
+        searchQuery=""
+        setSearchQuery={() => {}}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        showNotes={showNotes}
+        setShowNotes={setShowNotes}
+      />
+      
+      {/* Main Comparison Table */}
+      <div className="mb-12">
+        <ComparisonTable 
+          agents={agents}
+          features={features}
+          supportMatrix={supportMatrix}
+          matrix={{}}
+          viewMode={viewMode}
+          showNotes={showNotes}
+          selectedSupportLevels={selectedSupportLevels}
+        />
+      </div>
+      
+      {/* Statistics Section */}
+      <ComparisonStats 
+        agents={agents}
+        features={features}
+        supportMatrix={supportMatrix}
+      />
     </div>
   );
 } 
