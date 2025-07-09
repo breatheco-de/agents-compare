@@ -69,7 +69,7 @@ agents-compare/
 - [x] Setup validation for JSON data integrity
 
 ### 2.3 Initial Sample Data
-- [x] Create 3 sample agents: Cursor, Windsurf, Claude-Dev
+- [x] Create 3 sample agents: Cursor, Windsurf, Claude-Code
 - [x] Create 5 sample features: MCP Support, Context Size, Claude 3 Support, Filesystem Access, Planner Strategy
 - [x] Create corresponding support matrix entries
 - [x] Ensure data supports the homepage preview table

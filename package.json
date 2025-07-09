@@ -10,7 +10,10 @@
     "validate": "tsx lib/data-validator.ts",
     "type-check": "tsc --noEmit",
     "prebuild": "npm run validate && npm run type-check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "create-features": "node scripts/create-features.js",
+    "create-agents": "node scripts/create-agents.js",
+    "update-index": "node scripts/update-index.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

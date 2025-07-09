@@ -1,0 +1,30 @@
+{
+    "id": "claude4-support",
+    "name": "Claude 4 Support",
+    "aliases": ["Claude 4", "Anthropic Claude 4", "Claude 4 Opus", "Claude 4 Sonnet"],
+    "category": "Model Support",
+    "description": "Native support for Claude 4 family models from Anthropic for advanced code generation and analysis.",
+    "overview": "Claude 4 support refers to the integration of Anthropic's Claude 4 family models (e.g., Opus, Sonnet) into an AI coding agent, enabling advanced code generation, analysis, and reasoning capabilities. These models offer improved performance over previous versions, with enhanced understanding of complex codebases and natural language instructions.",
+    "importance": "Claude 4 models provide superior reasoning and contextual understanding, making them critical for tasks requiring deep code analysis, complex refactoring, or precise adherence to custom instructions. Support for these models ensures cutting-edge performance in AI-assisted coding.",
+    "use_cases": [
+      "Generating highly optimized code for performance-critical applications",
+      "Performing complex codebase refactoring with minimal errors",
+      "Understanding and implementing intricate business logic from natural language descriptions",
+      "Analyzing large codebases for potential bugs or security vulnerabilities",
+      "Automating documentation generation with high accuracy"
+    ],
+    "faq": [
+      {
+        "question": "What is Claude 4 support in AI coding agents?",
+        "answer": "Claude 4 support refers to the integration of Anthropic's Claude 4 family models into an AI coding agent, enabling advanced code generation, analysis, and reasoning with improved performance over earlier models."
+      },
+      {
+        "question": "Why is Claude 4 support important for developers?",
+        "answer": "Claude 4 models offer enhanced reasoning and contextual understanding, improving the quality of code suggestions, refactoring, and analysis, especially for complex or large-scale projects."
+      },
+      {
+        "question": "What are the limitations of Claude 4 support?",
+        "answer": "Limitations may include higher computational requirements, potential costs for API access, and dependency on Anthropic’s infrastructure, which requires an internet connection."
+      }
+    ]
+  }

@@ -1,136 +1,257 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Agent, Feature, SupportLevel } from '@/types';
-import { ComparisonMatrix } from '@/types/comparison';
-import SupportLevelBadge from '@/components/ui/SupportLevelBadge';
-import { ComparisonCellModal } from './ComparisonCellModal';
-import React from 'react';
+import React, { useState, useMemo } from 'react'
+import Link from 'next/link'
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+import { ComparisonCellModal } from './ComparisonCellModal'
+import type { Agent, Feature, AgentFeatureSupport, SupportLevel } from '@/types'
 
 interface ComparisonTableProps {
-  agents: Agent[];
-  features: Feature[];
-  matrix: ComparisonMatrix['matrix'];
-  viewMode: 'compact' | 'expanded';
-  showNotes: boolean;
-  selectedSupportLevels: SupportLevel[];
+  agents: Agent[]
+  features: Feature[]
+  supportMatrix: AgentFeatureSupport[]
+  filters?: {
+    searchTerm: string
+    selectedAgents: string[]
+    selectedFeatures: string[]
+    selectedCategories: string[]
+    supportLevels: string[]
+    showUnknown: boolean
+  }
 }
 
-export function ComparisonTable({
-  agents,
-  features,
-  matrix,
-  viewMode,
-  showNotes,
-  selectedSupportLevels
-}: ComparisonTableProps) {
+interface GroupedFeatures {
+  [category: string]: Feature[]
+}
+
+export function ComparisonTable({ agents, features, supportMatrix, filters }: ComparisonTableProps) {
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
   const [selectedCell, setSelectedCell] = useState<{
-    agent: Agent;
-    feature: Feature;
-    support: ComparisonMatrix['matrix'][string][string];
-  } | null>(null);
+    agent: Agent
+    feature: Feature
+    support: AgentFeatureSupport | null
+  } | null>(null)
 
   // Group features by category
-  const featuresByCategory = features.reduce((acc, feature) => {
-    const category = feature.category || 'Other';
-    if (!acc[category]) acc[category] = [];
-    acc[category].push(feature);
-    return acc;
-  }, {} as Record<string, Feature[]>);
+  const groupedFeatures: GroupedFeatures = useMemo(() => {
+    return features.reduce((acc, feature) => {
+      if (!acc[feature.category]) {
+        acc[feature.category] = []
+      }
+      acc[feature.category].push(feature)
+      return acc
+    }, {} as GroupedFeatures)
+  }, [features])
 
-  // Filter cells by support level if needed
-  const shouldShowCell = (support: ComparisonMatrix['matrix'][string][string]) => {
-    if (selectedSupportLevels.length === 0) return true;
-    return selectedSupportLevels.includes(support.level);
-  };
+  // Filter agents and features based on filters
+  const filteredAgents = useMemo(() => {
+    if (!filters) return agents
+    
+    let filtered = agents
+    
+    if (filters.selectedAgents.length > 0) {
+      filtered = filtered.filter(agent => filters.selectedAgents.includes(agent.id))
+    }
+    
+    if (filters.searchTerm) {
+      const term = filters.searchTerm.toLowerCase()
+      filtered = filtered.filter(agent => 
+        agent.name.toLowerCase().includes(term) ||
+        agent.description.toLowerCase().includes(term) ||
+        agent.provider.toLowerCase().includes(term)
+      )
+    }
+    
+    return filtered
+  }, [agents, filters])
+
+  const filteredFeatures = useMemo(() => {
+    if (!filters) return features
+    
+    let filtered = features
+    
+    if (filters.selectedFeatures.length > 0) {
+      filtered = filtered.filter(feature => filters.selectedFeatures.includes(feature.id))
+    }
+    
+    if (filters.selectedCategories.length > 0) {
+      filtered = filtered.filter(feature => filters.selectedCategories.includes(feature.category))
+    }
+    
+    if (filters.searchTerm) {
+      const term = filters.searchTerm.toLowerCase()
+      filtered = filtered.filter(feature => 
+        feature.name.toLowerCase().includes(term) ||
+        feature.description.toLowerCase().includes(term) ||
+        feature.category.toLowerCase().includes(term)
+      )
+    }
+    
+    return filtered
+  }, [features, filters])
+
+  // Get support data for a specific agent-feature combination
+  const getSupport = (agentId: string, featureId: string): AgentFeatureSupport | null => {
+    return supportMatrix.find(s => s.agent_id === agentId && s.feature_id === featureId) || null
+  }
+
+  // Calculate support statistics for an agent
+  const getAgentStats = (agentId: string) => {
+    const agentSupport = supportMatrix.filter(s => s.agent_id === agentId)
+    const total = filteredFeatures.length
+    const supported = agentSupport.filter(s => s.support_level === 'yes').length
+    const partial = agentSupport.filter(s => s.support_level === 'partial').length
+    const percentage = Math.round((supported + partial * 0.5) / total * 100)
+    
+    return { total, supported, partial, percentage }
+  }
+
+  // Calculate support statistics for a feature
+  const getFeatureStats = (featureId: string) => {
+    const featureSupport = supportMatrix.filter(s => s.feature_id === featureId)
+    const total = filteredAgents.length
+    const supported = featureSupport.filter(s => s.support_level === 'yes').length
+    const partial = featureSupport.filter(s => s.support_level === 'partial').length
+    
+    return { total, supported, partial }
+  }
+
+  const toggleCategory = (category: string) => {
+    const newExpanded = new Set(expandedCategories)
+    if (newExpanded.has(category)) {
+      newExpanded.delete(category)
+    } else {
+      newExpanded.add(category)
+    }
+    setExpandedCategories(newExpanded)
+  }
+
+  const openCellModal = (agent: Agent, feature: Feature) => {
+    const support = getSupport(agent.id, feature.id)
+    setSelectedCell({ agent, feature, support })
+  }
+
+  // Initially expand all categories
+  useMemo(() => {
+    setExpandedCategories(new Set(Object.keys(groupedFeatures)))
+  }, [groupedFeatures])
 
   return (
     <>
-      <div className="relative overflow-x-auto bg-gray-900 rounded-lg shadow-xl mb-8">
-        <table className="w-full border-collapse">
-          <thead className="sticky top-0 z-20 bg-gray-900">
-            <tr>
-              <th className="sticky left-0 z-30 bg-gray-900 border-r border-b border-gray-800 p-4 text-left">
-                <div className="text-gray-400 font-medium">Features</div>
-              </th>
-              {agents.map((agent) => (
-                <th
-                  key={agent.id}
-                  className="bg-gray-900 border-b border-gray-800 p-4 text-center min-w-[150px]"
-                >
-                  <Link
-                    href={`/agent/${agent.id}`}
-                    className="group flex flex-col items-center hover:text-blue-400 transition-colors"
-                  >
-                    <div className="font-semibold text-white group-hover:text-blue-400">
-                      {agent.name}
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1">{agent.provider}</div>
-                  </Link>
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            {/* Table Header */}
+            <thead className="bg-gray-700 sticky top-0 z-10">
+              <tr>
+                <th className="sticky left-0 z-20 bg-gray-700 px-6 py-4 text-left text-sm font-medium text-gray-300 border-r border-gray-600">
+                  Feature
                 </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(featuresByCategory).map(([category, categoryFeatures]) => (
-              <React.Fragment key={category}>
-                <tr>
-                  <td
-                    colSpan={agents.length + 1}
-                    className="bg-gray-800 p-3 text-sm font-semibold text-gray-300 sticky left-0"
-                  >
-                    {category} ({categoryFeatures.length})
-                  </td>
-                </tr>
-                {categoryFeatures.map((feature) => (
-                  <tr key={feature.id} className="hover:bg-gray-850 transition-colors">
-                    <td className="sticky left-0 z-10 bg-gray-900 border-r border-gray-800 p-4">
-                      <Link
-                        href={`/feature/${feature.id}`}
-                        className="group hover:text-blue-400 transition-colors"
+                {filteredAgents.map(agent => {
+                  const stats = getAgentStats(agent.id)
+                  return (
+                    <th key={agent.id} className="px-4 py-4 text-center text-sm font-medium text-gray-300 border-r border-gray-600 min-w-[120px]">
+                      <Link 
+                        href={`/agent/${agent.id}`}
+                        className="block hover:text-blue-400 transition-colors"
                       >
-                        <div className="font-medium text-white group-hover:text-blue-400">
-                          {feature.name}
-                        </div>
-                        {viewMode === 'expanded' && (
-                          <div className="text-xs text-gray-500 mt-1 line-clamp-2">
-                            {feature.description}
-                          </div>
-                        )}
+                        <div className="font-semibold">{agent.name}</div>
+                        <div className="text-xs text-gray-400 mt-1">{agent.provider}</div>
+                        <div className="text-xs text-green-400 mt-1">{stats.percentage}%</div>
                       </Link>
-                    </td>
-                    {agents.map((agent) => {
-                      const support = matrix[agent.id]?.[feature.id];
-                      if (!support || !shouldShowCell(support)) {
-                        return <td key={agent.id} className="p-4 text-center"></td>;
-                      }
+                    </th>
+                  )
+                })}
+              </tr>
+            </thead>
 
+            {/* Table Body */}
+            <tbody className="bg-gray-800 divide-y divide-gray-700">
+              {Object.entries(groupedFeatures).map(([category, categoryFeatures]) => {
+                const filteredCategoryFeatures = categoryFeatures.filter(feature => 
+                  filteredFeatures.includes(feature)
+                )
+                
+                if (filteredCategoryFeatures.length === 0) return null
+                
+                const isExpanded = expandedCategories.has(category)
+                
+                return (
+                  <React.Fragment key={category}>
+                    {/* Category Header */}
+                    <tr className="bg-gray-750">
+                      <td 
+                        className="sticky left-0 z-10 bg-gray-750 px-6 py-3 text-sm font-medium text-gray-200 border-r border-gray-600 cursor-pointer"
+                        onClick={() => toggleCategory(category)}
+                      >
+                        <div className="flex items-center gap-2">
+                          {isExpanded ? (
+                            <ChevronDownIcon className="h-4 w-4" />
+                          ) : (
+                            <ChevronRightIcon className="h-4 w-4" />
+                          )}
+                          <span>{category}</span>
+                          <span className="text-xs text-gray-400">({filteredCategoryFeatures.length})</span>
+                        </div>
+                      </td>
+                      {filteredAgents.map(agent => (
+                        <td key={agent.id} className="px-4 py-3 border-r border-gray-600"></td>
+                      ))}
+                    </tr>
+
+                    {/* Feature Rows */}
+                    {isExpanded && filteredCategoryFeatures.map(feature => {
+                      const stats = getFeatureStats(feature.id)
+                      
                       return (
-                        <td
-                          key={agent.id}
-                          className="p-4 text-center border-l border-gray-800 cursor-pointer hover:bg-gray-800 transition-colors"
-                          onClick={() => setSelectedCell({ agent, feature, support })}
-                        >
-                          <div className="flex flex-col items-center">
-                            <SupportLevelBadge level={support.level} />
-                            {showNotes && support.notes && viewMode === 'expanded' && (
-                              <div className="text-xs text-gray-500 mt-2 line-clamp-2">
-                                {support.notes}
+                        <tr key={feature.id} className="hover:bg-gray-750 transition-colors">
+                          <td className="sticky left-0 z-10 bg-gray-800 hover:bg-gray-750 px-6 py-4 text-sm text-gray-300 border-r border-gray-600">
+                            <Link 
+                              href={`/feature/${feature.id}`}
+                              className="block hover:text-blue-400 transition-colors"
+                            >
+                              <div className="font-medium">{feature.name}</div>
+                              <div className="text-xs text-gray-400 mt-1 line-clamp-2">{feature.description}</div>
+                              <div className="text-xs text-green-400 mt-1">
+                                {stats.supported + stats.partial}/{stats.total} agents
                               </div>
-                            )}
-                          </div>
-                        </td>
-                      );
+                            </Link>
+                          </td>
+                          {filteredAgents.map(agent => {
+                            const support = getSupport(agent.id, feature.id)
+                            const supportLevel = support?.support_level || 'unknown'
+                            
+                            // Apply support level filter
+                            if (filters && !filters.supportLevels.includes(supportLevel)) {
+                              return <td key={agent.id} className="px-4 py-4 border-r border-gray-600"></td>
+                            }
+                            
+                            return (
+                              <td 
+                                key={agent.id} 
+                                className="px-4 py-4 text-center border-r border-gray-600 cursor-pointer hover:bg-gray-700 transition-colors"
+                                onClick={() => openCellModal(agent, feature)}
+                              >
+                                <SupportLevelBadge 
+                                  level={supportLevel as SupportLevel}
+                                  showIcon={true}
+                                />
+                              </td>
+                            )
+                          })}
+                        </tr>
+                      )
                     })}
-                  </tr>
-                ))}
-              </React.Fragment>
-            ))}
-          </tbody>
-        </table>
+                  </React.Fragment>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
 
+      {/* Cell Detail Modal */}
       {selectedCell && (
         <ComparisonCellModal
           agent={selectedCell.agent}
@@ -140,5 +261,5 @@ export function ComparisonTable({
         />
       )}
     </>
-  );
+  )
 } 

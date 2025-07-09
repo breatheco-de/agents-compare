@@ -108,10 +108,10 @@ export default async function HomePage() {
               <a href="/compare/cursor-vs-windsurf" className="block text-sm text-blue-400 hover:underline">
                 Cursor vs Windsurf
               </a>
-              <a href="/compare/claude-dev-vs-cursor" className="block text-sm text-blue-400 hover:underline">
+              <a href="/compare/claude-code-vs-cursor" className="block text-sm text-blue-400 hover:underline">
                 Claude Dev vs Cursor
               </a>
-              <a href="/compare/claude-dev-vs-windsurf" className="block text-sm text-blue-400 hover:underline">
+              <a href="/compare/claude-code-vs-windsurf" className="block text-sm text-blue-400 hover:underline">
                 Claude Dev vs Windsurf
               </a>
             </div>

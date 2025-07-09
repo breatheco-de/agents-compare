@@ -4,44 +4,116 @@
   agent_id: "windsurf",
   feature_support: [
     {
-      feature_id: "mcp-support",
-      support_level: "unknown",
-      notes: "MCP support status unclear from available documentation.",
-      examples: [],
-      last_verified: "2024-01-15",
-      sources: []
+      feature_id: "automatic-context-awareness",
+      support_level: "yes",
+      notes: "Cascade feature provides deep contextual awareness of the codebase, understanding project structure and developer actions in real-time.",
+      examples: ["Generating code relevant to the current project context"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "yes",
+      notes: "Supports plugins for VS Code, JetBrains (IntelliJ, PyCharm, WebStorm), Eclipse, Google Colab, and over 40 other editors.",
+      examples: ["Using Windsurf in different IDEs like VS Code and IntelliJ"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/plugins"]
+    },
+    {
+      feature_id: "claude4-support",
+      support_level: "partial",
+      notes: "Supports Claude 4 models through bring-your-own-key (BYOK) due to limited direct access from Anthropic, requiring additional setup and potential costs.",
+      examples: ["Using Claude 4 with personal API keys for advanced code generation"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/changelog"]
+    },
+    {
+      feature_id: "claude3-support",
+      support_level: "yes",
+      notes: "Natively supports Claude 3 models, including Claude 3.7 Sonnet, for enhanced code generation and analysis.",
+      examples: ["Using Claude 3 for complex codebase analysis"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/changelog"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "yes",
+      notes: "Live web preview allows sending console errors to Cascade for analysis and automated fixes, available across all plans.",
+      examples: ["Debugging JavaScript errors in web applications with live previews"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/changelog"]
     },
     {
       feature_id: "context-window",
       support_level: "yes",
-      notes: "Supports large context windows through integrated language models.",
-      examples: ["Processing large codebases"],
-      last_verified: "2024-01-15",
-      sources: ["https://codeium.com/windsurf"]
+      notes: "Supports large context windows, enabling handling of extensive codebases for comprehensive analysis.",
+      examples: ["Processing large codebases with multiple interconnected files"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
     },
     {
-      feature_id: "claude3-support",
-      support_level: "partial",
-      notes: "May support Claude 3 through API integrations but not natively confirmed.",
-      examples: [],
-      last_verified: "2024-01-15",
-      sources: ["https://codeium.com/windsurf"]
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Supports .windsurfrules file for project-specific instructions, allowing customization of AI behavior.",
+      examples: ["Defining coding standards for a project via .windsurfrules"],
+      last_verified: "2025-07-08",
+      sources: ["https://github.com/kinopeee/windsurfrules"]
     },
     {
       feature_id: "filesystem-access",
       support_level: "yes",
-      notes: "Full filesystem access as a native IDE with AI integration.",
-      examples: ["Creating and modifying files autonomously"],
-      last_verified: "2024-01-15",
-      sources: ["https://codeium.com/windsurf"]
+      notes: "Full filesystem access as a native IDE with AI integration, enabling autonomous file operations.",
+      examples: ["Creating and modifying files autonomously across the project"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Allows attaching rules to specific file globs or contexts for precise AI behavior customization.",
+      examples: ["Applying different rules to front-end vs. back-end code"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor/directory"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "yes",
+      notes: "Live web preview feature enables selecting UI elements for context-aware coding, improving UI development workflows.",
+      examples: ["Modifying CSS of a selected element in a web preview"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "yes",
+      notes: "Provides live web previews within the IDE for real-time interaction and testing of web applications.",
+      examples: ["Testing web applications without leaving the editor"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "Supports MCP servers with one-click setup in settings, enhancing integration with external tools and data sources.",
+      examples: ["Connecting to external data sources like databases via MCP"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
     },
     {
       feature_id: "planner-strategy",
       support_level: "yes",
-      notes: "Advanced planning and autonomous task execution capabilities.",
+      notes: "Cascade feature includes advanced planning for multi-file changes, breaking down complex tasks systematically.",
       examples: ["Multi-file refactoring with strategic planning"],
-      last_verified: "2024-01-15",
-      sources: ["https://codeium.com/windsurf"]
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Supports global and workspace-specific rules, allowing flexible instruction application across projects.",
+      examples: ["Setting different instructions for different projects or file types"],
+      last_verified: "2025-07-08",
+      sources: ["https://windsurf.com/editor/directory"]
     }
   ]
-} 
+}

@@ -1,0 +1,30 @@
+{
+    "id": "automatic-context-awareness",
+    "name": "Automatic Context Awareness",
+    "aliases": ["context sensitivity", "smart context handling", "auto-context"],
+    "category": "Execution",
+    "description": "The capability of an AI coding agent to automatically detect and incorporate relevant context, such as open files, project structure, or custom instructions, without manual intervention.",
+    "overview": "Automatic context awareness enables an AI coding agent to understand the current coding environment by analyzing open files, imports, project structure, and custom instructions. This feature allows the agent to generate contextually relevant code without requiring developers to manually specify related files or dependencies, streamlining workflows and improving suggestion accuracy.",
+    "importance": "In fast-paced development, manually providing context can slow down productivity. Automatic context awareness ensures the AI remains aligned with the developer’s current task, reducing irrelevant suggestions and enhancing code quality. It’s particularly valuable in large codebases where dependencies and context are complex.",
+    "use_cases": [
+      "Generating code that aligns with the current file’s imports and dependencies",
+      "Suggesting completions based on the project’s folder structure",
+      "Applying custom instructions automatically when editing specific file types",
+      "Adapting suggestions to match the coding style of the current module",
+      "Providing relevant debugging suggestions based on open error logs"
+    ],
+    "faq": [
+      {
+        "question": "What is automatic context awareness in AI coding agents?",
+        "answer": "Automatic context awareness is the ability of an AI agent to detect and use relevant context, such as open files, project structure, or custom instructions, to generate accurate and relevant code suggestions without manual input."
+      },
+      {
+        "question": "How does context awareness improve coding efficiency?",
+        "answer": "It eliminates the need to manually specify context, allowing the AI to focus on the current task, produce relevant suggestions, and reduce errors, especially in complex projects with many dependencies."
+      },
+      {
+        "question": "What are the limitations of automatic context awareness?",
+        "answer": "If the AI misinterprets context or lacks access to relevant files, it may generate less accurate suggestions. Performance also depends on the agent’s ability to index and process large codebases efficiently."
+      }
+    ]
+  }

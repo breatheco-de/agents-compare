@@ -1,255 +1,223 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { Agent, Feature } from '@/types';
-import { CATEGORIES } from '@/types';
-import { ChevronDown, X } from 'lucide-react';
-
-// Searchable dropdown component
-function SearchableDropdown({ 
-  options, 
-  value, 
-  onChange, 
-  placeholder,
-  label
-}: {
-  options: Array<{ value: string; label: string }>
-  value: string
-  onChange: (value: string) => void
-  placeholder: string
-  label: string
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState('');
-  
-  const filteredOptions = options.filter(option => 
-    option.label.toLowerCase().includes(search.toLowerCase())
-  );
-  
-  const selectedOption = options.find(opt => opt.value === value);
-  
-  return (
-    <div className="relative">
-      <label className="block text-sm font-medium text-gray-300 mb-1">{label}</label>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg 
-                   text-gray-100 text-left flex items-center justify-between
-                   focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        <span>{selectedOption?.label || placeholder}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
-      
-      {isOpen && (
-        <div className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search..."
-            className="w-full px-4 py-2 bg-gray-800 border-b border-gray-700 rounded-t-lg 
-                       text-gray-100 placeholder-gray-400 focus:outline-none"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <div className="max-h-60 overflow-y-auto">
-            {filteredOptions.map(option => (
-              <button
-                key={option.value}
-                onClick={() => {
-                  onChange(option.value);
-                  setIsOpen(false);
-                  setSearch('');
-                }}
-                className="w-full px-4 py-2 text-left hover:bg-gray-700 text-gray-100"
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+import { useState, useEffect } from 'react'
+import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import type { Agent, Feature } from '@/types'
 
 interface ComparisonFiltersProps {
-  agents: Agent[];
-  features: Feature[];
-  selectedAgents: string[];
-  setSelectedAgents: (agents: string[]) => void;
-  selectedFeatures: string[];
-  setSelectedFeatures: (features: string[]) => void;
-  selectedCategories: string[];
-  setSelectedCategories: (categories: string[]) => void;
-  selectedSupportLevels: any[];
-  setSelectedSupportLevels: (levels: any[]) => void;
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-  viewMode: 'compact' | 'expanded';
-  setViewMode: (mode: 'compact' | 'expanded') => void;
-  showNotes: boolean;
-  setShowNotes: (show: boolean) => void;
+  agents: Agent[]
+  features: Feature[]
+  onFiltersChange?: (filters: FilterState) => void
 }
 
-export function ComparisonFilters({
-  agents,
-  features,
-  selectedAgents,
-  setSelectedAgents,
-  selectedFeatures,
-  setSelectedFeatures,
-  selectedCategories,
-  setSelectedCategories,
-  selectedSupportLevels,
-  setSelectedSupportLevels,
-  searchQuery,
-  setSearchQuery,
-  viewMode,
-  setViewMode,
-  showNotes,
-  setShowNotes
-}: ComparisonFiltersProps) {
-  const [selectedAgent, setSelectedAgent] = useState('all');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+export interface FilterState {
+  searchTerm: string
+  selectedAgents: string[]
+  selectedFeatures: string[]
+  selectedCategories: string[]
+  supportLevels: string[]
+  showUnknown: boolean
+}
+
+export function ComparisonFilters({ agents, features, onFiltersChange }: ComparisonFiltersProps) {
+  const [filters, setFilters] = useState<FilterState>({
+    searchTerm: '',
+    selectedAgents: [],
+    selectedFeatures: [],
+    selectedCategories: [],
+    supportLevels: ['yes', 'partial', 'no', 'unknown'],
+    showUnknown: true
+  })
+
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  // Get unique categories from features
+  const categories = Array.from(new Set(features.map(f => f.category)))
+
+  // Get unique providers from agents
+  const providers = Array.from(new Set(agents.map(a => a.provider)))
+
+  useEffect(() => {
+    onFiltersChange?.(filters)
+  }, [filters, onFiltersChange])
+
+  const updateFilters = (updates: Partial<FilterState>) => {
+    setFilters(prev => ({ ...prev, ...updates }))
+  }
 
   const clearAllFilters = () => {
-    setSelectedAgent('all');
-    setSelectedCategory('all');
-    setSelectedAgents([]);
-    setSelectedCategories([]);
-  };
+    setFilters({
+      searchTerm: '',
+      selectedAgents: [],
+      selectedFeatures: [],
+      selectedCategories: [],
+      supportLevels: ['yes', 'partial', 'no', 'unknown'],
+      showUnknown: true
+    })
+  }
 
-  const hasActiveFilters = selectedAgent !== 'all' || selectedCategory !== 'all';
-
-  // Create options for dropdowns
-  const agentOptions = [
-    { value: 'all', label: 'All Agents' },
-    ...agents.map(agent => ({
-      value: agent.id,
-      label: agent.name
-    }))
-  ];
-
-  const categoryOptions = [
-    { value: 'all', label: 'All Categories' },
-    ...CATEGORIES.map(category => ({
-      value: category,
-      label: category
-    }))
-  ];
-
-  // Handle agent selection
-  const handleAgentChange = (value: string) => {
-    setSelectedAgent(value);
-    if (value === 'all') {
-      setSelectedAgents([]);
-    } else {
-      setSelectedAgents([value]);
-    }
-  };
-
-  // Handle category selection
-  const handleCategoryChange = (value: string) => {
-    setSelectedCategory(value);
-    if (value === 'all') {
-      setSelectedCategories([]);
-    } else {
-      setSelectedCategories([value]);
-    }
-  };
+  const toggleArrayFilter = (array: string[], value: string) => {
+    return array.includes(value) 
+      ? array.filter(item => item !== value)
+      : [...array, value]
+  }
 
   return (
-    <div className="bg-gray-900 rounded-lg p-6 mb-8">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-white">Filter Comparison</h2>
-        {hasActiveFilters && (
+    <div className="mb-8">
+      <div className="bg-gray-800 rounded-lg p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-semibold text-white flex items-center gap-2">
+            <FunnelIcon className="h-5 w-5" />
+            Filter & Customize Comparison
+          </h2>
           <button
-            onClick={clearAllFilters}
-            className="text-sm text-red-400 hover:text-red-300 transition-colors"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-gray-400 hover:text-white transition-colors"
           >
-            Clear All Filters
+            {isExpanded ? 'Hide Filters' : 'Show Filters'}
           </button>
+        </div>
+
+        {/* Search Bar */}
+        <div className="relative mb-6">
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search agents, features, or descriptions..."
+            value={filters.searchTerm}
+            onChange={(e) => updateFilters({ searchTerm: e.target.value })}
+            className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+
+        {/* Expanded Filters */}
+        {isExpanded && (
+          <div className="space-y-6">
+            {/* Agent Filter */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-300 mb-3">Agents</h3>
+              <div className="flex flex-wrap gap-2">
+                {agents.map(agent => (
+                  <button
+                    key={agent.id}
+                    onClick={() => updateFilters({ 
+                      selectedAgents: toggleArrayFilter(filters.selectedAgents, agent.id) 
+                    })}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                      filters.selectedAgents.includes(agent.id)
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    {agent.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Category Filter */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-300 mb-3">Categories</h3>
+              <div className="flex flex-wrap gap-2">
+                {categories.map(category => (
+                  <button
+                    key={category}
+                    onClick={() => updateFilters({ 
+                      selectedCategories: toggleArrayFilter(filters.selectedCategories, category) 
+                    })}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                      filters.selectedCategories.includes(category)
+                        ? 'bg-purple-600 text-white'
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Support Level Filter */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-300 mb-3">Support Levels</h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { value: 'yes', label: 'Yes ✅', color: 'bg-green-600' },
+                  { value: 'partial', label: 'Partial 🟡', color: 'bg-yellow-600' },
+                  { value: 'no', label: 'No ❌', color: 'bg-red-600' },
+                  { value: 'unknown', label: 'Unknown ❓', color: 'bg-gray-600' }
+                ].map(level => (
+                  <button
+                    key={level.value}
+                    onClick={() => updateFilters({ 
+                      supportLevels: toggleArrayFilter(filters.supportLevels, level.value) 
+                    })}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                      filters.supportLevels.includes(level.value)
+                        ? `${level.color} text-white`
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    {level.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* View Options */}
+            <div>
+              <h3 className="text-sm font-medium text-gray-300 mb-3">View Options</h3>
+              <div className="flex items-center gap-4">
+                <label className="flex items-center gap-2 text-sm text-gray-300">
+                  <input
+                    type="checkbox"
+                    checked={filters.showUnknown}
+                    onChange={(e) => updateFilters({ showUnknown: e.target.checked })}
+                    className="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
+                  />
+                  Show Unknown Status
+                </label>
+              </div>
+            </div>
+
+            {/* Clear All Button */}
+            <div className="flex justify-end">
+              <button
+                onClick={clearAllFilters}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+              >
+                <XMarkIcon className="h-4 w-4" />
+                Clear All Filters
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Active Filters Summary */}
+        {(filters.selectedAgents.length > 0 || filters.selectedCategories.length > 0 || filters.searchTerm) && (
+          <div className="mt-4 pt-4 border-t border-gray-700">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span>Active filters:</span>
+              {filters.searchTerm && (
+                <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">
+                  Search: "{filters.searchTerm}"
+                </span>
+              )}
+              {filters.selectedAgents.length > 0 && (
+                <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">
+                  {filters.selectedAgents.length} agent{filters.selectedAgents.length > 1 ? 's' : ''}
+                </span>
+              )}
+              {filters.selectedCategories.length > 0 && (
+                <span className="bg-purple-600 text-white px-2 py-1 rounded text-xs">
+                  {filters.selectedCategories.length} categor{filters.selectedCategories.length > 1 ? 'ies' : 'y'}
+                </span>
+              )}
+            </div>
+          </div>
         )}
       </div>
-
-      {/* Filter Controls */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        {/* Agent Filter */}
-        <SearchableDropdown
-          options={agentOptions}
-          value={selectedAgent}
-          onChange={handleAgentChange}
-          placeholder="Select an agent"
-          label="Filter by Agent"
-        />
-
-        {/* Category Filter */}
-        <SearchableDropdown
-          options={categoryOptions}
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-          placeholder="Select a category"
-          label="Filter by Category"
-        />
-
-        {/* View Mode Toggle */}
-        <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1">View Mode</label>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setViewMode('compact')}
-              className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
-                viewMode === 'compact' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-              }`}
-            >
-              Compact
-            </button>
-            <button
-              onClick={() => setViewMode('expanded')}
-              className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
-                viewMode === 'expanded' 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-              }`}
-            >
-              Expanded
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Active Filters Display */}
-      {hasActiveFilters && (
-        <div className="border-t border-gray-800 pt-4">
-          <div className="flex flex-wrap gap-2">
-            {selectedAgent !== 'all' && (
-              <span className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs flex items-center gap-1">
-                Agent: {agentOptions.find(opt => opt.value === selectedAgent)?.label}
-                <button
-                  onClick={() => handleAgentChange('all')}
-                  className="ml-1 hover:text-blue-300"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-            {selectedCategory !== 'all' && (
-              <span className="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-xs flex items-center gap-1">
-                Category: {selectedCategory}
-                <button
-                  onClick={() => handleCategoryChange('all')}
-                  className="ml-1 hover:text-green-300"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-          </div>
-        </div>
-      )}
     </div>
-  );
+  )
 } 

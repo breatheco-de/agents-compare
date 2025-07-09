@@ -1,0 +1,49 @@
+{
+    "id": "live-web-preview",
+    "name": "Live Web Preview",
+    "aliases": ["web app preview", "in-IDE browser", "live rendering"],
+    "category": "User Experience",
+    "description": "Renders a locally hosted web application within the IDE, allowing developers to view and interact with the app's UI without leaving the coding environment.",
+    "faq": [
+      {
+        "question": "How do I open a live web preview in the IDE?",
+        "answer": "To open a live web preview, start your local development server (e.g., 'npm run dev') and use the IDE’s preview feature to open the app in a new tab or panel."
+      },
+      {
+        "question": "Can I interact with the web app in the preview?",
+        "answer": "Yes, you can interact with the web app in the preview, such as clicking buttons or filling forms, just as you would in a browser."
+      },
+      {
+        "question": "Does the preview support all web technologies?",
+        "answer": "The preview supports most standard web technologies, but compatibility may vary based on the IDE’s rendering engine and the specific technologies used in the app."
+      },
+      {
+        "question": "How does the preview handle authentication?",
+        "answer": "Authentication in the preview typically works as it would in a browser, but you may need to log in separately if the preview doesn’t share sessions with your system browser."
+      },
+      {
+        "question": "Can I debug the web app within the preview?",
+        "answer": "Debugging capabilities in the preview may be limited compared to a full browser’s DevTools, but some IDEs offer integrated debugging tools for the preview."
+      },
+      {
+        "question": "Is the preview available for all programming languages?",
+        "answer": "The preview is primarily designed for web applications, so it supports languages and frameworks that run in a browser, such as JavaScript, HTML, and CSS."
+      },
+      {
+        "question": "How does the preview handle local storage and cookies?",
+        "answer": "Local storage and cookies are typically managed within the preview’s isolated environment, similar to a browser tab, but may not persist across sessions."
+      },
+      {
+        "question": "Can I share the preview with others?",
+        "answer": "Sharing the preview directly may not be supported, but you can share the locally hosted app’s URL if it’s accessible on the network."
+      },
+      {
+        "question": "Does the preview work with HTTPS?",
+        "answer": "The preview can work with HTTPS if the local server is configured to use HTTPS, but you may need to handle certificate warnings or trust the local certificate."
+      },
+      {
+        "question": "How do I configure the preview settings?",
+        "answer": "Preview settings can usually be configured in the IDE’s preferences or settings panel, where you can adjust options like the default browser or preview behavior."
+      }
+    ]
+  }

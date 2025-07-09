@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+# Update index.json5 before committing
+npm run update-index
+if [ $? -ne 0 ]; then
+  echo "❌ Failed to update index.json5!"
+  exit 1
+fi
+
 # Run validation before committing
 echo "Running data validation..."
 npm run validate

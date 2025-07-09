@@ -1,138 +1,170 @@
-'use client';
+'use client'
 
-import { useEffect } from 'react';
-import Link from 'next/link';
-import { Agent, Feature } from '@/types';
-import { ComparisonMatrix } from '@/types/comparison';
-import SupportLevelBadge from '@/components/ui/SupportLevelBadge';
+import React from 'react'
+import Link from 'next/link'
+import { XMarkIcon, LinkIcon } from '@heroicons/react/24/outline'
+import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+import type { Agent, Feature, AgentFeatureSupport } from '@/types'
 
 interface ComparisonCellModalProps {
-  agent: Agent;
-  feature: Feature;
-  support: ComparisonMatrix['matrix'][string][string];
-  onClose: () => void;
+  agent: Agent
+  feature: Feature
+  support: AgentFeatureSupport | null
+  onClose: () => void
 }
 
 export function ComparisonCellModal({ agent, feature, support, onClose }: ComparisonCellModalProps) {
-  // Close on Escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [onClose]);
-
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, []);
+  const supportLevel = support?.support_level || 'unknown'
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      
-      {/* Modal */}
-      <div className="relative bg-gray-900 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="border-b border-gray-800 p-6">
-          <div className="flex items-start justify-between">
+        <div className="flex items-center justify-between p-6 border-b border-gray-700">
+          <div className="flex items-center gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">
-                {feature.name} in {agent.name}
+              <h2 className="text-xl font-semibold text-white">
+                {agent.name} × {feature.name}
               </h2>
-              <div className="flex items-center gap-4">
-                <SupportLevelBadge level={support.level} showIcon />
-                <span className="text-sm text-gray-400">
-                  {agent.provider} • {feature.category}
-                </span>
-              </div>
+              <p className="text-gray-400 text-sm mt-1">
+                {agent.provider} • {feature.category}
+              </p>
             </div>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-white transition-colors"
-              aria-label="Close modal"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            <SupportLevelBadge level={supportLevel} showIcon={true} />
           </div>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            <XMarkIcon className="h-6 w-6" />
+          </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
-          {/* Feature Description */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-white mb-2">Feature Description</h3>
-            <p className="text-gray-300">{feature.description}</p>
+        <div className="p-6 space-y-6">
+          {/* Agent Info */}
+          <div>
+            <h3 className="text-lg font-medium text-white mb-3">Agent Information</h3>
+            <div className="bg-gray-700 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-gray-300">{agent.name}</span>
+                <Link
+                  href={`/agent/${agent.id}`}
+                  className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1"
+                >
+                  <LinkIcon className="h-4 w-4" />
+                  View Details
+                </Link>
+              </div>
+              <p className="text-gray-400 text-sm mb-2">{agent.description}</p>
+              <div className="flex items-center gap-4 text-xs text-gray-500">
+                <span>Provider: {agent.provider}</span>
+                <span>IDE: {agent.supported_ide.join(', ')}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Info */}
+          <div>
+            <h3 className="text-lg font-medium text-white mb-3">Feature Information</h3>
+            <div className="bg-gray-700 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-gray-300">{feature.name}</span>
+                <Link
+                  href={`/feature/${feature.id}`}
+                  className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1"
+                >
+                  <LinkIcon className="h-4 w-4" />
+                  View Details
+                </Link>
+              </div>
+              <p className="text-gray-400 text-sm mb-2">{feature.description}</p>
+              <div className="text-xs text-gray-500">
+                Category: {feature.category}
+              </div>
+            </div>
           </div>
 
           {/* Support Details */}
-          {support.notes && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-white mb-2">Implementation Details</h3>
-              <p className="text-gray-300 whitespace-pre-wrap">{support.notes}</p>
-            </div>
-          )}
-
-          {/* Examples */}
-          {support.examples && support.examples.length > 0 && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-white mb-2">Examples</h3>
-              <div className="space-y-3">
-                {support.examples.map((example, index) => (
-                  <div key={index} className="bg-gray-800 rounded-lg p-4">
-                    <pre className="text-sm text-gray-300 overflow-x-auto">
-                      <code>{example}</code>
-                    </pre>
-                  </div>
-                ))}
+          <div>
+            <h3 className="text-lg font-medium text-white mb-3">Support Details</h3>
+            <div className="bg-gray-700 rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-gray-300">Support Level:</span>
+                <SupportLevelBadge level={supportLevel} showIcon={true} />
               </div>
-            </div>
-          )}
+              
+              {support?.notes && (
+                <div className="mb-4">
+                  <h4 className="text-sm font-medium text-gray-300 mb-2">Notes</h4>
+                  <p className="text-gray-400 text-sm">{support.notes}</p>
+                </div>
+              )}
 
-          {/* Links */}
-          <div className="flex gap-4 pt-4 border-t border-gray-800">
-            <Link
-              href={`/agent/${agent.id}`}
-              className="text-blue-400 hover:text-blue-300 transition-colors text-sm"
-            >
-              View {agent.name} Profile →
-            </Link>
-            <Link
-              href={`/feature/${feature.id}`}
-              className="text-blue-400 hover:text-blue-300 transition-colors text-sm"
-            >
-              View {feature.name} Details →
-            </Link>
+              {support?.examples && support.examples.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="text-sm font-medium text-gray-300 mb-2">Examples</h4>
+                  <div className="space-y-2">
+                    {support.examples.map((example, index) => (
+                      <div key={index} className="bg-gray-800 rounded p-3">
+                        <pre className="text-xs text-gray-300 whitespace-pre-wrap">{example}</pre>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {support?.links && support.links.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="text-sm font-medium text-gray-300 mb-2">Related Links</h4>
+                  <div className="space-y-1">
+                    {support.links.map((link, index) => (
+                      <a
+                        key={index}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1"
+                      >
+                        <LinkIcon className="h-3 w-3" />
+                        {link}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {support?.last_verified && (
+                <div className="text-xs text-gray-500 border-t border-gray-600 pt-3">
+                  Last verified: {new Date(support.last_verified).toLocaleDateString()}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="border-t border-gray-800 p-6 bg-gray-950">
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-gray-500">
-              Support information is based on official documentation and public information.
-            </p>
-            <button
-              onClick={onClose}
-              className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
-            >
-              Close
-            </button>
-          </div>
+        <div className="flex justify-end gap-3 p-6 border-t border-gray-700">
+          <Link
+            href={`/agent/${agent.id}`}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+          >
+            View Agent
+          </Link>
+          <Link
+            href={`/feature/${feature.id}`}
+            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+          >
+            View Feature
+          </Link>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
-  );
+  )
 } 

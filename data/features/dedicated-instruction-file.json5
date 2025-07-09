@@ -1,0 +1,58 @@
+{
+  "id": "dedicated-instruction-file",
+  "name": "Dedicated Instruction File",
+  "aliases": ["instruction file", "guideline file", "agent configuration file"],
+  "category": "Configuration",
+  "description": "A file that contains specific instructions, guidelines, or configurations for AI coding agents to follow when working on a project.",
+  "overview": "A dedicated instruction file is a standardized way to communicate project-specific information, coding standards, and development practices to AI coding agents. This file allows developers to define how the AI should interact with the codebase, including project structure, build and test commands, code style, architecture, and more. By using such a file, developers can ensure that AI agents operate consistently with the project's requirements and best practices, enhancing productivity and code quality.",
+  "importance": "The dedicated instruction file is crucial for several reasons:\n\n1. **Consistency**: It ensures that all AI agents working on the project follow the same guidelines, maintaining code consistency.\n2. **Efficiency**: Developers don't need to repeatedly specify instructions for each task; the AI can refer to the instruction file.\n3. **Scalability**: As projects grow, the instruction file helps manage complexity by providing a single source of truth for project configurations.\n4. **Onboarding**: New team members or AI agents can quickly understand the project's structure and standards by referring to this file.",
+  "use_cases": [
+    "Defining coding standards for a new project to ensure all generated code adheres to specific style guides.",
+    "Providing build and test commands for an AI agent to autonomously compile and test code.",
+    "Specifying architectural patterns and design principles for the AI to follow when generating new code.",
+    "Outlining security considerations and best practices for the AI to incorporate into its operations.",
+    "Customizing AI behavior for different parts of a large codebase by using hierarchical instruction files."
+  ],
+  "faq": [
+    {
+      "question": "What is a dedicated instruction file for AI coding agents?",
+      "answer": "A dedicated instruction file is a configuration file that contains project-specific instructions, guidelines, and best practices for AI coding agents. It helps the AI understand how to work within the project's context, ensuring consistency and efficiency."
+    },
+    {
+      "question": "Why should I use a dedicated instruction file?",
+      "answer": "Using a dedicated instruction file allows you to standardize how AI agents interact with your codebase. It saves time by eliminating the need to repeat instructions for each task and ensures that all generated code adheres to your project's standards."
+    },
+    {
+      "question": "What information should be included in a dedicated instruction file?",
+      "answer": "Typically, it includes project structure, build and test commands, code style and conventions, architectural patterns, testing guidelines, and security considerations. The exact content may vary depending on the AI agent and the project's needs."
+    },
+    {
+      "question": "How do I create a dedicated instruction file?",
+      "answer": "The format may vary by AI agent, but generally, it's a Markdown file placed in the root of your project. For example, AGENT.md is a standardized format supported by multiple tools. Check your AI agent's documentation for specific instructions."
+    },
+    {
+      "question": "Can I have multiple dedicated instruction files in a project?",
+      "answer": "Yes, some systems support hierarchical instruction files. For instance, you can have a root-level AGENT.md and additional ones in subdirectories to provide context-specific instructions."
+    },
+    {
+      "question": "Does every AI coding agent support dedicated instruction files?",
+      "answer": "Not all AI coding agents support dedicated instruction files, but many popular ones do, such as Amp, Claude Code, Cursor, and Junie. Check the documentation of your specific AI agent to see if it supports this feature."
+    },
+    {
+      "question": "How does the AI agent use the information in the instruction file?",
+      "answer": "The AI agent parses the instruction file to understand the project's structure, coding standards, and development practices. It then uses this information to generate code, perform code reviews, or execute other tasks in alignment with the project's requirements."
+    },
+    {
+      "question": "Can I customize the instruction file for different AI agents?",
+      "answer": "Yes, while there are standardized formats like AGENT.md, some AI agents may have their own specific formats or additional features. You can tailor the instruction file to suit the capabilities of your chosen AI agent."
+    },
+    {
+      "question": "What are the benefits of using a standardized instruction file like AGENT.md?",
+      "answer": "Using a standardized format like AGENT.md allows your instruction file to be compatible with multiple AI coding tools, reducing the need to maintain separate configurations for each tool."
+    },
+    {
+      "question": "Where can I find examples of dedicated instruction files?",
+      "answer": "You can find examples in the documentation of AI coding agents that support this feature. For instance, the junie-guidelines repository provides examples for Junie, and the AGENT.md specification includes sample content."
+    }
+  ]
+}

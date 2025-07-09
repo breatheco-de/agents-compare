@@ -4,44 +4,116 @@
   agent_id: "cursor",
   feature_support: [
     {
-      feature_id: "mcp-support",
-      support_level: "partial",
-      notes: "Can integrate with MCP servers via extensions and configuration, but lacks native protocol understanding.",
-      examples: ["Using MCP extensions for external tool access"],
-      last_verified: "2024-01-15",
-      sources: ["https://docs.cursor.sh/extensions"]
+      feature_id: "automatic-context-awareness",
+      support_level: "yes",
+      notes: "Uses custom retrieval models to understand entire codebases, automatically detecting relevant context like open files and project structure.",
+      examples: ["Generating code based on current file imports and project dependencies"],
+      last_verified: "2025-07-08",
+      sources: ["https://cursor.com", "https://docs.cursor.sh/models"]
     },
     {
-      feature_id: "context-window",
+      feature_id: "broad-ide-integration",
+      support_level: "partial",
+      notes: "Primarily operates as a VS Code fork with native AI integration; supports VS Code extensions but lacks direct plugin support for other IDEs like JetBrains or Xcode.",
+      examples: ["Using Cursor with VS Code extensions in its native environment"],
+      last_verified: "2025-07-08",
+      sources: ["https://cursor.com", "https://docs.cursor.sh/extensions"]
+    },
+    {
+      feature_id: "claude4-support",
       support_level: "yes",
-      notes: "Supports large context windows up to 200k tokens with Claude and GPT-4 Turbo models.",
-      examples: ["Processing entire codebases in a single context"],
-      last_verified: "2024-01-15",
-      sources: ["https://docs.cursor.sh/models"]
+      notes: "Supports Claude 4 models (e.g., Sonnet 4, Opus 4) alongside other frontier models, with model selection available based on task requirements.",
+      examples: ["Using Claude 4 Sonnet for complex refactoring tasks"],
+      last_verified: "2025-07-08",
+      sources: ["https://cursor.com/pricing"]
     },
     {
       feature_id: "claude3-support",
       support_level: "yes",
-      notes: "Native support for Claude 3 Opus, Sonnet, and Haiku models.",
-      examples: ["Using Claude 3 Opus for complex reasoning tasks"],
-      last_verified: "2024-01-15",
+      notes: "Native support for Claude 3 models (Opus, Sonnet, Haiku), including Claude 3.7 Sonnet, for advanced code generation and analysis.",
+      examples: ["Using Claude 3 Opus for multi-file code generation"],
+      last_verified: "2025-07-08",
       sources: ["https://docs.cursor.sh/models"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "partial",
+      notes: "Cursor integrates with the BrowserTools MCP plugin to connect to browser console logs, allowing the AI to see and fix errors during web development.",
+      examples: ["Fixing JavaScript runtime errors detected in the terminal"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "Supports large context windows up to 200k tokens with Claude and GPT-4 Turbo models, suitable for large codebases.",
+      examples: ["Processing entire codebases in a single context for refactoring"],
+      last_verified: "2025-07-08",
+      sources: ["https://docs.cursor.sh/models"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Supports .cursorrules file for project-specific instructions, guiding AI behavior like coding style and commit message rules.",
+      examples: ["Defining project-specific naming conventions in .cursorrules"],
+      last_verified: "2025-07-08",
+      sources: ["https://blog.enginelabs.ai/cursor-ai-review-2025"]
     },
     {
       feature_id: "filesystem-access",
       support_level: "yes",
-      notes: "Full filesystem access within the workspace with user permission.",
-      examples: ["Creating, reading, and modifying files across the project"],
-      last_verified: "2024-01-15",
+      notes: "Full filesystem access within the workspace with user permission, allowing autonomous file creation and modification.",
+      examples: ["Creating and editing files across the project via Agent mode"],
+      last_verified: "2025-07-08",
       sources: ["https://docs.cursor.sh/permissions"]
     },
     {
-      feature_id: "planner-strategy",
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Allows precise rule targeting via .cursor/rules with glob patterns or context-specific settings for tailored AI behavior.",
+      examples: ["Enforcing specific linting rules for TypeScript files only"],
+      last_verified: "2025-07-08",
+      sources: ["https://docs.cursor.com/context/rules"]
+    },
+    {
+      feature_id: "interactive-element-selection",
       support_level: "partial",
-      notes: "Cursor 'Agent To-dos' feature is automatic, when you prompt it to do something, it will break down the task into steps and execute them one by one.",
-      examples: ["Just ask cursor to do something to see examples"],
-      last_verified: "2025-07-05",
+      notes: "Cursor integrates with BrowserTools MCP server, which enables selecting UI elements in a browser-like environment within the IDE.",
+      examples: ["Modifying styles of a selected button in a web preview"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "no",
+      notes: "No particular Cursor feature helps with this",
+      examples: ["Testing a React application directly in the editor"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "Supports one-click MCP server setup for external tool integration, enhanced with OAuth authentication.",
+      examples: ["Connecting to a database via an MCP server for schema queries"],
+      last_verified: "2025-07-08",
+      sources: ["https://cursor.com/changelog", "https://docs.cursor.com/tools"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Agent mode with 'Agent To-dos' breaks down complex tasks into steps, autonomously executing multi-file changes.",
+      examples: ["Automating a multi-step user registration feature implementation"],
+      last_verified: "2025-07-08",
       sources: ["https://cursor.com/changelog/1-2"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Supports global and project-specific instructions via .cursorrules, allowing flexible rule application.",
+      examples: ["Setting global naming conventions and project-specific TypeScript rules"],
+      last_verified: "2025-07-08",
+      sources: ["https://blog.enginelabs.ai/cursor-ai-review-2025"]
     }
   ]
-} 
+}

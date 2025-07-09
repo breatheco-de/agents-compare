@@ -1,0 +1,47 @@
+// Support matrix for GitHub Copilot AI coding agent
+// This file defines how well GitHub Copilot supports various features
+{
+  agent_id: "github-copilot",
+  feature_support: [
+    {
+      feature_id: "mcp-support",
+      support_level: "no",
+      notes: "GitHub Copilot does not support MCP (Model Context Protocol) as it's primarily focused on code completion within supported IDEs.",
+      examples: [],
+      last_verified: "2024-01-15",
+      sources: ["https://docs.github.com/en/copilot"]
+    },
+    {
+      feature_id: "context-window",
+      support_level: "partial",
+      notes: "Limited context window focused on current file and immediate surrounding files. Doesn't maintain conversation history like chat-based agents.",
+      examples: ["Analyzes current file and imports for suggestions"],
+      last_verified: "2024-01-15",
+      sources: ["https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot"]
+    },
+    {
+      feature_id: "claude3-support",
+      support_level: "no",
+      notes: "GitHub Copilot uses OpenAI's Codex models (GPT-3.5/GPT-4 based), not Claude 3 models.",
+      examples: [],
+      last_verified: "2024-01-15",
+      sources: ["https://docs.github.com/en/copilot"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "partial",
+      notes: "Can read files in the workspace for context but cannot directly create, modify, or delete files. Works through IDE integration.",
+      examples: ["Reading project files for better code suggestions"],
+      last_verified: "2024-01-15",
+      sources: ["https://docs.github.com/en/copilot/using-github-copilot"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "no",
+      notes: "GitHub Copilot doesn't have explicit planning capabilities. It provides suggestions based on immediate context rather than multi-step task planning.",
+      examples: [],
+      last_verified: "2024-01-15",
+      sources: ["https://docs.github.com/en/copilot"]
+    }
+  ]
+} 

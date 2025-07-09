@@ -86,7 +86,7 @@ export default function FeatureCTA({ currentFeature, relatedFeatures }: FeatureC
               Windsurf
             </Link>
             <span className="text-gray-600">•</span>
-            <Link href="/agent/claude-dev" className="text-blue-400 hover:underline">
+            <Link href="/agent/claude-code" className="text-blue-400 hover:underline">
               Claude Dev
             </Link>
           </div>

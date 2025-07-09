@@ -1,20 +1,32 @@
 {
-  // Main index of available agents, features, and comparisons
-  features: [
-    "mcp-support", 
-    "context-window", 
-    "claude3-support", 
-    "filesystem-access", 
-    "planner-strategy"
+  "features": [
+    "automatic-context-awareness",
+    "broad-ide-integration",
+    "claude-4-support",
+    "claude3-support",
+    "console-error-integration",
+    "context-window",
+    "dedicated-instruction-file",
+    "filesystem-access",
+    "fine-grained-instruction-control",
+    "interactive-element-selection",
+    "live-web-preview",
+    "mcp-support",
+    "planner-strategy",
+    "supports-scoped-instructions"
   ],
-  agents: [
-    "cursor", 
-    "windsurf", 
-    "claude-dev"
+  "agents": [
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "windsurf"
   ],
-  comparisons: [
-    "claude-dev-vs-cursor",
-    "claude-dev-vs-windsurf", 
-    "cursor-vs-windsurf"
+  "comparisons": [
+    "claude-code-vs-cursor",
+    "claude-code-vs-windsurf",
+    "cursor-vs-windsurf",
+    "github-copilot-vs-cursor",
+    "github-copilot-vs-windsurf",
+    "github-copilot-vs-claude-code"
   ]
-} 
+}

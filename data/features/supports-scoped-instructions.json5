@@ -1,0 +1,30 @@
+{
+    "id": "supports-scoped-instructions",
+    "name": "Supports Scoped Instructions",
+    "aliases": ["instruction scoping", "contextual rules", "scoped custom instructions"],
+    "category": "Custom Instructions",
+    "description": "The ability to apply custom instructions at different levels, such as globally, project-wide, or to specific files or contexts.",
+    "overview": "Scoped instructions allow developers to define custom coding rules that apply at various levels of granularity, from global preferences (e.g., across all projects) to project-specific or file-specific rules. This feature supports flexibility in enforcing standards, accommodating diverse project requirements or team workflows. Scoping is often achieved through configuration files, settings, or metadata like glob patterns.",
+    "importance": "Different projects or parts of a codebase may require distinct coding standards. Scoped instructions enable developers to tailor AI behavior to these needs, ensuring consistency and relevance. This is crucial for teams with mixed-language projects or varying style guides across repositories.",
+    "use_cases": [
+      "Applying global naming conventions across all projects for a developer",
+      "Enforcing project-specific rules, like using Tailwind CSS in a front-end repo",
+      "Setting file-specific instructions, such as TypeScript rules for `.ts` files",
+      "Adapting instructions for different team members’ preferences",
+      "Managing legacy codebases with unique standards separate from modern code"
+    ],
+    "faq": [
+      {
+        "question": "What are scoped instructions in AI coding agents?",
+        "answer": "Scoped instructions are custom coding rules that can be applied at different levels, such as globally across all projects, to specific projects, or to particular files or contexts, allowing flexible enforcement of standards."
+      },
+      {
+        "question": "Why is scoping important for custom instructions?",
+        "answer": "Scoping ensures that instructions are applied only where relevant, preventing misaligned suggestions (e.g., applying Python rules to JavaScript) and supporting diverse project requirements within a single workflow."
+      },
+      {
+        "question": "What happens if an agent doesn’t support scoped instructions?",
+        "answer": "Without scoping, instructions are applied uniformly, which can lead to inappropriate code suggestions or require manual adjustments, reducing efficiency in projects with varied standards."
+      }
+    ]
+  }

@@ -1,7 +1,7 @@
-// Support matrix for Claude Dev AI coding agent
-// This file defines how well Claude Dev supports various features
+// Support matrix for Claude Code AI coding agent
+// This file defines how well Claude Code supports various features
 {
-  agent_id: "claude-dev",
+  agent_id: "claude-code",
   feature_support: [
     {
       feature_id: "mcp-support",
@@ -9,7 +9,7 @@
       notes: "Built with MCP support for external tool integration and server communication.",
       examples: ["Using MCP servers for database queries, API calls"],
       last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-dev"]
+      sources: ["https://github.com/saoudrizwan/claude-code"]
     },
     {
       feature_id: "context-window",
@@ -17,7 +17,7 @@
       notes: "Leverages Claude's native large context window capabilities.",
       examples: ["Analyzing entire codebases in context"],
       last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-dev"]
+      sources: ["https://github.com/saoudrizwan/claude-code"]
     },
     {
       feature_id: "claude3-support",
@@ -25,7 +25,7 @@
       notes: "Native Claude 3 support as it's built specifically for Claude models.",
       examples: ["Direct integration with Claude 3 Opus and Sonnet"],
       last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-dev"]
+      sources: ["https://github.com/saoudrizwan/claude-code"]
     },
     {
       feature_id: "filesystem-access",
@@ -33,7 +33,7 @@
       notes: "Autonomous filesystem operations with safety checks and user approval.",
       examples: ["Creating, reading, writing, and deleting files"],
       last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-dev"]
+      sources: ["https://github.com/saoudrizwan/claude-code"]
     },
     {
       feature_id: "planner-strategy",
@@ -41,7 +41,7 @@
       notes: "Sophisticated planning with step-by-step task breakdown and execution.",
       examples: ["Complex multi-file software development tasks"],
       last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-dev"]
+      sources: ["https://github.com/saoudrizwan/claude-code"]
     }
   ]
 } 

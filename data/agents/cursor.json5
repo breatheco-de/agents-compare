@@ -1,24 +1,83 @@
 {
-  // Cursor AI coding agent
-  id: "cursor",
-  name: "Cursor",
-  aliases: ["Cursor.sh", "Cursor AI", "Cursor Editor"],
-  provider: "Cursor.sh",
-  website: "https://www.cursor.sh",
-  supported_ide: ["VSCode (fork)"],
-  description: "A VSCode-based AI agent for editing, refactoring, and task-based coding with powerful autocomplete and chat features.",
-  faq: [
+  "id": "cursor",
+  "name": "Cursor",
+  "aliases": ["Cursor.sh", "Cursor AI", "Cursor Editor"],
+  "provider": "Cursor.sh",
+  "website": "https://cursor.com",
+  "supported_ide": ["VSCode (fork)"],
+  "description": "A VSCode-based AI agent for editing, refactoring, and task-based coding with powerful autocomplete and chat features.",
+  "faq": [
     {
-      question: "What models does Cursor support?",
-      answer: "Cursor supports Claude 3 (Opus, Sonnet, Haiku), GPT-4, GPT-4 Turbo, and other OpenAI models. You can switch between models based on your task requirements."
+      "question": "What models does Cursor support?",
+      "answer": "Cursor supports Claude 3 (Opus, Sonnet, Haiku), GPT-4, GPT-4 Turbo, and other OpenAI models. You can switch between models based on your task requirements."
     },
     {
-      question: "How does Cursor differ from GitHub Copilot?",
-      answer: "Cursor provides a full IDE experience with integrated chat, multi-file editing, and more advanced AI features. It's a fork of VSCode with AI deeply integrated, while Copilot is an extension that focuses primarily on code completion."
+      "question": "How does Cursor differ from GitHub Copilot?",
+      "answer": "Cursor provides a full IDE experience with integrated chat, multi-file editing, and more advanced AI features. It's a fork of VSCode with AI deeply integrated, while Copilot is an extension that focuses primarily on code completion."
     },
     {
-      question: "Can Cursor work with my existing VSCode extensions?",
-      answer: "Yes, Cursor is compatible with most VSCode extensions since it's built on the VSCode codebase. You can install extensions from the VSCode marketplace just like in regular VSCode."
+      "question": "Can Cursor work with my existing VSCode extensions?",
+      "answer": "Yes, Cursor is compatible with most VSCode extensions since it's built on the VSCode codebase. You can install extensions from the VSCode marketplace just like in regular VSCode."
+    },
+    {
+      "question": "What makes Cursor different from other AI coding assistants like GitHub Copilot or Windsurf?",
+      "answer": "Cursor is a VS Code-based IDE with deep AI integration, offering natural language interaction, code generation, and multi-file editing. It balances agentic capabilities with a familiar interface, distinguishing it from Copilot's extension-based approach and Windsurf's standalone IDE."
+    },
+    {
+      "question": "Which AI models does Cursor use?",
+      "answer": "Cursor uses a mix of purpose-built models and frontier models from OpenAI (e.g., GPT-4) and Anthropic (e.g., Claude), allowing users to select models for specific tasks."
+    },
+    {
+      "question": "Is Cursor free to use, and what are the limitations of the free tier?",
+      "answer": "Cursor offers a's free Hobby plan with limited agent requests and tab completions, including a two-week Pro plan trial. See https://cursor.com/en/pricing for details."
+    },
+    {
+      "question": "Can Cursor work with my existing codebases, including private repositories?",
+      "answer": "Yes, Cursor can work with existing codebases, including private repositories, as it functions as a full IDE based on VS Code, accessing local or remote folders."
+    },
+    {
+      "question": "Does Cursor support all programming languages?",
+      "answer": "Cursor supports all programming languages supported by VS Code, covering a wide range of languages and frameworks."
+    },
+    {
+      "question": "How does Cursor handle security and privacy, especially for private code?",
+      "answer": "Cursor offers a Privacy Mode ensuring code is not stored remotely without consent. It is SOC 2 certified, emphasizing robust security practices. See https://cursor.com/en for details."
+    },
+    {
+      "question": "What are the system requirements for running Cursor?",
+      "answer": "As a VS Code fork, Cursor's system requirements align with VS Code, running on modern versions of Windows, macOS, or Linux. Check https://code.visualstudio.com/docs/supporting/requirements for VS Code requirements."
+    },
+    {
+      "question": "How can I provide feedback or report issues with Cursor?",
+      "answer": "Feedback and issues can be reported via Cursor's GitHub repository at https://github.com/cursor/cursor or through Anysphere's support channels."
+    },
+    {
+      "question": "Does Cursor integrate with version control systems like Git?",
+      "answer": "Yes, Cursor supports Git integration, leveraging VS Code's capabilities to manage code repositories within the IDE."
+    },
+    {
+      "question": "Can Cursor help with code reviews or testing?",
+      "answer": "Cursor's AI features, like error detection and code suggestions, can assist with code reviews and testing, though specific tools for these tasks may require additional extensions."
+    },
+    {
+      "question": "How does Cursor's pricing compare to other AI coding tools?",
+      "answer": "Cursor's free Hobby plan is competitive, with Pro plans at $20/month. This is comparable to GitHub Copilot ($10/month) and slightly more than Windsurf ($15/seat for teams)."
+    },
+    {
+      "question": "Is there a way to customize Cursor's suggestions or behavior?",
+      "answer": "Cursor allows model selection and extensive editor customization, similar to VS Code, enabling tailored suggestion behavior."
+    },
+    {
+      "question": "Can I use Cursor offline?",
+      "answer": "Basic editing is possible offline, but AI features require an internet connection to access Anysphere's servers."
+    },
+    {
+      "question": "How does Cursor handle large codebases or complex projects?",
+      "answer": "Cursor uses custom retrieval models to understand entire codebases, making it effective for large and complex projects."
+    },
+    {
+      "question": "What kind of support does Cursor offer for users?",
+      "answer": "Support is available through Cursor's GitHub repository, official documentation, and Anysphere's support channels, with enhanced options for Pro and Enterprise users."
     }
   ]
-} 
+}

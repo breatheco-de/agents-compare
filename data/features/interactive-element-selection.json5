@@ -1,0 +1,49 @@
+{
+    "id": "interactive-element-selection",
+    "name": "Interactive Element Selection",
+    "aliases": ["UI element interaction", "component selection", "element @-mentions"],
+    "category": "AI Integration",
+    "description": "Allows selecting specific UI elements from a rendered web application and sending them to the AI for context-aware code generation or modification.",
+    "faq": [
+      {
+        "question": "How do I select an element in the web preview?",
+        "answer": "To select an element, click on it in the live web preview, and use the 'Send element' button or similar feature to send it to the AI as context."
+      },
+      {
+        "question": "Can I select multiple elements at once?",
+        "answer": "Depending on the IDE, you may be able to select multiple elements, but typically, selection is done one element at a time for precise context."
+      },
+      {
+        "question": "What types of elements can I select?",
+        "answer": "You can select most HTML elements or components from frameworks like React or Vue, but the exact types depend on the IDE’s implementation."
+      },
+      {
+        "question": "How does the AI use the selected element?",
+        "answer": "The AI uses the selected element as context to generate or modify code related to that element, such as updating its styles, adding event listeners, or refactoring its structure."
+      },
+      {
+        "question": "Can I select elements from iframes?",
+        "answer": "Selecting elements from iframes may not be supported due to cross-origin restrictions, but some IDEs might offer workarounds or specific configurations."
+      },
+      {
+        "question": "Does the selection work with dynamic content?",
+        "answer": "Yes, the selection works with dynamic content, but the AI’s ability to handle dynamically generated elements may vary based on the framework and the IDE’s capabilities."
+      },
+      {
+        "question": "How do I deselect an element?",
+        "answer": "To deselect an element, you can typically click outside the element or use a 'Clear selection' option in the IDE."
+      },
+      {
+        "question": "Can I select elements in the system browser preview?",
+        "answer": "Element selection is usually tied to the IDE’s preview, but some IDEs may offer integration with the system browser for selection."
+      },
+      {
+        "question": "Does the selection persist across sessions?",
+        "answer": "Element selections are typically temporary and do not persist across sessions, as they are meant for immediate context in coding tasks."
+      },
+      {
+        "question": "How do I customize the element selection behavior?",
+        "answer": "Customization options for element selection, if available, can usually be found in the IDE’s settings or preferences, allowing you to adjust how selections are handled or displayed."
+      }
+    ]
+  }

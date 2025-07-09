@@ -1,0 +1,83 @@
+{
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "aliases": ["Copilot", "GitHub Copilot X", "Copilot Chat"],
+    "provider": "GitHub",
+    "website": "https://github.com/features/copilot",
+    "supported_ide": ["VSCode", "JetBrains IDEs", "Neovim", "Emacs", "Visual Studio"],
+    "description": "An AI-powered code completion tool that suggests code snippets, functions, and entire blocks based on context and comments.",
+    "faq": [
+      {
+        "question": "What models does GitHub Copilot use?",
+        "answer": "GitHub Copilot uses OpenAI's Codex model, which is based on GPT-3.5 and GPT-4. It's specifically trained on code from public repositories to provide relevant code suggestions."
+      },
+      {
+        "question": "How does GitHub Copilot differ from other AI coding assistants?",
+        "answer": "GitHub Copilot focuses primarily on code completion and inline suggestions. While it has chat capabilities, it's designed to be less intrusive and more focused on helping you write code faster rather than taking over the entire coding process."
+      },
+      {
+        "question": "Can GitHub Copilot work with private repositories?",
+        "answer": "Yes, GitHub Copilot can work with private repositories, but it doesn't train on private code. It uses the context of your current file and repository to provide better suggestions while respecting privacy."
+      },
+      {
+        "question": "How does GitHub Copilot learn from my code?",
+        "answer": "GitHub Copilot does not learn from your private code in terms of training its model. It is trained on public code repositories. However, it uses the context of your current file and repository to provide better suggestions, adapting to your coding style without storing your private code."
+      },
+      {
+        "question": "Can I customize the suggestions in GitHub Copilot?",
+        "answer": "You can control whether to accept or reject suggestions, and there are settings to enable/disable suggestions for specific languages or block suggestions matching public code. However, you cannot directly fine-tune the suggestion algorithm itself."
+      },
+      {
+        "question": "Does GitHub Copilot support all programming languages?",
+        "answer": "GitHub Copilot supports many programming languages, particularly popular ones like JavaScript, Python, TypeScript, Ruby, C++, and Rust. The quality of suggestions varies, with better support for languages with more public code available for training."
+      },
+      {
+        "question": "How does GitHub Copilot handle security and privacy?",
+        "answer": "GitHub Copilot is designed with privacy in mind, but under regulations like GDPR, it may output synthesized personal data. Administrators can exclude files from Copilot access, and users can block suggestions matching public code to enhance security."
+      },
+      {
+        "question": "Is GitHub Copilot available for individual developers or only for teams?",
+        "answer": "GitHub Copilot is available for both individual developers and businesses. A free tier with limited functionality is offered for individuals, alongside paid plans like Copilot Pro and Enterprise for additional features."
+      },
+      {
+        "question": "What are the system requirements for using GitHub Copilot?",
+        "answer": "GitHub Copilot operates as an extension for IDEs like Visual Studio Code, Visual Studio, and JetBrains IDEs. Its system requirements match those of the supported IDEs, which typically run on modern versions of Windows, macOS, or Linux."
+      },
+      {
+        "question": "How can I provide feedback to improve GitHub Copilot?",
+        "answer": "Feedback can be provided via the 'Send Copilot Completion Feedback' option when hovering over a completion, the Feedback action in next edit suggestions, or the Issue Reporter in VS Code. Visit https://github.com/microsoft/vscode for more details."
+      },
+      {
+        "question": "Does GitHub Copilot work with version control systems like Git?",
+        "answer": "Yes, GitHub Copilot integrates seamlessly with Git repositories through its deep integration with GitHub, providing context-aware suggestions based on your repository's structure."
+      },
+      {
+        "question": "Can GitHub Copilot help with code reviews?",
+        "answer": "Yes, Copilot Code Review provides AI-powered feedback on pull requests, supporting all programming languages in public preview as of May 2025. See https://github.blog/changelog/2025-05-07-copilot-code-review-now-supports-all-languages-in-public-preview/."
+      },
+      {
+        "question": "How does GitHub Copilot compare to other code completion tools like Tabnine or Amazon CodeWhisperer?",
+        "answer": "GitHub Copilot, powered by OpenAI's Codex, excels in GitHub integration and context-aware suggestions. Tabnine uses proprietary models, while CodeWhisperer is AWS-focused. Copilot's strength lies in its broad IDE support and repository context."
+      },
+      {
+        "question": "Is there a way to disable GitHub Copilot temporarily?",
+        "answer": "Yes, you can disable GitHub Copilot via the Copilot menu in your IDE's title bar or by toggling settings in the IDE, such as in VS Code's status dashboard."
+      },
+      {
+        "question": "Does GitHub Copilot support keyboard shortcuts?",
+        "answer": "Yes, GitHub Copilot offers default keyboard shortcuts for accepting suggestions, which can be customized in supported IDEs like VS Code or JetBrains."
+      },
+      {
+        "question": "Can I use GitHub Copilot offline?",
+        "answer": "No, GitHub Copilot requires an internet connection to communicate with GitHub's servers for generating suggestions."
+      },
+      {
+        "question": "How does GitHub Copilot handle large codebases?",
+        "answer": "GitHub Copilot uses the context of your current file and repository to provide suggestions for large codebases, though performance may vary based on codebase complexity."
+      },
+      {
+        "question": "What is the pricing model for GitHub Copilot?",
+        "answer": "GitHub Copilot offers a free tier for individuals with limited features, and paid plans like Copilot Pro ($10/month) and Copilot Enterprise for businesses. See https://docs.github.com/en/copilot/plans for details."
+      }
+    ]
+  }

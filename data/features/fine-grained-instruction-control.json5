@@ -1,0 +1,30 @@
+{
+    "id": "fine-grained-instruction-control",
+    "name": "Fine-Grained Instruction Control",
+    "aliases": ["granular instructions", "precise rule targeting", "detailed instruction scoping"],
+    "category": "Custom Instructions",
+    "description": "The ability to define and apply custom instructions with high precision, targeting specific files, languages, or contexts within a codebase.",
+    "overview": "Fine-grained instruction control allows developers to specify custom coding rules with detailed targeting, such as applying rules to specific file types (e.g., `*.ts`), directories, or contexts (e.g., test files). This feature enables precise enforcement of coding standards, ensuring the AI adheres to nuanced requirements like naming conventions or library preferences only where relevant. It often involves advanced configuration options like glob patterns or metadata.",
+    "importance": "In complex projects, different parts of a codebase may require distinct coding standards. Fine-grained control ensures that AI-generated code aligns with these specific requirements, reducing errors and manual corrections. It’s essential for maintaining consistency in large teams or projects with diverse technical stacks.",
+    "use_cases": [
+      "Enforcing snake_case in Python files but camelCase in JavaScript files",
+      "Applying specific linting rules only to production code, not test files",
+      "Ensuring TypeScript interfaces are used in API-related files",
+      "Customizing AI behavior for specific directories, like front-end vs. back-end",
+      "Tailoring code generation for legacy codebases with unique conventions"
+    ],
+    "faq": [
+      {
+        "question": "What is fine-grained instruction control in AI coding agents?",
+        "answer": "Fine-grained instruction control refers to the ability to apply custom coding rules with high precision, targeting specific files, directories, or contexts using mechanisms like glob patterns or metadata, ensuring the AI follows tailored standards."
+      },
+      {
+        "question": "Why is fine-grained control important for coding projects?",
+        "answer": "It allows developers to enforce different coding standards across various parts of a project, ensuring consistency and reducing errors in complex codebases with diverse requirements, such as mixed-language projects or legacy systems."
+      },
+      {
+        "question": "What happens without fine-grained instruction control?",
+        "answer": "Without this feature, instructions are applied broadly, potentially leading to inappropriate code suggestions (e.g., using JavaScript conventions in Python files), requiring more manual fixes and reducing efficiency."
+      }
+    ]
+  }

@@ -1,0 +1,72 @@
+{
+  "id": "claude-code",
+  "name": "Claude Code",
+  "aliases": ["Claude-code", "Claude Developer Tool"],
+  "provider": "Anthropic",
+  "website": "[invalid url, do not cite]",
+  "supported_ide": ["VSCode", "JetBrains"],
+  "updated_at": "2025-07-05",
+  "description": "Claude Code is an agentic coding tool by Anthropic that operates in the terminal and integrates with VS Code and JetBrains IDEs. It understands your entire codebase to assist with coding tasks, debugging, and git workflows through natural language commands.",
+  "faq": [
+    {
+      "question": "How does Claude Code integrate with my development environment?",
+      "answer": "Claude Code integrates directly with your terminal for command-line interactions and supports native integrations with VS Code and JetBrains IDEs, allowing it to understand your entire codebase and provide suggestions within your code files."
+    },
+    {
+      "question": "What programming languages does Claude Code support?",
+      "answer": "Claude Code supports a wide range of programming languages, including but not limited to Python, Java, PHP, Rust, and JavaScript frameworks like React and Vue."
+    },
+    {
+      "question": "How do I install Claude Code?",
+      "answer": "To install Claude Code, run `npm install -g @anthropic-ai/claude-code` in your terminal. Then, navigate to your project directory and run `claude` to start using it."
+    },
+    {
+      "question": "Can Claude Code work with my existing codebase?",
+      "answer": "Yes, Claude Code is designed to understand and work with your existing codebase, whether it's a new project or an established one."
+    },
+    {
+      "question": "Does Claude Code require an API key?",
+      "answer": "Yes, Claude Code requires an Anthropic API key for authentication. You can obtain one from the Anthropic Console."
+    },
+    {
+      "question": "How does Claude Code handle security and privacy?",
+      "answer": "Claude Code prioritizes security by connecting directly to Anthropic’s API without intermediate servers, operating within your terminal, and maintaining awareness of your project structure. It performs actions like editing files and creating commits directly in your environment. Anthropic implements safeguards such as limited retention periods for sensitive information and restricted access to user session data."
+    },
+    {
+      "question": "What are the usage limits for Claude Code?",
+      "answer": "Usage limits for Claude Code depend on your subscription plan with Anthropic. For detailed information, refer to Anthropic's usage limit best practices at [invalid url, do not cite]."
+    },
+    {
+      "question": "Can I use Claude Code offline?",
+      "answer": "Claude Code requires an internet connection to function, as it communicates with Anthropic's API. There are no offline capabilities mentioned in the current documentation."
+    },
+    {
+      "question": "How does Claude Code compare to other AI coding assistants like GitHub Copilot?",
+      "answer": "Claude Code is highly agentic, performing complex tasks like editing files, running tests, and managing git workflows through natural language commands. Unlike GitHub Copilot, which focuses on code suggestions within the IDE, Claude Code offers comprehensive assistance by understanding the entire codebase and executing tasks autonomously."
+    },
+    {
+      "question": "What are some best practices for using Claude Code effectively?",
+      "answer": "Best practices include providing clear and specific instructions, using the /think command for planning complex tasks, utilizing the memory feature with #tags for persistent context, and regularly reviewing and approving changes made by Claude Code to ensure accuracy."
+    },
+    {
+      "question": "How can I provide feedback or report issues with Claude Code?",
+      "answer": "You can provide feedback or report issues using the /bug command within Claude Code or by filing an issue on the official GitHub repository at [invalid url, do not cite]."
+    },
+    {
+      "question": "Is Claude Code available for enterprise use?",
+      "answer": "Yes, Claude Code is available for enterprise use and can integrate with platforms like Amazon Bedrock and Google Vertex AI for secure and compliant deployments."
+    },
+    {
+      "question": "Does Claude Code support version control systems like Git?",
+      "answer": "Yes, Claude Code supports Git, allowing it to search through git history, resolve merge conflicts, and create commits and pull requests."
+    },
+    {
+      "question": "Can Claude Code generate documentation for my code?",
+      "answer": "While Claude Code can provide explanations and answer questions about your code, its primary focus is on coding tasks and workflows. For comprehensive documentation, you may need to use specific commands or integrate with other tools."
+    },
+    {
+      "question": "How does Claude Code handle large codebases?",
+      "answer": "Claude Code is designed to understand and work with entire codebases, making it suitable for large projects. However, effectiveness may depend on the complexity and size of the codebase and the specific tasks requested."
+    }
+  ]
+}

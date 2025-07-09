@@ -1,0 +1,49 @@
+{
+    "id": "console-error-integration",
+    "name": "Console Error Integration",
+    "aliases": ["error capturing", "console logging", "error debugging"],
+    "category": "Debugging",
+    "description": "Captures JavaScript console errors from the live web preview and sends them to the AI for analysis, debugging, or automated code fixes.",
+    "faq": [
+      {
+        "question": "How do I send console errors to the AI?",
+        "answer": "To send console errors to the AI, use the 'Send error' button or similar feature in the IDE when an error appears in the console of the live web preview."
+      },
+      {
+        "question": "What types of errors can the AI handle?",
+        "answer": "The AI can handle a wide range of JavaScript errors, including syntax errors, runtime errors, and warnings, but its effectiveness may vary based on the error’s complexity and context."
+      },
+      {
+        "question": "Can the AI fix errors automatically?",
+        "answer": "In some cases, the AI can propose fixes or even apply them automatically, but it’s recommended to review and approve changes to ensure they align with your intent."
+      },
+      {
+        "question": "How does the AI analyze the errors?",
+        "answer": "The AI analyzes the error message, stack trace, and surrounding code context to understand the issue and generate relevant suggestions or fixes."
+      },
+      {
+        "question": "Can I filter which errors are sent to the AI?",
+        "answer": "Depending on the IDE, you may be able to filter errors by type or severity before sending them to the AI, but this feature is not universally available."
+      },
+      {
+        "question": "Does the AI provide suggestions for all errors?",
+        "answer": "The AI attempts to provide suggestions for most errors, but for highly complex or unique issues, it may not always have a solution or may require additional context."
+      },
+      {
+        "question": "How do I view the AI's error analysis?",
+        "answer": "The AI’s analysis and suggestions are typically displayed in the IDE’s chat or suggestion panel, where you can review and apply them as needed."
+      },
+      {
+        "question": "Can I integrate third-party error reporting tools?",
+        "answer": "Some IDEs may allow integration with third-party error reporting tools, but this depends on the specific IDE and its extensibility."
+      },
+      {
+        "question": "Does the AI learn from past error resolutions?",
+        "answer": "The AI may learn from past interactions and error resolutions to improve future suggestions, but this depends on the AI’s underlying model and training."
+      },
+      {
+        "question": "How do I disable console error integration?",
+        "answer": "To disable console error integration, you can usually turn off the feature in the IDE’s settings or preferences, or disable the live web preview altogether."
+      }
+    ]
+  }

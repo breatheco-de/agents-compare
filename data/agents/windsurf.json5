@@ -1,24 +1,83 @@
 {
-  // Windsurf AI coding agent
-  id: "windsurf",
-  name: "Windsurf",
-  aliases: ["Windsurf IDE", "Codeium Windsurf"],
-  provider: "Codeium",
-  website: "https://codeium.com/windsurf",
-  supported_ide: ["Windsurf (custom IDE)"],
-  description: "An AI-first code editor with deep integration of language models for autonomous coding tasks and intelligent assistance.",
-  faq: [
+  "id": "windsurf",
+  "name": "Windsurf",
+  "aliases": ["Windsurf IDE", "Codeium Windsurf"],
+  "provider": "Codeium",
+  "website": "https://windsurf.com",
+  "supported_ide": ["Windsurf (custom IDE)"],
+  "description": "An AI-first code editor with deep integration of language models for autonomous coding tasks and intelligent assistance.",
+  "faq": [
     {
-      question: "What makes Windsurf different from other AI coding assistants?",
-      answer: "Windsurf is an AI-first IDE with deep integration of language models. It's designed specifically for autonomous coding tasks and can handle complex multi-file operations with minimal user intervention."
+      "question": "What makes Windsurf different from other AI coding assistants?",
+      "answer": "Windsurf is an AI-first IDE with deep integration of language models. It's designed specifically for autonomous coding tasks and can handle complex multi-file operations with minimal user intervention."
     },
     {
-      question: "Which AI models does Windsurf use?",
-      answer: "Windsurf uses Codeium's proprietary models along with support for Claude 3 and other leading language models. The specific model can be selected based on the task at hand."
+      "question": "Which AI models does Windsurf use?",
+      "answer": "Windsurf uses Codeium's proprietary models along with support for Claude 3 and other leading language models. The specific model can be selected based on the task at hand."
     },
     {
-      question: "Is Windsurf free to use?",
-      answer: "Windsurf offers a free tier with limited usage, as well as paid plans for professional developers and teams with higher usage limits and additional features."
+      "question": "Is Windsurf free to use?",
+      "answer": "Windsurf offers a free tier with limited usage, as well as paid plans for professional developers and teams with higher usage limits and additional features."
+    },
+    {
+      "question": "Can Windsurf work with my existing codebases, including private repositories?",
+      "answer": "Yes, Windsurf can open and work with existing codebases, including private ones, by opening folders or connecting to remote servers via SSH or local dev containers."
+    },
+    {
+      "question": "Does Windsurf support all programming languages?",
+      "answer": "Windsurf supports a wide range of programming languages, similar to Visual Studio Code, as it is designed as a general-purpose IDE."
+    },
+    {
+      "question": "How does Windsurf handle security and privacy, especially for private code?",
+      "answer": "Windsurf keeps your code local, but AI features may send data to servers. For individual plans, logs may be stored unless Zero-data retention mode is enabled, which may require a paid plan. Data is encrypted via TLS."
+    },
+    {
+      "question": "What are the system requirements for running Windsurf?",
+      "answer": "Windsurf is available on Mac (OS X Yosemite or later), Windows, and Linux, with system requirements similar to Visual Studio Code, as it is a VS Code fork."
+    },
+    {
+      "question": "How can I provide feedback or report issues with Windsurf?",
+      "answer": "Feedback and issues can be reported via the Windsurf Discord or Codeium Subreddit. See https://github.com/ichoosetoaccept/awesome-windsurf for community resources."
+    },
+    {
+      "question": "Does Windsurf integrate with version control systems like Git?",
+      "answer": "Yes, Windsurf supports Git integration, allowing you to manage code repositories within the IDE, similar to VS Code."
+    },
+    {
+      "question": "Can Windsurf help with code reviews or testing?",
+      "answer": "Windsurf's agentic features, like Cascade, may assist with code reviews and testing by automating tasks and detecting issues, though specific features for these tasks may require further exploration."
+    },
+    {
+      "question": "How does Windsurf's pricing compare to other AI coding tools?",
+      "answer": "Windsurf is free for individuals, with enterprise plans starting at $15/seat. This is competitive with Cursor ($20/seat) and GitHub Copilot, offering a cost-effective option for teams."
+    },
+    {
+      "question": "Is there a way to customize Windsurf's suggestions or behavior?",
+      "answer": "Windsurf allows model selection for different tasks and supports customization of editor settings, similar to VS Code, enhancing suggestion flexibility."
+    },
+    {
+      "question": "Can I use Windsurf offline?",
+      "answer": "Basic editing is possible offline, but AI features require an internet connection to communicate with Codeium's servers."
+    },
+    {
+      "question": "How does Windsurf handle large codebases or complex projects?",
+      "answer": "Windsurf's Cascade feature provides deep contextual awareness across entire codebases, making it well-suited for large and complex projects."
+    },
+    {
+      "question": "What kind of support does Windsurf offer for users?",
+      "answer": "Support is available through the Windsurf Discord, Codeium Subreddit, and official documentation. Enterprise users may have additional support options."
+    },
+    {
+      "question": "Can Windsurf generate documentation for my code?",
+      "answer": "Windsurf can assist in generating documentation by leveraging its AI capabilities to explain code or create comments, though dedicated documentation tools may be needed for comprehensive outputs."
+    },
+    {
+      "question": "Does Windsurf support real-time collaboration?",
+      "answer": "Windsurf supports collaborative workflows, but real-time collaboration features like those in Google Docs are not explicitly mentioned and may require additional setup."
+    },
+    {
+      "question": "How does Windsurf handle debugging?",
+      "answer": "Windsurf's Cascade feature can detect and fix lint errors automatically, aiding in debugging by iterating on code until it meets requirements."
     }
   ]
-} 
+}
