@@ -1,10 +1,10 @@
 export type SupportLevel = 'yes' | 'partial' | 'no' | 'unknown'
 
-export type Category = 'Model Support' | 'Editor Integration' | 'Execution' | 'Planning' | 'Custom Instructions'
+export type Category = 'Model Support' | 'Editor Integration' | 'Execution' | 'Planning' | 'Configuration' | 'Debugging'
 
 // Enum constants for validation
 export const SUPPORT_LEVELS = ['yes', 'partial', 'no', 'unknown'] as const
-export const CATEGORIES = ['Model Support', 'Editor Integration', 'Execution', 'Planning', 'Configuration'] as const
+export const CATEGORIES = ['Model Support', 'Editor Integration', 'Execution', 'Planning', 'Configuration', 'Debugging'] as const
 
 export interface FAQ {
   question: string

@@ -2,7 +2,7 @@
     "id": "supports-scoped-instructions",
     "name": "Supports Scoped Instructions",
     "aliases": ["instruction scoping", "contextual rules", "scoped custom instructions"],
-    "category": "Custom Instructions",
+    "category": "Configuration",
     "description": "The ability to apply custom instructions at different levels, such as globally, project-wide, or to specific files or contexts.",
     "overview": "Scoped instructions allow developers to define custom coding rules that apply at various levels of granularity, from global preferences (e.g., across all projects) to project-specific or file-specific rules. This feature supports flexibility in enforcing standards, accommodating diverse project requirements or team workflows. Scoping is often achieved through configuration files, settings, or metadata like glob patterns.",
     "importance": "Different projects or parts of a codebase may require distinct coding standards. Scoped instructions enable developers to tailor AI behavior to these needs, ensuring consistency and relevance. This is crucial for teams with mixed-language projects or varying style guides across repositories.",

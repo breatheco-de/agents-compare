@@ -20,7 +20,7 @@
       sources: ["https://cursor.com", "https://docs.cursor.sh/extensions"]
     },
     {
-      feature_id: "claude4-support",
+      feature_id: "claude-4-support",
       support_level: "yes",
       notes: "Supports Claude 4 models (e.g., Sonnet 4, Opus 4) alongside other frontier models, with model selection available based on task requirements.",
       examples: ["Using Claude 4 Sonnet for complex refactoring tasks"],
@@ -38,7 +38,7 @@
     {
       feature_id: "console-error-integration",
       support_level: "partial",
-      notes: "Cursor integrates with the BrowserTools MCP plugin to connect to browser console logs, allowing the AI to see and fix errors during web development.",
+      notes: "Integrates with the BrowserTools MCP plugin to connect to browser console logs, allowing the AI to see and fix errors during web development.",
       examples: ["Fixing JavaScript runtime errors detected in the terminal"],
       last_verified: "2025-07-08",
       sources: []
@@ -77,8 +77,8 @@
     },
     {
       feature_id: "interactive-element-selection",
-      support_level: "partial",
-      notes: "Cursor integrates with BrowserTools MCP server, which enables selecting UI elements in a browser-like environment within the IDE.",
+      support_level: "no",
+      notes: "",
       examples: ["Modifying styles of a selected button in a web preview"],
       last_verified: "2025-07-08",
       sources: []

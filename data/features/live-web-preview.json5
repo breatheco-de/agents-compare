@@ -2,7 +2,7 @@
     "id": "live-web-preview",
     "name": "Live Web Preview",
     "aliases": ["web app preview", "in-IDE browser", "live rendering"],
-    "category": "User Experience",
+    "category": "Debugging",
     "description": "Renders a locally hosted web application within the IDE, allowing developers to view and interact with the app's UI without leaving the coding environment.",
     "faq": [
       {

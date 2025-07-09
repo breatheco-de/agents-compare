@@ -1,5 +1,5 @@
 {
-    "id": "claude4-support",
+    "id": "claude-4-support",
     "name": "Claude 4 Support",
     "aliases": ["Claude 4", "Anthropic Claude 4", "Claude 4 Opus", "Claude 4 Sonnet"],
     "category": "Model Support",

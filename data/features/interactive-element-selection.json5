@@ -2,7 +2,7 @@
     "id": "interactive-element-selection",
     "name": "Interactive Element Selection",
     "aliases": ["UI element interaction", "component selection", "element @-mentions"],
-    "category": "AI Integration",
+    "category": "Debugging",
     "description": "Allows selecting specific UI elements from a rendered web application and sending them to the AI for context-aware code generation or modification.",
     "faq": [
       {

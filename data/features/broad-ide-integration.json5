@@ -2,7 +2,7 @@
   "id": "broad-ide-integration",
   "name": "Broad IDE Integration",
   "aliases": ["IDE compatibility", "multi-IDE support", "editor integration"],
-  "category": "Tool Integration",
+  "category": "Editor Integration",
   "description": "The ability of an AI coding agent to seamlessly integrate with a wide range of Integrated Development Environments (IDEs) such as VS Code, JetBrains, Xcode, and others.",
   "overview": "Broad IDE integration refers to the capability of an AI coding agent to function effectively across multiple development environments, providing features like code completion, custom instruction enforcement, and debugging support within various IDEs. This ensures developers can use the agent in their preferred tools without needing to switch workflows. Integration typically involves plugins, extensions, or native support, enabling consistent performance across platforms.",
   "importance": "Developers use a variety of IDEs based on project requirements, personal preferences, or team standards. Broad IDE integration is critical for ensuring that an AI coding agent is accessible and effective regardless of the chosen environment. It enhances productivity by embedding AI capabilities directly into the developer’s existing workflow, reducing the learning curve and setup time.",

@@ -20,7 +20,7 @@
       sources: ["https://windsurf.com/plugins"]
     },
     {
-      feature_id: "claude4-support",
+      feature_id: "claude-4-support",
       support_level: "partial",
       notes: "Supports Claude 4 models through bring-your-own-key (BYOK) due to limited direct access from Anthropic, requiring additional setup and potential costs.",
       examples: ["Using Claude 4 with personal API keys for advanced code generation"],

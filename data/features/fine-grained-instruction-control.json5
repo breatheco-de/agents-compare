@@ -2,7 +2,7 @@
     "id": "fine-grained-instruction-control",
     "name": "Fine-Grained Instruction Control",
     "aliases": ["granular instructions", "precise rule targeting", "detailed instruction scoping"],
-    "category": "Custom Instructions",
+    "category": "Configuration",
     "description": "The ability to define and apply custom instructions with high precision, targeting specific files, languages, or contexts within a codebase.",
     "overview": "Fine-grained instruction control allows developers to specify custom coding rules with detailed targeting, such as applying rules to specific file types (e.g., `*.ts`), directories, or contexts (e.g., test files). This feature enables precise enforcement of coding standards, ensuring the AI adheres to nuanced requirements like naming conventions or library preferences only where relevant. It often involves advanced configuration options like glob patterns or metadata.",
     "importance": "In complex projects, different parts of a codebase may require distinct coding standards. Fine-grained control ensures that AI-generated code aligns with these specific requirements, reducing errors and manual corrections. It’s essential for maintaining consistency in large teams or projects with diverse technical stacks.",

@@ -4,44 +4,116 @@
   agent_id: "claude-code",
   feature_support: [
     {
-      feature_id: "mcp-support",
+      feature_id: "automatic-context-awareness",
       support_level: "yes",
-      notes: "Built with MCP support for external tool integration and server communication.",
-      examples: ["Using MCP servers for database queries, API calls"],
-      last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-code"]
+      notes: "Claude Code does perform automatic context ingest and auto-compact cleanup—but it's not flawless. You need to guide it using files, commands, and session control to maintain reliable context.",
+      examples: ["Generating code relevant to the current project context", "Fixing bugs by understanding the entire codebase"],
+      last_verified: "2025-07-08",
+      sources: ["https://www.claudecode.io/guides/context-management"]
     },
     {
-      feature_id: "context-window",
+      feature_id: "broad-ide-integration",
       support_level: "yes",
-      notes: "Leverages Claude's native large context window capabilities.",
-      examples: ["Analyzing entire codebases in context"],
-      last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-code"]
+      notes: "Claude Code has official plugins for VS Code, JetBrains.",
+      examples: ["Using Claude Code in VS Code for code generation", "Integrating with JetBrains for advanced refactoring"],
+      last_verified: "2025-07-08",
+      sources: ["https://docs.anthropic.com/en/docs/claude-code/ide-integrations"]
+    },
+    {
+      feature_id: "claude-4-support",
+      support_level: "yes",
+      notes: "Natively supports Claude 4 models, including Sonnet 4 and Opus 4, for advanced code generation and analysis.",
+      examples: ["Using Claude 4 Sonnet for complex refactoring tasks"],
+      last_verified: "2025-07-08",
+      sources: []
     },
     {
       feature_id: "claude3-support",
       support_level: "yes",
-      notes: "Native Claude 3 support as it's built specifically for Claude models.",
-      examples: ["Direct integration with Claude 3 Opus and Sonnet"],
-      last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-code"]
+      notes: "Natively supports Claude 3 models, including Opus, Sonnet, and Haiku, for enhanced coding capabilities.",
+      examples: ["Using Claude 3 Opus for multi-file code generation"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "partial",
+      notes: "Integrates with the BrowserTools MCP plugin to connect to browser console logs, allowing the AI to see and fix errors during web development.",
+      examples: ["Fixing JavaScript runtime errors detected in the terminal"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "Supports large context windows up to 200k tokens, enabling handling of extensive codebases.",
+      examples: ["Processing entire codebases in a single context for refactoring"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Claude Code uses CLAUDE.md files for project-specific instructions",
+      examples: ["Defining coding standards for a project via .claude-rules"],
+      last_verified: "2025-07-08",
+      sources: ["https://docs.anthropic.com/en/docs/claude-code/settings"]
     },
     {
       feature_id: "filesystem-access",
       support_level: "yes",
-      notes: "Autonomous filesystem operations with safety checks and user approval.",
-      examples: ["Creating, reading, writing, and deleting files"],
-      last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-code"]
+      notes: "Full filesystem access within the workspace, enabling autonomous file creation and modification.",
+      examples: ["Creating and editing files across the project via Claude Code"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "no",
+      notes: "No information on fine-grained instruction control has been found",
+      examples: ["Enforcing specific linting rules for TypeScript files only"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "no",
+      notes: "",
+      examples: ["Modifying styles of a selected button in a web preview"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "no",
+      notes: "No information on live web preview has been found",
+      examples: ["Testing a React application directly in the editor"],
+      last_verified: "2025-07-08",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "Supports MCP servers for connecting custom tools and services, enhancing AI workflows.",
+      examples: ["Using BrowserTools MCP for browser interaction"],
+      last_verified: "2025-07-08",
+      sources: ["https://docs.anthropic.com/en/docs/mcp"]
     },
     {
       feature_id: "planner-strategy",
       support_level: "yes",
-      notes: "Sophisticated planning with step-by-step task breakdown and execution.",
-      examples: ["Complex multi-file software development tasks"],
-      last_verified: "2024-01-15",
-      sources: ["https://github.com/saoudrizwan/claude-code"]
+      notes: "Plan mode is a special operating mode in Claude Code that allows you to research, analyze, and create implementation plans without making any actual changes to your system or codebase.",
+      examples: ["Automating a multi-step user registration feature implementation"],
+      last_verified: "2025-07-08",
+      sources: ["https://www.reddit.com/r/ClaudeAI/comments/1ldwqt3/claude_code_plan_mode/"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "partial",
+      notes: "Project instructions help Claude understand the specific context and requirements for a particular project. ",
+      examples: ["Setting global naming conventions and project-specific TypeScript rules"],
+      last_verified: "2025-07-08",
+      sources: ["https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features"]
     }
   ]
-} 
+}
