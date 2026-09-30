@@ -91,7 +91,7 @@ Sustituye a `claude3-support` y `claude-4-support`. Criterio: el agente permite 
 Otros efectos de este cambio:
 
 - ✅ Resuelto: `/feature/claude3-support` y `/feature/claude-4-support` redirigen con un 301 a `/feature/claude-latest-support` (`next.config.js`).
-- `overview.md` (inventario del apéndice y ejemplo de `index.json5`) y `memory-bank/v0-requirements.md` siguen citando las características antiguas y agentes como windsurf. Son documentos internos que ya estaban desactualizados antes de este cambio; no se modificaron.
+- ✅ Resuelto: `overview.md` refleja el inventario actual (15 agentes, 13 características). `memory-bank/v0-requirements.md` sigue citando `claude3-support`, pero es el documento histórico de requisitos de la v0 y no se ha modificado.
 
 ## Enlaces y rutas
 
