@@ -46,10 +46,10 @@
     {
       feature_id: "context-window",
       support_level: "yes",
-      notes: "Supports large context windows up to 200k tokens with Claude and GPT-4 Turbo models, suitable for large codebases.",
-      examples: ["Processing entire codebases in a single context for refactoring"],
-      last_verified: "2025-07-08",
-      sources: ["https://docs.cursor.sh/models"]
+      notes: "The context window depends on the selected model. Cursor offers its own models (Composer 2.5, Grok 4.7/4.6/4.5) and third-party frontier models from Anthropic, OpenAI, and Google.",
+      examples: ["Switching to a long-context model for a large refactor"],
+      last_verified: "2026-09-30",
+      sources: ["https://cursor.com/docs/models-and-pricing"]
     },
     {
       feature_id: "dedicated-instruction-file",

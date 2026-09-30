@@ -5,16 +5,16 @@
     "provider": "GitHub",
     "website": "https://github.com/features/copilot",
     "supported_ide": ["VSCode", "JetBrains IDEs", "Neovim", "Emacs", "Visual Studio"],
-    "description": "An AI-powered coding assistant deeply integrated with GitHub. Evolved from a code completion tool into a full coding agent with Agent Mode (GA 2025), Copilot Workspace, MCP support, custom instruction files, and multi-model support including Claude Opus 4.6 and Sonnet 4.6.",
-    "updated_at": "2026-03-16",
+    "description": "An AI-powered coding assistant deeply integrated with GitHub. Evolved from a code completion tool into a full coding agent with Agent Mode (GA 2025), MCP support, custom instruction files, and multi-model support across Claude, GPT, Gemini, Grok, Kimi, and MAI-Code models.",
+    "updated_at": "2026-09-30",
     "faq": [
       {
         "question": "What models does GitHub Copilot use?",
-        "answer": "GitHub Copilot now supports multiple models via a model picker: GPT-4.1, GPT-4o, Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5, and Gemini 2.0. Users can select the model per task directly in the Copilot chat panel. Claude Opus 4.6 became generally available in February 2026."
+        "answer": "GitHub Copilot supports multiple model families via a model picker: Anthropic Claude (Haiku, Sonnet, Opus, and Fable), OpenAI GPT (5 and 6 series), Google Gemini (Flash), xAI Grok, Moonshot Kimi, and Microsoft MAI-Code. Which models are available depends on your plan: Pro includes a selection, while Pro+ and Max include premium models."
       },
       {
         "question": "How does GitHub Copilot differ from other AI coding assistants?",
-        "answer": "GitHub Copilot has evolved significantly. It now includes Agent Mode (autonomous multi-file coding), Copilot Workspace (full task planning and execution), MCP server support, and custom instruction files (.github/copilot-instructions.md). It remains the most widely deployed AI coding tool with the broadest IDE support."
+        "answer": "GitHub Copilot has evolved significantly. It now includes Agent Mode (autonomous multi-file coding), MCP server support, and custom instruction files (.github/copilot-instructions.md). It remains the most widely deployed AI coding tool with the broadest IDE support."
       },
       {
         "question": "Can GitHub Copilot work with private repositories?",
@@ -58,7 +58,7 @@
       },
       {
         "question": "How does GitHub Copilot compare to other code completion tools like Tabnine or Amazon CodeWhisperer?",
-        "answer": "GitHub Copilot's strengths are its deep GitHub integration, broadest IDE support (VS Code, JetBrains, Neovim, Emacs, Visual Studio), multi-model selection, and Agent Mode. Amazon Q Developer (successor to CodeWhisperer) is AWS-focused. Tabnine specializes in on-premise enterprise deployments with zero data transmission."
+        "answer": "GitHub Copilot's strengths are its deep GitHub integration, broadest IDE support (VS Code, JetBrains, Neovim, Emacs, Visual Studio), multi-model selection, and Agent Mode. Amazon Q Developer (successor to CodeWhisperer) is being retired: its IDE plugins reach end of support on April 30, 2027, and AWS directs users to Kiro. Tabnine specializes in on-premise enterprise deployments with zero data transmission."
       },
       {
         "question": "Is there a way to disable GitHub Copilot temporarily?",
@@ -78,7 +78,7 @@
       },
       {
         "question": "What is the pricing model for GitHub Copilot?",
-        "answer": "GitHub Copilot offers: Free ($0, limited completions and chat), Pro ($10/month, unlimited completions), Pro+ ($39/month, access to all premium models including Claude Opus 4.6), Business ($19/user/month, team management), Enterprise ($39/user/month, custom policies and knowledge bases). See https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot for details."
+        "answer": "GitHub Copilot usage is measured in monthly AI Credits. Individual plans: Free (limited allowance), Student (free for verified students), Pro ($10/month, 1,500 credits), Pro+ ($39/month, 7,000 credits, premium models), and Max ($100/month, 20,000 credits, priority access to premium models). Organization plans: Business ($19/seat/month, 1,900 credits per user) and Enterprise ($39/seat/month, 3,900 credits per user). See https://docs.github.com/en/copilot/get-started/plans for details."
       },
       {
         "question": "What is Agent Mode in GitHub Copilot?",

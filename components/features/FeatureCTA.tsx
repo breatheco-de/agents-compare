@@ -87,7 +87,7 @@ export default function FeatureCTA({ currentFeature, relatedFeatures }: FeatureC
             </Link>
             <span className="text-gray-600">•</span>
             <Link href="/agent/claude-code" className="text-blue-400 hover:underline">
-              Claude Dev
+              Claude Code
             </Link>
           </div>
         </div>

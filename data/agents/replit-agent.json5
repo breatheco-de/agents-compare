@@ -5,7 +5,7 @@
   "provider": "Replit",
   "website": "https://replit.com/ai",
   "supported_ide": ["Replit (browser)", "Replit Desktop"],
-  "updated_at": "2026-03-16",
+  "updated_at": "2026-09-30",
   "description": "Replit Agent is an AI coding agent built into the Replit cloud development environment. It can build, run, and deploy full applications entirely from natural language prompts, with no local setup required. Replit Agent handles the entire development lifecycle — from writing code and installing dependencies to configuring databases and deploying to production — all within Replit's browser-based IDE. It is designed to make software development accessible to non-developers and to accelerate prototyping for professionals.",
   "faq": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "question": "Which AI models power Replit Agent?",
-      "answer": "Replit Agent uses a combination of models including Anthropic Claude (Sonnet and Haiku) and other models selected based on task type. Replit also has a model routing layer that selects the best model for each subtask (code generation, debugging, planning, etc.)."
+      "answer": "Replit Agent is powered by large language models from multiple providers. Since September 2026, users can choose GPT-6 Sol, GPT-6 Luna Fast, and Claude Opus 5.5 when building with Agent; availability depends on your plan and workspace policies."
     },
     {
       "question": "Do I need coding experience to use Replit Agent?",
@@ -30,7 +30,7 @@
     },
     {
       "question": "How much does Replit Agent cost?",
-      "answer": "Replit Agent is available on the Replit Core plan (~$25/month) and higher tiers. A free tier provides limited AI usage. Agent usage is measured in Replit's 'cycles' or included in subscription plans. Replit Teams and Enterprise plans include higher agent usage limits."
+      "answer": "Replit's paid plans are Core ($20/month, or $18/month billed annually, including $20 of usage toward powerful models), Pro ($100/month, or $90/month billed annually, including $100 of usage, 10 parallel agents, and up to 15 collaborators), and Enterprise (custom pricing with SSO/SAML and single-tenant environments). See https://replit.com/pricing for details."
     },
     {
       "question": "Can Replit Agent work with an existing codebase?",

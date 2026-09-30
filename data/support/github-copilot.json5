@@ -38,10 +38,10 @@
     {
       feature_id: "planner-strategy",
       support_level: "yes",
-      notes: "Agent Mode (GA in VS Code since February 2025) and Copilot Workspace (GA for all Pro/Business/Enterprise subscribers) provide full multi-step planning: generating a plan, writing code, running tests, and iterating autonomously.",
-      examples: ["Using Copilot Workspace to plan and implement a new feature end-to-end", "Agent Mode breaking a task into steps and executing them autonomously"],
+      notes: "Agent Mode (GA in VS Code since February 2025) and the Copilot coding agent provide multi-step planning: generating a plan, writing code, running tests, and iterating autonomously.",
+      examples: ["Agent Mode breaking a task into steps and executing them autonomously"],
       last_verified: "2026-03-16",
-      sources: ["https://github.blog/news-insights/product-news/github-copilot-coding-agent-is-now-generally-available/", "https://github.blog/news-insights/product-news/github-copilot-workspace-is-now-generally-available/"]
+      sources: ["https://github.blog/news-insights/product-news/github-copilot-coding-agent-is-now-generally-available/"]
     },
     {
       feature_id: "automatic-context-awareness",

@@ -3,14 +3,14 @@
   "name": "Claude Code",
   "aliases": ["Claude-code", "Claude Developer Tool"],
   "provider": "Anthropic",
-  "website": "[invalid url, do not cite]",
-  "supported_ide": ["VSCode", "JetBrains", "Neovim"],
-  "updated_at": "2026-03-16",
-  "description": "Claude Code is an agentic coding tool by Anthropic that operates in the terminal and integrates with VS Code, JetBrains IDEs, and Neovim. It understands your entire codebase to assist with coding tasks, debugging, and git workflows through natural language commands. Powered by Claude Sonnet 4.6 and Claude Opus 4.6, it supports Agent Teams for parallel multi-agent execution and up to 1M token context window (beta).",
+  "website": "https://code.claude.com",
+  "supported_ide": ["Terminal / CLI", "VSCode", "Cursor", "JetBrains", "Desktop app", "Web", "Mobile (iOS/Android)"],
+  "updated_at": "2026-09-30",
+  "description": "Claude Code is an agentic coding tool by Anthropic that reads your codebase, edits files, runs commands, and integrates with your development tools. It is available in the terminal, VS Code (and Cursor), JetBrains IDEs, a desktop app, the web, and the Claude mobile app. It defaults to Claude Opus 5.5 on most plans, can switch to Sonnet 5.5, Fable 5.1, or Haiku 4.5, and supports a native 1M token context window on Opus 5.5, Sonnet 5.5, and Fable. It can spawn multiple sub-agents in parallel and run scheduled cloud routines.",
   "faq": [
     {
       "question": "How does Claude Code integrate with my development environment?",
-      "answer": "Claude Code integrates directly with your terminal for command-line interactions and supports native integrations with VS Code, JetBrains IDEs (IntelliJ, PyCharm, WebStorm), and Neovim (via claude-code.nvim), allowing it to understand your entire codebase and provide suggestions within your code files."
+      "answer": "Claude Code runs in your terminal and also offers a VS Code extension (installable in Cursor too), a JetBrains plugin (IntelliJ IDEA, PyCharm, WebStorm, and others), a desktop app for macOS and Windows, and a web version at claude.ai/code. All surfaces share the same engine, so your CLAUDE.md files, settings, and MCP servers work across them."
     },
     {
       "question": "What programming languages does Claude Code support?",
@@ -18,7 +18,7 @@
     },
     {
       "question": "How do I install Claude Code?",
-      "answer": "To install Claude Code, run `npm install -g @anthropic-ai/claude-code` in your terminal. Then, navigate to your project directory and run `claude` to start using it."
+      "answer": "The recommended method is the native installer: run `curl -fsSL https://claude.ai/install.sh | bash` on macOS, Linux, or WSL, or `irm https://claude.ai/install.ps1 | iex` in Windows PowerShell. It is also available via Homebrew (`brew install --cask claude-code`), WinGet (`winget install Anthropic.ClaudeCode`), and apt, dnf, or apk. Then run `claude` in your project directory."
     },
     {
       "question": "Can Claude Code work with my existing codebase?",
@@ -26,7 +26,7 @@
     },
     {
       "question": "Does Claude Code require an API key?",
-      "answer": "Yes, Claude Code requires an Anthropic API key for authentication. You can obtain one from the Anthropic Console."
+      "answer": "Not necessarily. Most surfaces require either a Claude subscription or an Anthropic Console account; you log in on first use. If the ANTHROPIC_API_KEY environment variable is set, Claude Code asks you to approve that key instead. The terminal CLI, VS Code, and JetBrains also support third-party providers."
     },
     {
       "question": "How does Claude Code handle security and privacy?",
@@ -34,7 +34,7 @@
     },
     {
       "question": "What are the usage limits for Claude Code?",
-      "answer": "Claude Code is available on the Pro plan ($17-20/month) and the Max plan ($100-200/month) with higher usage limits. Usage is measured per API call to Claude Sonnet 4.6 or Opus 4.6. For detailed information, refer to Anthropic's pricing at https://anthropic.com/pricing."
+      "answer": "Claude Code is included in all paid Claude plans and shares usage limits with Claude chat: Pro ($20/month, or $17/month billed annually), Max (from $100/month), Team Standard ($25/seat/month, or $20 billed annually), Team Premium ($125/seat/month, or $100 billed annually), and Enterprise ($20/seat/month plus usage at API rates). It is not included in the Free plan. See https://claude.com/pricing for details."
     },
     {
       "question": "Can I use Claude Code offline?",
@@ -54,7 +54,7 @@
     },
     {
       "question": "Is Claude Code available for enterprise use?",
-      "answer": "Yes, Claude Code is available for enterprise use and can integrate with platforms like Amazon Bedrock and Google Vertex AI for secure and compliant deployments."
+      "answer": "Yes. Claude Code is included in the Team and Enterprise plans and can also run through third-party providers such as Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry, and the Claude Platform on AWS."
     },
     {
       "question": "Does Claude Code support version control systems like Git?",
@@ -66,15 +66,11 @@
     },
     {
       "question": "How does Claude Code handle large codebases?",
-      "answer": "Claude Code is designed to understand and work with entire codebases, making it suitable for large projects. It supports up to 200K tokens of context standard and up to 1M tokens in beta. For very large codebases, the Agent Teams feature allows spawning multiple parallel agents with Git worktrees to tackle different parts simultaneously."
-    },
-    {
-      "question": "What is Agent Teams in Claude Code?",
-      "answer": "Agent Teams is a feature that allows Claude Code to spawn multiple sub-agents running in parallel, each working in its own Git worktree. This lets you tackle complex tasks simultaneously — for example, one agent writing tests while another implements a feature — dramatically reducing time on large tasks."
+      "answer": "Claude Code is designed to understand and work with entire codebases. Opus 5.5, Sonnet 5.5, and Fable support a native 1M token context window; models without 1M support use 200K tokens. For large tasks, it can spawn multiple sub-agents that work on different parts in parallel while a lead agent coordinates and merges the results."
     },
     {
       "question": "Which AI models does Claude Code use?",
-      "answer": "Claude Code is powered by Anthropic's latest models: Claude Sonnet 4.6 (default, fast and capable) and Claude Opus 4.6 (most powerful, for complex tasks). There is no model called 'Claude 4' — the naming follows a versioned tier system (Haiku, Sonnet, Opus)."
+      "answer": "On the Anthropic API and on the Pro, Max, Team, and Enterprise plans, Claude Code defaults to Claude Opus 5.5. You can switch models with /model using aliases: opus (Opus 5.5), sonnet (Sonnet 5.5), fable (Fable 5.1), haiku (Haiku 4.5), best (Fable where available), and opusplan (Opus for planning, Sonnet for execution). Model mappings differ on Bedrock, Google Cloud, and Microsoft Foundry."
     }
   ]
 }

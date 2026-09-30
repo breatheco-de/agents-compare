@@ -14,10 +14,10 @@
     {
       feature_id: "broad-ide-integration",
       support_level: "yes",
-      notes: "Claude Code has official plugins for VS Code and the full JetBrains family (IntelliJ IDEA, PyCharm, WebStorm, etc.), plus community Neovim integration via claude-code.nvim.",
-      examples: ["Using Claude Code in VS Code for code generation", "Integrating with JetBrains for advanced refactoring", "Using claude-code.nvim for Neovim integration"],
-      last_verified: "2026-03-16",
-      sources: ["https://docs.anthropic.com/en/docs/claude-code/ide-integrations", "https://github.com/anthropics/claude-code.nvim"]
+      notes: "Claude Code has an official VS Code extension (also installable in Cursor) and a JetBrains plugin for IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs, alongside the terminal CLI, a desktop app, and a web version.",
+      examples: ["Using Claude Code in VS Code with inline diffs and plan review", "Using the JetBrains plugin for interactive diff viewing"],
+      last_verified: "2026-09-30",
+      sources: ["https://code.claude.com/docs/en/overview"]
     },
     {
       feature_id: "claude-4-support",
@@ -46,10 +46,10 @@
     {
       feature_id: "context-window",
       support_level: "yes",
-      notes: "Supports large context windows up to 200K tokens standard. A 1M token context window is available in beta (2026), enabling handling of very large codebases in a single session.",
-      examples: ["Processing entire codebases in a single context for refactoring", "Holding an entire monorepo in context during a large refactor (1M beta)"],
-      last_verified: "2026-03-16",
-      sources: ["https://docs.anthropic.com/en/docs/claude-code/context-management"]
+      notes: "Opus 5.5, Sonnet 5.5, and Fable 5.1/5 support a native 1M token context window. Opus 4.6 and Sonnet 4.6 can use 1M via the [1m] alias suffix; models without 1M support use 200K tokens.",
+      examples: ["Starting a session with a 1M token context: claude --model opus[1m]", "Holding a large monorepo in context during a refactor"],
+      last_verified: "2026-09-30",
+      sources: ["https://code.claude.com/docs/en/model-config"]
     },
     {
       feature_id: "dedicated-instruction-file",

@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Compare AI Coding Agents Feature by Feature | Agent Comparison Hub',
-  description: 'Compare AI coding agents like Cursor, GitHub Copilot, Claude Dev, and more across features like MCP support, context windows, and planning capabilities. Find the perfect AI coding assistant for your needs.',
-  keywords: ['AI coding agents', 'code assistant comparison', 'Cursor vs GitHub Copilot', 'Claude Dev', 'MCP support', 'coding AI'],
+  description: 'Compare AI coding agents like Cursor, GitHub Copilot, Claude Code, and more across features like MCP support, context windows, and planning capabilities. Find the perfect AI coding assistant for your needs.',
+  keywords: ['AI coding agents', 'code assistant comparison', 'Cursor vs GitHub Copilot', 'Claude Code', 'MCP support', 'coding AI'],
   authors: [{ name: '4Geeks Academy' }],
   creator: '4Geeks Academy',
   publisher: '4Geeks Academy',

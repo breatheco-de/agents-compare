@@ -5,12 +5,12 @@
   "provider": "Cursor.sh",
   "website": "https://cursor.com",
   "supported_ide": ["VSCode (fork)", "JetBrains (via ACP)"],
-  "updated_at": "2026-03-16",
+  "updated_at": "2026-09-30",
   "description": "A VSCode-based AI agent for editing, refactoring, and task-based coding with powerful autocomplete and chat features. Cursor 2.0 added an integrated browser with live preview and Chrome DevTools; Cursor 2.2 added a Visual Editor for drag-and-drop UI manipulation. Also available in JetBrains IDEs via Agent Client Protocol.",
   "faq": [
     {
       "question": "What models does Cursor support?",
-      "answer": "Cursor supports a wide range of frontier models including Claude Sonnet 4.6, Claude Opus 4.6, Claude Haiku 4.5, GPT-4.1, GPT-4o, and Gemini 2.0. You can switch between models per conversation based on your task requirements."
+      "answer": "Cursor offers two usage pools. Cursor Models (with more included usage): Composer 2.5 and Grok 4.7, 4.6, and 4.5. Other Models, billed at API rates on Pro and higher: Anthropic (Claude Opus 4.7/4.6, Sonnet 4.6/4.5, Haiku), OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini), Google (Gemini 3.1 Pro, Gemini 3.8 Flash), plus Moonshot Kimi, Z.ai GLM, and Meta Muse models. You can switch models per conversation."
     },
     {
       "question": "How does Cursor differ from GitHub Copilot?",
@@ -21,16 +21,16 @@
       "answer": "Yes, Cursor is compatible with most VSCode extensions since it's built on the VSCode codebase. You can install extensions from the VSCode marketplace just like in regular VSCode."
     },
     {
-      "question": "What makes Cursor different from other AI coding assistants like GitHub Copilot or Windsurf?",
-      "answer": "Cursor is a VS Code-based IDE with deep AI integration, offering natural language interaction, code generation, and multi-file editing. It balances agentic capabilities with a familiar interface, distinguishing it from Copilot's extension-based approach and Windsurf's standalone IDE."
+      "question": "What makes Cursor different from other AI coding assistants like GitHub Copilot or Devin Desktop?",
+      "answer": "Cursor is a VS Code-based IDE with deep AI integration, offering natural language interaction, code generation, and multi-file editing. It balances agentic capabilities with a familiar interface, distinguishing it from Copilot's extension-based approach and from Devin Desktop (formerly Windsurf), which centers its IDE on a command center for managing multiple agents."
     },
     {
       "question": "Which AI models does Cursor use?",
-      "answer": "Cursor uses a mix of frontier models from Anthropic (Claude Sonnet 4.6, Opus 4.6, Haiku 4.5), OpenAI (GPT-4.1, GPT-4o), and Google (Gemini 2.0), allowing users to select models for specific tasks."
+      "answer": "Cursor combines its own models (Composer 2.5 and Grok 4.7/4.6/4.5, in the Cursor Models pool) with third-party frontier models from Anthropic, OpenAI, Google, Moonshot, Z.ai, and Meta, allowing users to select models for specific tasks."
     },
     {
       "question": "Is Cursor free to use, and what are the limitations of the free tier?",
-      "answer": "Cursor offers a free Hobby plan with limited usage. Paid plans use a credit-based system (since June 2025): Pro at $20/month, Pro+ at $60/month (3x credits), and Ultra at $200/month (20x credits). Business is $40/user/month with team admin features. See https://cursor.com/pricing for details."
+      "answer": "Cursor offers a free Hobby plan (no credit card required) with limited Agent requests. Individual plans are Pro ($20/month), Pro Plus ($60/month), and Ultra ($200/month), each with a monthly pool for Cursor Models and another for third-party models charged at API rates. Teams costs $40/user/month and adds centralized billing, SSO, and Bugbot code reviews; Enterprise has custom pricing. See https://cursor.com/pricing for details."
     },
     {
       "question": "Can Cursor work with my existing codebases, including private repositories?",
@@ -62,7 +62,7 @@
     },
     {
       "question": "How does Cursor's pricing compare to other AI coding tools?",
-      "answer": "Cursor's Pro plan is $20/month using a credit-based system. GitHub Copilot Pro is $10/month (cheapest entry point). Windsurf Pro is $15/month. For power users, Cursor Pro+ ($60/month) and Ultra ($200/month) offer higher credit pools. See https://cursor.com/pricing for the latest."
+      "answer": "Cursor Pro is $20/month. GitHub Copilot Pro is $10/month (cheapest entry point) and Devin Desktop Pro is $20/month. For power users, Cursor Pro Plus ($60/month) and Ultra ($200/month) include larger usage pools. See https://cursor.com/pricing for the latest."
     },
     {
       "question": "Is there a way to customize Cursor's suggestions or behavior?",
