@@ -90,7 +90,7 @@ Sustituye a `claude3-support` y `claude-4-support`. Criterio: el agente permite 
 
 Otros efectos de este cambio:
 
-- Las URL `/feature/claude3-support` y `/feature/claude-4-support` dejarán de existir (404). No se añadieron redirects porque no estaban en el plan aprobado; se pueden añadir en `next.config.js` hacia `/feature/claude-latest-support`.
+- ✅ Resuelto: `/feature/claude3-support` y `/feature/claude-4-support` redirigen con un 301 a `/feature/claude-latest-support` (`next.config.js`).
 - `overview.md` (inventario del apéndice y ejemplo de `index.json5`) y `memory-bank/v0-requirements.md` siguen citando las características antiguas y agentes como windsurf. Son documentos internos que ya estaban desactualizados antes de este cambio; no se modificaron.
 
 ## Enlaces y rutas

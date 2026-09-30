@@ -16,6 +16,17 @@ const nextConfig = {
         source: '/agent/amazon-q-developer',
         destination: '/agent/kiro',
         statusCode: 301
+      },
+      {
+        // Claude 3/4 features were merged into claude-latest-support
+        source: '/feature/claude3-support',
+        destination: '/feature/claude-latest-support',
+        statusCode: 301
+      },
+      {
+        source: '/feature/claude-4-support',
+        destination: '/feature/claude-latest-support',
+        statusCode: 301
       }
     ]
   },
