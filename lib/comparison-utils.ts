@@ -74,3 +74,19 @@ export function getAgentSupportStats(
   const percentage = total > 0 ? Math.round(((supported + partial * 0.5) / total) * 100) : 0;
   return { total, supported, partial, percentage };
 }
+
+// Matrix score for one agent: yes = 1, partial = 0.5, no = 0, averaged over the features that have data.
+// "unknown" (or a missing entry) doesn't count; `known` reports coverage out of `total`.
+export function getAgentScore(
+  agentId: string,
+  features: Feature[],
+  supportMatrix: AgentFeatureSupport[]
+): { total: number; known: number; supported: number; partial: number; percentage: number | null } {
+  const featureIds = new Set(features.map(f => f.id));
+  const entries = supportMatrix.filter(s => s.agent_id === agentId && featureIds.has(s.feature_id) && s.support_level !== 'unknown');
+  const supported = entries.filter(s => s.support_level === 'yes').length;
+  const partial = entries.filter(s => s.support_level === 'partial').length;
+  const known = entries.length;
+  const percentage = known > 0 ? Math.round(((supported + partial * 0.5) / known) * 100) : null;
+  return { total: features.length, known, supported, partial, percentage };
+}

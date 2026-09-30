@@ -1,10 +1,9 @@
 'use client'
 
-import React, { useState, useRef, useEffect, useId } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useState, useRef, useEffect } from 'react'
+import { HoverTooltip } from './HoverTooltip'
+import { SupportStatusIcon } from './SupportStatusIcon'
 import {
-  SUPPORT_LEVELS,
-  SUPPORT_LEVEL_TEXT,
   SUPPORT_LEVEL_DESCRIPTIONS,
   SUPPORT_DATA_DISCLAIMER,
   type SupportLevelKey
@@ -149,7 +148,7 @@ export default function SupportLevelBadge({
         onMouseLeave={() => showTooltip && setIsHovered(false)}
         aria-describedby={isHovered ? `tooltip-${level}` : undefined}
       >
-        {showIcon && `${config.icon} `}
+        {showIcon && <SupportStatusIcon level={level} size={14} label={null} className="-mt-0.5 mr-1 align-middle" />}
         {children || config.label}
       </span>
       
@@ -190,12 +189,10 @@ interface SupportLevelIconProps {
   buttonLabel?: string
   buttonClassName?: string
   showTooltip?: boolean
+  size?: number
 }
 
-const TOOLTIP_WIDTH = 288
-
-// Emoji-only support indicator with an accessible label and a detailed tooltip.
-// The tooltip is rendered in a portal with fixed positioning so scroll containers don't clip it.
+// Status icon (SVG shape per level) with an accessible label and a detailed tooltip
 export function SupportLevelIcon({
   level,
   className = '',
@@ -204,90 +201,32 @@ export function SupportLevelIcon({
   onClick,
   buttonLabel,
   buttonClassName = '',
-  showTooltip = true
+  showTooltip = true,
+  size = 20
 }: SupportLevelIconProps) {
-  const tooltipId = useId()
-  const triggerRef = useRef<HTMLElement | null>(null)
-  const [tip, setTip] = useState<{ left: number; top: number; above: boolean } | null>(null)
-
-  const show = () => {
-    if (!showTooltip || !triggerRef.current) return
-    const rect = triggerRef.current.getBoundingClientRect()
-    const above = rect.top > 220
-    const left = Math.min(
-      Math.max(rect.left + rect.width / 2 - TOOLTIP_WIDTH / 2, 8),
-      window.innerWidth - TOOLTIP_WIDTH - 8
-    )
-    setTip({ left, top: above ? rect.top - 8 : rect.bottom + 8, above })
-  }
-  const hide = () => setTip(null)
-
-  // Hide on any scroll or resize, since the tooltip is positioned against the viewport
-  useEffect(() => {
-    if (!tip) return
-    window.addEventListener('scroll', hide, true)
-    window.addEventListener('resize', hide)
-    return () => {
-      window.removeEventListener('scroll', hide, true)
-      window.removeEventListener('resize', hide)
-    }
-  }, [tip])
-
-  const emoji = (
-    <span role="img" aria-label={SUPPORT_LEVEL_TEXT[level].full} className="text-lg leading-none">
-      {SUPPORT_LEVELS[level].icon}
-    </span>
-  )
-
-  const tooltip = tip && createPortal(
-    <div
-      id={tooltipId}
-      role="tooltip"
-      style={{ position: 'fixed', left: tip.left, top: tip.top, width: TOOLTIP_WIDTH, transform: tip.above ? 'translateY(-100%)' : undefined }}
-      className="pointer-events-none z-[60] space-y-2 rounded-lg border border-gray-700 bg-gray-800 p-3 text-left text-sm shadow-xl"
-    >
+  const content = (
+    <>
       {context && <p className="font-semibold text-gray-100">{context}</p>}
-      <p className="text-gray-200">{SUPPORT_LEVELS[level].icon} {SUPPORT_LEVEL_DESCRIPTIONS[level]}</p>
+      <p className="flex items-center gap-2 text-gray-200">
+        <SupportStatusIcon level={level} size={16} label={null} />
+        {SUPPORT_LEVEL_DESCRIPTIONS[level]}
+      </p>
       {notes && <p className="line-clamp-4 text-xs text-gray-300">{notes}</p>}
-      <p className="border-t border-gray-700 pt-2 text-xs text-gray-400">ℹ️ {SUPPORT_DATA_DISCLAIMER}</p>
-    </div>,
-    document.body
+      <p className="border-t border-gray-700 pt-2 text-xs text-gray-400">{SUPPORT_DATA_DISCLAIMER}</p>
+    </>
   )
 
   if (onClick) {
     return (
-      <>
-        <button
-          ref={el => { triggerRef.current = el }}
-          type="button"
-          onClick={onClick}
-          onMouseEnter={show}
-          onMouseLeave={hide}
-          onFocus={show}
-          onBlur={hide}
-          aria-label={buttonLabel}
-          aria-describedby={tip ? tooltipId : undefined}
-          className={buttonClassName}
-        >
-          {emoji}
-        </button>
-        {tooltip}
-      </>
+      <HoverTooltip as="button" content={content} onClick={onClick} ariaLabel={buttonLabel} className={buttonClassName} enabled={showTooltip}>
+        <SupportStatusIcon level={level} size={size} label={null} />
+      </HoverTooltip>
     )
   }
 
   return (
-    <>
-      <span
-        ref={el => { triggerRef.current = el }}
-        onMouseEnter={show}
-        onMouseLeave={hide}
-        aria-describedby={tip ? tooltipId : undefined}
-        className={`inline-flex items-center justify-center ${className}`}
-      >
-        {emoji}
-      </span>
-      {tooltip}
-    </>
+    <HoverTooltip content={content} className={`inline-flex items-center justify-center ${className}`} enabled={showTooltip}>
+      <SupportStatusIcon level={level} size={size} />
+    </HoverTooltip>
   )
 }

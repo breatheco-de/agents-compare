@@ -1,9 +1,5 @@
 import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-loader'
-import { Table } from '@/components/tables/Table'
-import { ScrollArea } from '@/components/tables/ScrollArea'
-import { SupportLevelIcon } from '@/components/ui/SupportLevelBadge'
-import { SupportLegend } from '@/components/comparison/SupportLegend'
-import { ComparisonCards } from '@/components/comparison/ComparisonCards'
+import { AgentFeatureMatrix } from '@/components/comparison/AgentFeatureMatrix'
 import PageContainer from '@/components/layout/PageContainer'
 import { CompareSelector } from '@/components/home/CompareSelector'
 
@@ -13,6 +9,7 @@ export default async function HomePage() {
   const supportMatrix = await loadAgentFeatureSupport()
 
   return (
+    <>
     <PageContainer>
       {/* Hero Section */}
       <section className="text-center mb-12">
@@ -27,79 +24,15 @@ export default async function HomePage() {
         <CompareSelector agents={agents} features={features} />
       </section>
 
-      {/* Preview Comparison Table (3x5) */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-center">Quick Feature Comparison</h2>
-        {/* Desktop table; small screens use the card layout below */}
-        <div className="hidden md:block">
-        <SupportLegend className="mb-4" />
-        <ScrollArea label="Quick feature comparison table" className="max-h-[70vh] rounded-lg border border-gray-600">
-          <Table bare ariaLabel="Quick comparison of AI coding agents and their feature support" className="w-full border-separate border-spacing-0">
-            {/* The whole header row is sticky with one background, so rotated labels can overflow into neighbouring columns */}
-            <thead className="sticky top-0 z-20 bg-gray-800">
-              <tr>
-                <th scope="col" className="sticky left-0 z-30 w-48 min-w-[12rem] border-b border-r border-gray-600 bg-gray-800 px-4 py-3 text-left align-bottom text-sm font-semibold text-gray-200">
-                  Agent
-                </th>
-                {features.map(feature => (
-                  <th key={feature.id} scope="col" className="h-40 w-14 min-w-[3.5rem] border-b border-gray-600 p-0 align-bottom">
-                    {/* Rotated label keeps columns narrow so the table fits without horizontal scroll */}
-                    <div className="relative h-40 w-14">
-                      <a
-                        href={`/feature/${feature.id}`}
-                        title={feature.name}
-                        className="absolute bottom-3 left-1/2 block w-40 origin-bottom-left -rotate-45 text-left text-xs font-semibold leading-tight text-gray-200 hover:text-blue-400"
-                      >
-                        {feature.name}
-                      </a>
-                    </div>
-                  </th>
-                ))}
-                {/* Spacer so the last rotated label isn't cut off */}
-                <th aria-hidden="true" className="w-28 min-w-[7rem] border-b border-gray-600" />
-              </tr>
-            </thead>
-            <tbody>
-              {agents.map(agent => (
-                <tr key={agent.id} className="group">
-                  <th scope="row" className="sticky left-0 z-10 border-b border-r border-gray-700 bg-gray-900 px-4 py-3 text-left font-normal group-hover:bg-gray-800">
-                    <a
-                      href={`/agent/${agent.id}`}
-                      className="font-semibold text-blue-400 hover:text-blue-300 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-                    >
-                      {agent.name}
-                    </a>
-                    <div className="text-sm text-gray-400">{agent.provider}</div>
-                  </th>
-                  {features.map(feature => {
-                    const support = supportMatrix.find(s => s.agent_id === agent.id && s.feature_id === feature.id)
-                    const level = support?.support_level || 'unknown'
+    </PageContainer>
 
-                    return (
-                      <td key={feature.id} className="border-b border-gray-700 px-1 py-3 text-center group-hover:bg-gray-800/40">
-                        <SupportLevelIcon
-                          level={level as 'yes' | 'partial' | 'no' | 'unknown'}
-                          context={`${agent.name} · ${feature.name}`}
-                          notes={support?.notes}
-                        />
-                      </td>
-                    )
-                  })}
-                  <td aria-hidden="true" className="border-b border-gray-700 group-hover:bg-gray-800/40" />
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </ScrollArea>
-        </div>
-        <ComparisonCards
-          agents={agents}
-          features={features}
-          supportMatrix={supportMatrix}
-          selectedSupportLevels={[]}
-        />
-      </section>
+    {/* Full-width comparison: matrix on desktop, cards on mobile */}
+    <section className="mx-auto mb-4 w-full max-w-[1920px] px-4 md:px-6">
+      <h2 className="mb-6 text-center text-2xl font-bold">Quick Feature Comparison</h2>
+      <AgentFeatureMatrix agents={agents} features={features} supportMatrix={supportMatrix} />
+    </section>
 
+    <PageContainer>
       {/* Quick Links */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Explore More</h2>
@@ -181,5 +114,6 @@ export default async function HomePage() {
         </div>
       </section>
     </PageContainer>
+    </>
   )
 } 

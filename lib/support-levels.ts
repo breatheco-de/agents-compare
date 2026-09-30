@@ -32,3 +32,44 @@ export const SUPPORT_DATA_DISCLAIMER =
   'Support information is sourced from official documentation and public information. ' +
   'While we strive for accuracy, there may be human or machine errors. ' +
   'Please verify critical features directly with the vendor.'
+
+// Short column labels for the comparison matrix (the full name is shown in a tooltip)
+export const FEATURE_SHORT_NAMES: Record<string, string> = {
+  'automatic-context-awareness': 'Auto context',
+  'filesystem-access': 'File access',
+  'mcp-support': 'MCP',
+  'broad-ide-integration': 'IDEs',
+  'claude-latest-support': 'Claude 4.5+',
+  'context-window': 'Context window',
+  'console-error-integration': 'Console errors',
+  'interactive-element-selection': 'UI selection',
+  'live-web-preview': 'Web preview',
+  'dedicated-instruction-file': 'Rules file',
+  'fine-grained-instruction-control': 'Pattern rules',
+  'supports-scoped-instructions': 'Rule scopes',
+  'planner-strategy': 'Planning'
+}
+
+// Category display order and short band labels for the comparison matrix
+export const CATEGORY_ORDER = ['Execution', 'Editor Integration', 'Model Support', 'Debugging', 'Configuration', 'Planning']
+
+export const CATEGORY_SHORT_NAMES: Record<string, string> = {
+  'Execution': 'Execution',
+  'Editor Integration': 'Editor',
+  'Model Support': 'Models',
+  'Debugging': 'Debugging',
+  'Configuration': 'Configuration',
+  'Planning': 'Planning'
+}
+
+// Features sorted by CATEGORY_ORDER, keeping their original order within each category
+export function orderFeaturesByCategory<T extends { category: string }>(features: T[]): T[] {
+  const rank = (c: string) => {
+    const i = CATEGORY_ORDER.indexOf(c)
+    return i === -1 ? CATEGORY_ORDER.length : i
+  }
+  return features
+    .map((f, i) => ({ f, i }))
+    .sort((a, b) => rank(a.f.category) - rank(b.f.category) || a.i - b.i)
+    .map(({ f }) => f)
+}
