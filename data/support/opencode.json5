@@ -20,6 +20,14 @@
       sources: ["https://opencode.ai/docs/ide/"]
     },
     {
+      feature_id: "claude-latest-support",
+      support_level: "unknown",
+      notes: "OpenCode works with any LLM provider through API keys, but current Claude support is not explicitly documented. Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/"]
+    },
+    {
       feature_id: "console-error-integration",
       support_level: "unknown",
       notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",

@@ -20,14 +20,6 @@
       sources: ["https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot"]
     },
     {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "GitHub Copilot now supports multiple models including Claude Sonnet 4.5/4.6, Claude Haiku 4.5, and Claude Opus 4.6, alongside GPT-4o, GPT-4.1, and Gemini 2.0. Users can switch models from the Copilot model picker.",
-      examples: ["Using Claude Sonnet 4.6 for complex refactoring in Agent Mode", "Switching to Claude Haiku 4.5 for faster completions"],
-      last_verified: "2026-03-16",
-      sources: ["https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot", "https://github.blog/changelog/2026/02/github-copilot-claude-model-support/"]
-    },
-    {
       feature_id: "filesystem-access",
       support_level: "yes",
       notes: "In Agent Mode (GA in VS Code since February 2025), GitHub Copilot can autonomously create, modify, and delete files across the workspace without manual intervention.",
@@ -75,14 +67,12 @@
       ]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "GitHub Copilot supports Claude Opus 4.6 (generally available as of February 2026) and Claude Sonnet 4.6 via the model picker. Users can select Claude models for different tasks directly in the Copilot chat panel.",
-      examples: ["Using Claude Opus 4.6 for complex architectural refactoring", "Selecting Claude Sonnet 4.6 for faster code generation tasks"],
-      last_verified: "2026-03-16",
-      sources: [
-        "https://github.blog/changelog/2026/02/github-copilot-claude-model-support/"
-      ]
+      notes: "The Copilot model picker includes Claude Haiku, Sonnet, Opus, and Fable variants, depending on the plan.",
+      examples: ["Selecting a Claude Fable model in Copilot Chat"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.github.com/en/copilot/get-started/plans"]
     },
     {
       feature_id: "console-error-integration",

@@ -2,8 +2,7 @@
   "features": [
     "automatic-context-awareness",
     "broad-ide-integration",
-    "claude-4-support",
-    "claude3-support",
+    "claude-latest-support",
     "console-error-integration",
     "context-window",
     "dedicated-instruction-file",

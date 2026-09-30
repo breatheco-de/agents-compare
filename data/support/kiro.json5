@@ -20,6 +20,14 @@
       sources: []
     },
     {
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "Paid plans include Claude Sonnet 5 and Claude Opus 5, Kiro added Claude Fable 5.1 and Claude Opus 5.5 in September 2026, and the Free plan includes Claude Sonnet 4.5.",
+      examples: ["Selecting Claude Opus 5.5 for a spec implementation"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/pricing/", "https://kiro.dev/blog/"]
+    },
+    {
       feature_id: "console-error-integration",
       support_level: "unknown",
       notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",

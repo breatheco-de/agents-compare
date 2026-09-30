@@ -20,20 +20,12 @@
       sources: ["https://devin.ai/docs"]
     },
     {
-      feature_id: "claude-4-support",
-      support_level: "no",
-      notes: "Devin uses Cognition AI's proprietary models. It does not support Anthropic's Claude Sonnet 4.6 or Claude Opus 4.6 models, nor does it offer a user-facing model picker.",
+      feature_id: "claude-latest-support",
+      support_level: "unknown",
+      notes: "Claude models are available on Pro and higher plans, but the specific Claude versions are not documented. Pending verification: not confirmed in official documentation as of 2026-09-30.",
       examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://devin.ai"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "no",
-      notes: "Devin uses Cognition AI's proprietary internal models and does not support Claude 3 or any Anthropic model family.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://devin.ai"]
+      last_verified: "2026-09-30",
+      sources: ["https://devin.ai/pricing"]
     },
     {
       feature_id: "console-error-integration",

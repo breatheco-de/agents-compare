@@ -20,20 +20,12 @@
       sources: ["https://code.claude.com/docs/en/overview"]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Natively supports Claude Sonnet 4.6 (default) and Claude Opus 4.6 (most powerful) for advanced code generation and analysis. Note: there is no model called 'Claude 4' — Anthropic uses a versioned tier system.",
-      examples: ["Using Claude Sonnet 4.6 for everyday coding tasks", "Switching to Claude Opus 4.6 for complex architectural decisions"],
-      last_verified: "2026-03-16",
-      sources: ["https://www.anthropic.com/news/claude-sonnet-4-6-claude-opus-4-6"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "Natively supports Claude 3 models, including Opus, Sonnet, and Haiku, for enhanced coding capabilities.",
-      examples: ["Using Claude 3 Opus for multi-file code generation"],
-      last_verified: "2025-07-08",
-      sources: []
+      notes: "Defaults to Claude Opus 5.5 and supports Sonnet 5.5, Fable 5.1, and Haiku 4.5 through the /model aliases.",
+      examples: ["Switching to Fable for a long, complex task with /model fable"],
+      last_verified: "2026-09-30",
+      sources: ["https://code.claude.com/docs/en/model-config"]
     },
     {
       feature_id: "console-error-integration",

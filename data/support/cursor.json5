@@ -20,20 +20,12 @@
       sources: ["https://cursor.com/blog/jetbrains-support"]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Supports the latest Claude models including Claude Sonnet 4.6 and Claude Opus 4.6 alongside other frontier models (GPT-4.1, GPT-4o, Gemini). Model selection is available per conversation.",
-      examples: ["Using Claude Sonnet 4.6 for complex refactoring tasks", "Switching to Claude Opus 4.6 for architectural planning"],
-      last_verified: "2026-03-16",
-      sources: ["https://cursor.com/pricing"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "Supports the full Claude model family including Claude Sonnet 4.5/4.6, Claude Haiku 4.5, and Claude Opus 4.6 for advanced code generation and analysis.",
-      examples: ["Using Claude Sonnet 4.6 for multi-file code generation"],
-      last_verified: "2026-03-16",
-      sources: ["https://cursor.com/models"]
+      notes: "Offers Claude Opus 4.7 and 4.6, Claude Sonnet 4.6 and 4.5, and Claude Haiku in the Other Models pool, billed at API rates on Pro and higher.",
+      examples: ["Selecting Claude Opus 4.7 for an architectural refactor"],
+      last_verified: "2026-09-30",
+      sources: ["https://cursor.com/docs/models-and-pricing"]
     },
     {
       feature_id: "console-error-integration",

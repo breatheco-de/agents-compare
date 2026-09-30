@@ -77,3 +77,18 @@ Estas celdas están publicadas como `unknown` con la nota "Pending verification"
 | OpenCode | Empresa detrás del proyecto (el repo pertenece a "anomalyco") y última versión publicada | ❓ | https://github.com/sst/opencode |
 | OpenCode | Número de estrellas (≈211k el 30/09/2026) — cambiará con el tiempo | — | https://github.com/sst/opencode |
 | Cline | Empresa proveedora, última versión y modelos Claude concretos | ❓ | https://docs.cline.bot/provider-config/anthropic.md no enumera versiones |
+
+## Característica `claude-latest-support`
+
+Sustituye a `claude3-support` y `claude-4-support`. Criterio: el agente permite usar modelos Claude 4.5 o posteriores.
+
+| Herramienta | Estado publicado | Qué falta |
+|---|---|---|
+| devin-ai, devin-desktop | unknown | Hay modelos Claude disponibles, pero la documentación no dice qué versiones. |
+| cline, opencode | unknown | Aceptan claves de Anthropic, pero la documentación no enumera versiones de Claude. |
+| google-jules, openai-codex, gemini-cli | unknown | No se encontró documentación sobre Claude (probablemente `no`, pero sin fuente que lo diga). |
+
+Otros efectos de este cambio:
+
+- Las URL `/feature/claude3-support` y `/feature/claude-4-support` dejarán de existir (404). No se añadieron redirects porque no estaban en el plan aprobado; se pueden añadir en `next.config.js` hacia `/feature/claude-latest-support`.
+- `overview.md` (inventario del apéndice y ejemplo de `index.json5`) y `memory-bank/v0-requirements.md` siguen citando las características antiguas y agentes como windsurf. Son documentos internos que ya estaban desactualizados antes de este cambio; no se modificaron.

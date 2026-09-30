@@ -20,6 +20,14 @@
       sources: ["https://devin.ai/desktop"]
     },
     {
+      feature_id: "claude-latest-support",
+      support_level: "unknown",
+      notes: "Claude models are listed among the models available in Devin Desktop, but the specific Claude versions are not documented. Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/_llms/en/desktop.md"]
+    },
+    {
       feature_id: "console-error-integration",
       support_level: "yes",
       notes: "Previews run your web app locally in Devin Desktop or the browser with error capture sent directly to the agent.",

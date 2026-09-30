@@ -20,20 +20,12 @@
       sources: ["https://jules.google/docs/changelog/"]
     },
     {
-      feature_id: "claude-4-support",
-      support_level: "no",
-      notes: "Jules is powered exclusively by Google's Gemini 2.0 model family. It does not support Anthropic's Claude models.",
+      feature_id: "claude-latest-support",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
       examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "no",
-      notes: "Jules uses Google's Gemini 2.0 models only. Anthropic Claude models are not supported.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
+      last_verified: "2026-09-30",
+      sources: []
     },
     {
       feature_id: "console-error-integration",
