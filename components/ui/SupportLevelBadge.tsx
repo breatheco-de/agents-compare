@@ -179,4 +179,41 @@ export const SUPPORT_LEVELS = {
   partial: { icon: '⚠️', text: 'Partial', label: 'Partial' },
   no: { icon: '❌', text: 'No', label: 'No Support' },
   unknown: { icon: '❓', text: 'Unknown', label: 'Unknown' }
-} as const 
+} as const
+
+export type SupportLevelKey = keyof typeof SUPPORT_LEVELS
+
+// Display order and accessible text for each level (used by icons and legends)
+export const SUPPORT_LEVEL_ORDER: SupportLevelKey[] = ['yes', 'partial', 'no', 'unknown']
+
+export const SUPPORT_LEVEL_TEXT: Record<SupportLevelKey, { full: string; short: string }> = {
+  yes: { full: 'Full support', short: 'Full' },
+  partial: { full: 'Partial support', short: 'Partial' },
+  no: { full: 'Not supported', short: 'No' },
+  unknown: { full: 'Unknown (not verified)', short: 'Unknown' }
+}
+
+interface SupportLevelIconProps {
+  level: SupportLevelKey
+  className?: string
+}
+
+// Emoji-only support indicator with an accessible label and a hover tooltip.
+// The tooltip also shows when a parent with the `group/cell` class has keyboard focus.
+export function SupportLevelIcon({ level, className = '' }: SupportLevelIconProps) {
+  const text = SUPPORT_LEVEL_TEXT[level].full
+
+  return (
+    <span className={`group/icon relative inline-flex items-center justify-center ${className}`}>
+      <span role="img" aria-label={text} className="text-lg leading-none">
+        {SUPPORT_LEVELS[level].icon}
+      </span>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 -translate-x-1/2 whitespace-nowrap rounded border border-gray-600 bg-gray-900 px-2 py-1 text-xs font-medium text-gray-100 opacity-0 shadow-lg transition-opacity group-hover/icon:opacity-100 group-focus-visible/cell:opacity-100"
+      >
+        {text}
+      </span>
+    </span>
+  )
+} 
