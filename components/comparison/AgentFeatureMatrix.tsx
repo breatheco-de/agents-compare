@@ -7,7 +7,7 @@ import { SupportLevelIcon } from '@/components/ui/SupportLevelBadge'
 import { SupportStatusIcon } from '@/components/ui/SupportStatusIcon'
 import { HoverTooltip } from '@/components/ui/HoverTooltip'
 import { ScrollArea } from '@/components/tables/ScrollArea'
-import { getAgentScore } from '@/lib/comparison-utils'
+import { DOCUMENTED_SUPPORT_EXPLANATION, getAgentScore } from '@/lib/comparison-utils'
 import {
   CATEGORY_SHORT_NAMES,
   FEATURE_SHORT_NAMES,
@@ -68,7 +68,7 @@ export function AgentFeatureMatrix({ agents, features, supportMatrix, shownLevel
     const dir = sort === 'descending' ? -1 : 1
     return [...agents].sort((x, y) => {
       const sx = scores.get(x.id)!, sy = scores.get(y.id)!
-      return ((sx.percentage ?? -1) - (sy.percentage ?? -1)) * dir || sy.known - sx.known || x.name.localeCompare(y.name)
+      return (sx.percentage - sy.percentage) * dir || sy.known - sx.known || x.name.localeCompare(y.name)
     })
   }, [agents, scores, sort])
 
@@ -123,14 +123,22 @@ interface ViewProps {
   onSortChange: (sort: SortOrder) => void
 }
 
-function coverageText(score: Score) {
-  return `${score.known}/${score.total} with data`
+// Below this share of documented features the score is flagged as based on limited data
+const LIMITED_DATA_RATIO = 2 / 3
+
+function Coverage({ score }: { score: Score }) {
+  const limited = score.total > 0 && score.known / score.total < LIMITED_DATA_RATIO
+  return (
+    <span className={`text-xs ${limited ? 'text-amber-300' : 'text-gray-500'}`}>
+      {score.known}/{score.total} documented{limited && ' · Limited data'}
+    </span>
+  )
 }
 
-function ScoreBar({ percentage }: { percentage: number | null }) {
+function ScoreBar({ percentage }: { percentage: number }) {
   return (
     <div className="h-1.5 overflow-hidden rounded-full bg-gray-800" aria-hidden="true">
-      <div className="h-full rounded-full bg-blue-400" style={{ width: `${percentage ?? 0}%` }} />
+      <div className="h-full rounded-full bg-blue-400" style={{ width: `${percentage}%` }} />
     </div>
   )
 }
@@ -203,8 +211,16 @@ function MatrixTable({ agents, features, scores, levelOf, getSupport, isShown, o
                   onClick={() => onSortChange(NEXT_SORT[sort])}
                   className={`inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${sort === 'none' ? 'text-gray-400 hover:text-gray-200' : 'text-gray-100'}`}
                 >
-                  Score <span aria-hidden="true" className="font-mono text-gray-500">{sortArrow}</span>
+                  <span className="text-left leading-tight">Documented<br />support</span>
+                  <span aria-hidden="true" className="font-mono text-gray-500">{sortArrow}</span>
                 </button>
+                <HoverTooltip
+                  width={260}
+                  className="ml-1.5 inline-flex h-4 w-4 cursor-help items-center justify-center rounded-full border border-gray-500 align-middle text-[10px] font-semibold text-gray-400"
+                  content={<p className="text-xs text-gray-300">{DOCUMENTED_SUPPORT_EXPLANATION}</p>}
+                >
+                  <span aria-label="How documented support is calculated">?</span>
+                </HoverTooltip>
               </th>
             </tr>
             <tr>
@@ -269,8 +285,8 @@ function MatrixTable({ agents, features, scores, levelOf, getSupport, isShown, o
                   })}
                   <td className={`border-b border-l border-gray-800 border-l-gray-700 px-3 py-2 ${cellBg(agent.id)}`}>
                     <div className="flex items-baseline justify-between gap-2">
-                      <span className="font-semibold text-gray-100">{score.percentage === null ? '—' : `${score.percentage}%`}</span>
-                      <span className="text-xs text-gray-500">{coverageText(score)}</span>
+                      <span className="font-semibold text-gray-100">{score.percentage}%</span>
+                      <Coverage score={score} />
                     </div>
                     <div className="mt-1.5"><ScoreBar percentage={score.percentage} /></div>
                   </td>
@@ -311,7 +327,7 @@ function MatrixCards({ agents, features, scores, levelOf, isShown, onOpen, sort,
           onClick={() => onSortChange(NEXT_SORT[sort])}
           className="rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
-          Sort by score: <span className="font-semibold">{sortLabel}</span>
+          Sort by support: <span className="font-semibold">{sortLabel}</span>
         </button>
       </div>
 
@@ -329,8 +345,9 @@ function MatrixCards({ agents, features, scores, levelOf, isShown, onOpen, sort,
                     <p className="truncate text-xs text-gray-500">{agent.provider}</p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <div className="text-lg font-semibold tabular-nums text-gray-100">{score.percentage === null ? '—' : `${score.percentage}%`}</div>
-                    <div className="text-xs text-gray-500">{coverageText(score)}</div>
+                    <div className="text-lg font-semibold tabular-nums text-gray-100">{score.percentage}%</div>
+                    <div className="text-xs text-gray-500">documented support</div>
+                    <Coverage score={score} />
                   </div>
                 </div>
                 <ScoreBar percentage={score.percentage} />

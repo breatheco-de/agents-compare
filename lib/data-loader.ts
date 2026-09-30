@@ -1,4 +1,5 @@
 import JSON5 from 'json5'
+import { getAgentScore } from './comparison-utils'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import type { Agent, Feature, AgentFeatureSupport, Index } from '@/types'
@@ -288,9 +289,7 @@ export async function getAllAgentsWithStats(): Promise<Array<{
     const unknownCount = features.length - agentSupport.length + 
       agentSupport.filter(s => s.support_level === 'unknown').length
     
-    const supportPercentage = features.length > 0 
-      ? Math.round(((supportedCount + partialCount * 0.5) / features.length) * 100)
-      : 0
+    const supportPercentage = getAgentScore(agent.id, features, allSupport).percentage
     
     const supportStats = {
       totalFeatures: features.length,

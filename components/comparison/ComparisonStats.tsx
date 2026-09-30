@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
 import { ChartBarIcon, TrophyIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { documentedSupportPercentage, getAgentScore, getFeatureScore } from '@/lib/comparison-utils'
 import type { Agent, Feature, AgentFeatureSupport } from '@/types'
 
 interface ComparisonStatsProps {
@@ -15,38 +16,13 @@ export function ComparisonStats({ agents, features, supportMatrix }: ComparisonS
   // Calculate comprehensive statistics
   const stats = useMemo(() => {
     // Agent statistics
-    const agentStats = agents.map(agent => {
-      const agentSupport = supportMatrix.filter(s => s.agent_id === agent.id)
-      const supported = agentSupport.filter(s => s.support_level === 'yes').length
-      const partial = agentSupport.filter(s => s.support_level === 'partial').length
-      const total = features.length
-      const percentage = Math.round((supported + partial * 0.5) / total * 100)
-      
-      return {
-        agent,
-        supported,
-        partial,
-        total,
-        percentage
-      }
-    }).sort((a, b) => b.percentage - a.percentage)
+    const agentStats = agents.map(agent => ({ agent, ...getAgentScore(agent.id, features, supportMatrix) }))
+      .sort((a, b) => b.percentage - a.percentage || b.known - a.known)
 
     // Feature statistics
-    const featureStats = features.map(feature => {
-      const featureSupport = supportMatrix.filter(s => s.feature_id === feature.id)
-      const supported = featureSupport.filter(s => s.support_level === 'yes').length
-      const partial = featureSupport.filter(s => s.support_level === 'partial').length
-      const total = agents.length
-      const percentage = Math.round((supported + partial * 0.5) / total * 100)
-      
-      return {
-        feature,
-        supported,
-        partial,
-        total,
-        percentage
-      }
-    }).sort((a, b) => b.percentage - a.percentage)
+    const agentIds = agents.map(a => a.id)
+    const featureStats = features.map(feature => ({ feature, ...getFeatureScore(feature.id, agentIds, supportMatrix) }))
+      .sort((a, b) => b.percentage - a.percentage)
 
     // Category statistics
     const categoryStats = features.reduce((acc, feature) => {
@@ -76,7 +52,7 @@ export function ComparisonStats({ agents, features, supportMatrix }: ComparisonS
     const totalPartial = supportMatrix.filter(s => s.support_level === 'partial').length
     const totalNo = supportMatrix.filter(s => s.support_level === 'no').length
     const totalUnknown = supportMatrix.filter(s => s.support_level === 'unknown').length
-    const overallSupportPercentage = Math.round((totalYes + totalPartial * 0.5) / totalComparisons * 100)
+    const overallSupportPercentage = documentedSupportPercentage(totalYes, totalPartial, totalComparisons)
 
     return {
       agentStats,
@@ -241,7 +217,7 @@ export function ComparisonStats({ agents, features, supportMatrix }: ComparisonS
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {stats.categoryStats.map((categoryStat: any) => {
             const totalPossible = categoryStat.totalFeatures * agents.length
-            const supportPercentage = Math.round((categoryStat.totalSupport + categoryStat.totalPartial * 0.5) / totalPossible * 100)
+            const supportPercentage = documentedSupportPercentage(categoryStat.totalSupport, categoryStat.totalPartial, totalPossible)
             
             return (
               <div key={categoryStat.category} className="bg-gray-700 rounded-lg p-4">
