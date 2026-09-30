@@ -171,7 +171,8 @@ function MatrixTable({ agents, features, scores, levelOf, getSupport, isShown, o
         >
           <colgroup>
             <col className="w-[13.5rem]" />
-            {features.map(f => <col key={f.id} />)}
+            {/* Columns that are alone in their category get room for the category label */}
+            {features.map(f => <col key={f.id} className={groups.find(g => g.category === f.category)?.count === 1 ? 'w-20' : ''} />)}
             <col className="w-[11rem]" />
           </colgroup>
           <thead>
@@ -185,7 +186,7 @@ function MatrixTable({ agents, features, scores, levelOf, getSupport, isShown, o
                   colSpan={g.count}
                   scope="colgroup"
                   title={g.category}
-                  className="relative h-8 overflow-hidden text-ellipsis whitespace-nowrap border-b border-l border-gray-700 bg-gray-800 px-2.5 text-left text-[11px] font-medium uppercase tracking-wider text-gray-500"
+                  className="relative h-8 overflow-hidden text-ellipsis whitespace-nowrap border-b border-l border-gray-700 bg-gray-800 px-2 text-left text-[10px] font-medium uppercase tracking-wide text-gray-500"
                 >
                   <span aria-hidden="true" className={`absolute inset-x-1.5 top-0 h-[3px] rounded-b ${i % 2 ? 'bg-blue-400/60' : 'bg-gray-500/60'}`} />
                   {CATEGORY_SHORT_NAMES[g.category] || g.category}
