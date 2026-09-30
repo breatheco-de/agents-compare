@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { Agent } from '@/types'
 import { Table, TableHeader, TableBody, TableRow, TableCell } from '@/components/tables/Table'
@@ -52,8 +52,8 @@ export default function AgentSupportMatrix({ supports }: AgentSupportMatrixProps
               const isExpanded = expandedRows.has(support.agent.id)
 
               return (
-                <>
-                  <TableRow key={support.agent.id}>
+                <Fragment key={support.agent.id}>
+                  <TableRow>
                     <TableCell>
                       <Link 
                         href={`/agent/${support.agent.id}`} 
@@ -138,7 +138,7 @@ export default function AgentSupportMatrix({ supports }: AgentSupportMatrixProps
                       </TableCell>
                     </TableRow>
                   )}
-                </>
+                </Fragment>
               )
             })}
           </TableBody>
