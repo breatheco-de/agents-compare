@@ -1,4 +1,4 @@
-import { SUPPORT_LEVELS, SUPPORT_LEVEL_ORDER, SUPPORT_LEVEL_TEXT } from '@/components/ui/SupportLevelBadge'
+import { SUPPORT_LEVELS, SUPPORT_LEVEL_ORDER, SUPPORT_LEVEL_TEXT } from '@/lib/support-levels'
 
 interface SupportLegendProps {
   compact?: boolean
