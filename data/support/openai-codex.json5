@@ -5,11 +5,11 @@
   feature_support: [
     {
       feature_id: "automatic-context-awareness",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The IDE extension starts from what you already have open: it references open files, selected code, and recent chats from the composer, and the CLI /ide command pulls open files and the current selection into the prompt.",
+      examples: ["Asking Codex about the function selected in the editor"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/codex/ide", "https://learn.chatgpt.com/docs/developer-commands?surface=cli"]
     },
     {
       feature_id: "broad-ide-integration",
@@ -22,26 +22,26 @@
     {
       feature_id: "claude-latest-support",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://learn.chatgpt.com/llms-full.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. Claude only appears as a migration source (importing CLAUDE.md and skills).",
       examples: [],
       last_verified: "2026-09-30",
       sources: []
     },
     {
       feature_id: "console-error-integration",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "In the ChatGPT desktop app, Developer mode gives the agent controlled Chrome DevTools Protocol access to inspect console output and network traffic in the live browser. It is opt-in (Settings > Browser > Enable full CDP access) and admins can disable it.",
+      examples: ["Asking Codex to read the console errors of the page open in the built-in browser"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/browser"]
     },
     {
       feature_id: "context-window",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://learn.chatgpt.com/llms-full.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. The docs describe context compaction and a configurable model_context_window, but no window size per model.",
       examples: [],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/models"]
     },
     {
       feature_id: "dedicated-instruction-file",
@@ -69,19 +69,19 @@
     },
     {
       feature_id: "interactive-element-selection",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "In the built-in browser, Annotate mode lets you click an element or drag to select an area, leave a comment, and ask the agent to address it.",
+      examples: ["Annotating an overflowing button and asking Codex to fix it"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/browser"]
     },
     {
       feature_id: "live-web-preview",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The ChatGPT desktop app has a built-in browser: start your dev server, open the local route, and review the rendered page alongside the code diff.",
+      examples: ["Previewing a local dev server next to the diff"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/browser"]
     },
     {
       feature_id: "mcp-support",
@@ -93,11 +93,11 @@
     },
     {
       feature_id: "planner-strategy",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The /plan command switches the chat into plan mode so Codex proposes an execution plan before implementation starts.",
+      examples: ["/plan Propose a migration plan for this service"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://learn.chatgpt.com/docs/developer-commands?surface=cli"]
     },
     {
       feature_id: "supports-scoped-instructions",

@@ -5,11 +5,11 @@
   feature_support: [
     {
       feature_id: "automatic-context-awareness",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "Cline loads project context automatically; .clineignore exists to filter \"what Cline loads automatically\".",
+      examples: ["Starting a task without manually attaching files"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://docs.cline.bot/customization/clineignore"]
     },
     {
       feature_id: "broad-ide-integration",
@@ -21,27 +21,27 @@
     },
     {
       feature_id: "claude-latest-support",
-      support_level: "unknown",
-      notes: "Cline supports Anthropic API keys and Claude Code subscriptions, but its documentation does not list specific Claude versions. Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "Claude Sonnet 4.6 is available through the Cline provider (anthropic/claude-sonnet-4-6), and the CLI docs configure claude-opus-4-5-20251101 with the Anthropic provider.",
+      examples: ["cline auth -p cline -m anthropic/claude-sonnet-4-6"],
       last_verified: "2026-09-30",
-      sources: ["https://docs.cline.bot/provider-config/anthropic.md"]
+      sources: ["https://docs.cline.bot/api/models"]
     },
     {
       feature_id: "console-error-integration",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://docs.cline.bot/llms-full.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
       examples: [],
       last_verified: "2026-09-30",
       sources: []
     },
     {
       feature_id: "context-window",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The window depends on the selected model. When a conversation approaches the model's context limit, Cline automatically summarizes it (Auto Compact) and keeps working.",
+      examples: ["Long task continuing after an automatic summary"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://docs.cline.bot/features/auto-compact"]
     },
     {
       feature_id: "dedicated-instruction-file",
@@ -70,7 +70,7 @@
     {
       feature_id: "interactive-element-selection",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://docs.cline.bot/llms-full.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
       examples: [],
       last_verified: "2026-09-30",
       sources: []

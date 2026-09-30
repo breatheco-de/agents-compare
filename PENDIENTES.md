@@ -48,19 +48,21 @@ Cuando se verifique un dato, añádelo al JSON5 correspondiente con su enlace en
 
 ## Herramientas nuevas
 
-### Celdas de soporte marcadas como `unknown`
+### Celdas de soporte en `unknown` (revisadas el 30/09/2026 con la documentación completa)
 
-Estas celdas están publicadas como `unknown` con la nota "Pending verification". Hay que buscar una fuente oficial para cada una.
+Se leyó la documentación oficial completa de cada herramienta (llms-full.txt o todas las páginas del índice). De las 36 celdas `unknown`, 20 se resolvieron con fuente. Las 16 restantes no aparecen en ninguna parte de la documentación oficial; en la web figuran como "Not documented", lo que no significa que la herramienta no lo tenga.
 
-| Herramienta | Características sin verificar |
+| Herramienta | Características no documentadas |
 |---|---|
-| devin-desktop | context-window |
-| kiro | automatic-context-awareness, broad-ide-integration, console-error-integration, interactive-element-selection, live-web-preview |
-| google-antigravity | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection |
-| openai-codex | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection, live-web-preview, planner-strategy |
-| gemini-cli | automatic-context-awareness, console-error-integration, interactive-element-selection, live-web-preview, planner-strategy |
-| opencode | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection, live-web-preview |
-| cline | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection |
+| cline | console-error-integration, interactive-element-selection |
+| gemini-cli | console-error-integration, interactive-element-selection, claude-latest-support |
+| google-antigravity | console-error-integration, interactive-element-selection |
+| google-jules | claude-latest-support |
+| kiro | console-error-integration, interactive-element-selection, live-web-preview |
+| openai-codex | context-window, claude-latest-support |
+| opencode | console-error-integration, interactive-element-selection, live-web-preview |
+
+Contradicción encontrada: una página de buenas prácticas de Devin Desktop (https://docs.devin.ai/desktop/best-practices/use-cases) dice "context length for a single LLM call is 16,000 tokens", pero su catálogo de modelos incluye variantes de 1M (Claude Opus 4.6 1M, Claude Sonnet 4.6 1M). Se publica lo del catálogo.
 
 ### Datos no publicados
 
@@ -73,7 +75,7 @@ Estas celdas están publicadas como `unknown` con la nota "Pending verification"
 | Kiro | Qué es exactamente "Kiro Crew" (aparece en la página de precios) | ❓ | https://kiro.dev/pricing/ |
 | Google Antigravity | Fecha de Antigravity 2.0 (19/05/2026) y nombre del comando de la CLI (`agy`) | ⚠️ | https://thenextweb.com/news/google-antigravity-2-desktop-cli-sdk-io-2026 |
 | Google Antigravity | Precios en $ de Google AI Pro / Ultra para Antigravity | ❓ | https://antigravity.google/pricing no da cifras |
-| OpenAI Codex | Si Codex está incluido en ChatGPT Free o Go | ❓ | https://github.com/openai/codex lista Plus, Pro, Business, Edu, Enterprise |
+| OpenAI Codex | Si Codex está incluido en ChatGPT Free o Go | ✅ | Resuelto: sí, en la app de escritorio con GPT-6 Luna (https://learn.chatgpt.com/docs/models). |
 | OpenAI Codex | Modo de planificación | ❓ | No hay página dedicada en la documentación |
 | Gemini CLI | Tarifas del uso de pago | ❓ | Solo "usage-based billing" |
 | Gemini CLI | Si admite modelos que no sean Gemini | ❓ | — |
@@ -88,9 +90,9 @@ Sustituye a `claude3-support` y `claude-4-support`. Criterio: el agente permite 
 
 | Herramienta | Estado publicado | Qué falta |
 |---|---|---|
-| devin-ai | unknown | Hay modelos Claude disponibles en Devin (nube), pero su documentación no dice qué versiones. (Devin Desktop ya está verificado como `yes`.) |
-| cline, opencode | unknown | Aceptan claves de Anthropic, pero la documentación no enumera versiones de Claude. |
-| google-jules, openai-codex, gemini-cli | unknown | No se encontró documentación sobre Claude (probablemente `no`, pero sin fuente que lo diga). |
+| devin-ai | ✅ yes | Resuelto: las notas de versión de 2026 nombran Fable 5.1 y Opus 5 (https://docs.devin.ai/release-notes/2026). |
+| cline, opencode | ✅ yes | Resuelto: Cline documenta Claude Sonnet 4.6 y Opus 4.5; OpenCode usa claude-sonnet-4-5 y claude-haiku-4-5 en su configuración. |
+| google-jules, openai-codex, gemini-cli | unknown ("Not documented") | Revisada toda su documentación: solo mencionan sus propios modelos (Gemini / GPT). |
 
 Otros efectos de este cambio:
 
