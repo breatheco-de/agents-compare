@@ -78,6 +78,10 @@ export function ComparisonFilters({
   }
 
   const clearAllFilters = () => {
+    setSelectedAgents([])
+    setSelectedFeatures([])
+    setSelectedCategories([])
+    setSelectedSupportLevels(['yes', 'partial', 'no', 'unknown'])
     setFilters({
       searchTerm: '',
       selectedAgents: [],
@@ -182,8 +186,12 @@ export function ComparisonFilters({
                 <label className="flex items-center gap-2 text-sm text-gray-300">
                   <input
                     type="checkbox"
-                    checked={filters.showUnknown}
-                    onChange={(e) => updateFilters({ showUnknown: e.target.checked })}
+                    checked={selectedSupportLevels.includes('unknown')}
+                    onChange={(e) => setSelectedSupportLevels(
+                      e.target.checked
+                        ? [...selectedSupportLevels.filter(l => l !== 'unknown'), 'unknown']
+                        : selectedSupportLevels.filter(l => l !== 'unknown')
+                    )}
                     className="rounded border-gray-600 bg-gray-700 text-blue-600 focus:ring-blue-500"
                   />
                   Show Unknown Status

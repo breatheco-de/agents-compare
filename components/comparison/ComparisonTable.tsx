@@ -125,6 +125,11 @@ export function ComparisonTable({
     return filtered
   }, [features, filters])
 
+  // Support level filter: an empty selection shows every level
+  const isLevelShown = (level: SupportLevel) =>
+    (selectedSupportLevels.length === 0 || selectedSupportLevels.includes(level)) &&
+    (!filters || filters.supportLevels.includes(level))
+
   // Get support data for a specific agent-feature combination
   const getSupport = (agentId: string, featureId: string): AgentFeatureSupport | null => {
     return supportMatrix.find(s => s.agent_id === agentId && s.feature_id === featureId) || null
@@ -203,8 +208,10 @@ export function ComparisonTable({
             {/* Table Body */}
             <tbody className="bg-gray-800 divide-y divide-gray-700">
               {Object.entries(groupedFeatures).map(([category, categoryFeatures]) => {
+                // Keep features where at least one visible agent has a selected support level
                 const filteredCategoryFeatures = categoryFeatures.filter(feature => 
-                  filteredFeatures.includes(feature)
+                  filteredFeatures.includes(feature) &&
+                  filteredAgents.some(agent => isLevelShown(getSupport(agent.id, feature.id)?.support_level || 'unknown'))
                 )
                 
                 if (filteredCategoryFeatures.length === 0) return null
@@ -259,7 +266,7 @@ export function ComparisonTable({
                             const supportLevel = support?.support_level || 'unknown'
                             
                             // Apply support level filter
-                            if (filters && !filters.supportLevels.includes(supportLevel)) {
+                            if (!isLevelShown(supportLevel)) {
                               return <td key={agent.id} className="px-2 sm:px-4 py-4 border-r border-gray-600"></td>
                             }
                             
