@@ -179,13 +179,13 @@ export function ComparisonTable({
             {/* Table Header */}
             <thead className="bg-gray-700 sticky top-0 z-10">
               <tr>
-                <th className="sticky left-0 z-20 bg-gray-700 px-6 py-4 text-left text-sm font-medium text-gray-300 border-r border-gray-600 min-w-[280px]">
+                <th className="sticky left-0 z-20 bg-gray-700 px-3 sm:px-6 py-4 text-left text-sm font-medium text-gray-300 border-r border-gray-600 w-[140px] min-w-[140px] sm:w-auto sm:min-w-[280px]">
                   Feature
                 </th>
                 {filteredAgents.map(agent => {
                   const stats = getAgentStats(agent.id)
                   return (
-                    <th key={agent.id} className="px-4 py-4 text-center text-sm font-medium text-gray-300 border-r border-gray-600 min-w-[120px]">
+                    <th key={agent.id} className="px-2 sm:px-4 py-4 text-center text-sm font-medium text-gray-300 border-r border-gray-600 min-w-[104px] sm:min-w-[120px]">
                       <Link 
                         href={`/agent/${agent.id}`}
                         className="block hover:text-blue-400 transition-colors"
@@ -216,7 +216,7 @@ export function ComparisonTable({
                     {/* Category Header */}
                     <tr className="bg-gray-750">
                       <td 
-                        className="sticky left-0 z-10 bg-gray-750 px-6 py-3 text-sm font-medium text-gray-200 border-r border-gray-600 cursor-pointer"
+                        className="sticky left-0 z-10 bg-gray-750 px-3 sm:px-6 py-3 text-sm font-medium text-gray-200 border-r border-gray-600 cursor-pointer"
                         onClick={() => toggleCategory(category)}
                       >
                         <div className="flex items-center gap-2">
@@ -230,7 +230,7 @@ export function ComparisonTable({
                         </div>
                       </td>
                       {filteredAgents.map(agent => (
-                        <td key={agent.id} className="px-4 py-3 border-r border-gray-600"></td>
+                        <td key={agent.id} className="px-2 sm:px-4 py-3 border-r border-gray-600"></td>
                       ))}
                     </tr>
 
@@ -240,13 +240,15 @@ export function ComparisonTable({
                       
                       return (
                         <tr key={feature.id} className="hover:bg-gray-750 transition-colors">
-                          <td className="sticky left-0 z-10 bg-gray-800 hover:bg-gray-750 px-6 py-4 text-sm text-gray-300 border-r border-gray-600">
+                          <td className="sticky left-0 z-10 bg-gray-800 hover:bg-gray-750 px-3 sm:px-6 py-4 text-sm text-gray-300 border-r border-gray-600">
                             <Link 
                               href={`/feature/${feature.id}`}
+                              title={feature.description}
                               className="block hover:text-blue-400 transition-colors"
                             >
                               <div className="font-medium">{feature.name}</div>
-                              <div className="text-xs text-gray-400 mt-1">{feature.description}</div>
+                              {/* Hidden on small screens; still available as the link tooltip */}
+                              <div className="hidden sm:block text-xs text-gray-400 mt-1">{feature.description}</div>
                               <div className="text-xs text-green-400 mt-1">
                                 {stats.supported + stats.partial}/{stats.total} agents
                               </div>
@@ -258,13 +260,13 @@ export function ComparisonTable({
                             
                             // Apply support level filter
                             if (filters && !filters.supportLevels.includes(supportLevel)) {
-                              return <td key={agent.id} className="px-4 py-4 border-r border-gray-600"></td>
+                              return <td key={agent.id} className="px-2 sm:px-4 py-4 border-r border-gray-600"></td>
                             }
                             
                             return (
                               <td 
                                 key={agent.id} 
-                                className="px-4 py-4 text-center border-r border-gray-600 cursor-pointer hover:bg-gray-700 transition-colors"
+                                className="px-2 sm:px-4 py-4 text-center border-r border-gray-600 cursor-pointer hover:bg-gray-700 transition-colors"
                                 onClick={() => openCellModal(agent, feature)}
                               >
                                 <SupportLevelBadge 
