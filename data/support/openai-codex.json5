@@ -1,0 +1,103 @@
+// Support matrix for OpenAI Codex
+// This file defines how well OpenAI Codex supports various features
+{
+  agent_id: "openai-codex",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "partial",
+      notes: "The Codex IDE extension supports VS Code and VS Code-based editors such as Cursor and Windsurf. Other IDE families are not listed.",
+      examples: ["Using the Codex extension inside Cursor"],
+      last_verified: "2026-09-30",
+      sources: ["https://github.com/openai/codex"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Codex reads AGENTS.md (or AGENTS.override.md) files for persistent instructions.",
+      examples: ["Adding test and lint commands to AGENTS.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://learn.chatgpt.com/docs/agent-configuration/agents-md"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "In the default workspace-write sandbox, Codex can read files, make edits, and run commands in the workspace; it requires approval to edit outside the workspace.",
+      examples: ["Letting Codex fix failing tests and edit the affected files"],
+      last_verified: "2026-09-30",
+      sources: ["https://learn.chatgpt.com/codex/agent-approvals-security"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "partial",
+      notes: "AGENTS.md files in nested directories are concatenated from the Git root down, so files closer to the working directory override earlier guidance. Glob-based targeting is not documented.",
+      examples: ["A packages/api/AGENTS.md with backend-specific rules"],
+      last_verified: "2026-09-30",
+      sources: ["https://learn.chatgpt.com/docs/agent-configuration/agents-md"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "The ChatGPT desktop app, Codex CLI, and IDE extension support MCP servers and share MCP configuration for the same Codex host.",
+      examples: ["Adding a documentation MCP server to the Codex CLI"],
+      last_verified: "2026-09-30",
+      sources: ["https://learn.chatgpt.com/docs/extend/mcp?surface=cli"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Instructions are layered: a global file in ~/.codex, then project files from the Git root down to the working directory.",
+      examples: ["A global ~/.codex/AGENTS.md plus a project AGENTS.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://learn.chatgpt.com/docs/agent-configuration/agents-md"]
+    }
+  ]
+}

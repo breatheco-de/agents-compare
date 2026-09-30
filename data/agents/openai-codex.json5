@@ -1,0 +1,28 @@
+{
+  "id": "openai-codex",
+  "name": "OpenAI Codex",
+  "aliases": ["Codex", "Codex CLI", "Codex IDE extension"],
+  "provider": "OpenAI",
+  "website": "https://chatgpt.com/codex",
+  "supported_ide": ["Terminal / CLI", "VSCode", "Cursor", "Devin Desktop (Windsurf)", "Desktop app", "Web"],
+  "updated_at": "2026-09-30",
+  "description": "OpenAI Codex is OpenAI's coding agent. The open-source Codex CLI (Apache-2.0) runs locally in your terminal on macOS, Linux, and Windows, and Codex is also available as an IDE extension (VS Code, Cursor, and Windsurf), in the desktop app, and in the cloud at chatgpt.com/codex, with GitHub and Slack integrations. By default it can read files, make edits, and run commands inside a sandboxed workspace, asking for approval before editing outside it or accessing the network.",
+  "faq": [
+    {
+      "question": "Which plans include Codex?",
+      "answer": "Codex is included in the ChatGPT Plus, Pro, Business, Edu, and Enterprise plans."
+    },
+    {
+      "question": "How do I install the Codex CLI?",
+      "answer": "Install it with npm (npm install -g @openai/codex), Homebrew (brew install --cask codex), the install scripts from chatgpt.com, or a binary download from GitHub. It runs on macOS (Apple Silicon and x86_64), Linux (x86_64 and arm64), and Windows."
+    },
+    {
+      "question": "Which models does Codex use?",
+      "answer": "OpenAI is rolling out GPT-6 Sol and GPT-6 Luna in Codex and recommends GPT-6.1 Sol for complex work."
+    },
+    {
+      "question": "Is Codex safe to run on my machine?",
+      "answer": "By default Codex uses the workspace-write sandbox: it can read files, make edits, and run commands in the active workspace, but needs approval to edit outside it or to access the network, and network access is off by default. A read-only mode is also available."
+    }
+  ]
+}

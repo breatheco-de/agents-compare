@@ -1,0 +1,103 @@
+// Support matrix for Kiro
+// This file defines how well Kiro supports various features
+{
+  agent_id: "kiro",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "The context window depends on the selected model; GPT-5.6 models support a 1 million token context window in Kiro.",
+      examples: ["Using GPT-5.6 with a 1M token context for a large codebase"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/blog/"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Steering files in .kiro/steering/ provide persistent project guidance (for example product.md, tech.md, and structure.md). AGENTS.md files are also recognized and always included.",
+      examples: ["Describing the tech stack in .kiro/steering/tech.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "In Autopilot mode Kiro can create files, modify code across multiple locations, and run commands without asking for approval at each step; changes can be viewed or reverted.",
+      examples: ["Letting Kiro implement all tasks of a spec in Autopilot mode"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/ide/chat/autopilot/"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Steering files support inclusion modes: always, fileMatch with glob patterns (for example \"components/**/*.tsx\"), manual (#steering-file-name), and auto (description matching).",
+      examples: ["A steering file that only loads for **/*.test.ts files"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "MCP servers can be configured in workspace or user MCP configuration files and are supported across the IDE, CLI, and web.",
+      examples: ["Connecting an AWS documentation MCP server"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/mcp/"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Specs formalize planning into requirements, design, and implementation tasks with progress tracking before and during implementation.",
+      examples: ["Generating requirements.md, design.md, and tasks.md for a new feature"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/specs/"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Steering can be defined per workspace (.kiro/steering/) or globally (~/.kiro/steering/); workspace steering takes priority on conflicts.",
+      examples: ["A global steering file for personal coding style plus workspace steering per project"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    }
+  ]
+}

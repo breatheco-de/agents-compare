@@ -1,0 +1,103 @@
+// Support matrix for Cline
+// This file defines how well Cline supports various features
+{
+  agent_id: "cline",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "yes",
+      notes: "Available for VS Code, Cursor, Windsurf, JetBrains IDEs (IntelliJ, PyCharm, WebStorm), Antigravity, Zed, and Neovim, plus a CLI and a desktop app.",
+      examples: ["Using Cline in PyCharm"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/", "https://github.com/cline/cline"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Workspace rules live in .clinerules/ or .cline/rules/; .cursorrules, .windsurfrules, and AGENTS.md are also recognized.",
+      examples: ["Adding coding standards to .clinerules/"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/customization/cline-rules.md"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "Cline reads and writes files and runs commands, with every action requiring your explicit approval.",
+      examples: ["Approving a multi-file edit proposed by Cline"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Conditional rules use YAML frontmatter with glob paths (for example \"src/components/**\") and activate only when the current context matches.",
+      examples: ["A rule that applies only to *.test.ts files"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/customization/cline-rules.md"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "partial",
+      notes: "Cline can use a browser to browse the web as part of a task; an embedded preview panel inside the editor is not documented.",
+      examples: ["Asking Cline to open a page in the browser"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/"]
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "MCP lets Cline use external tools and data sources through MCP servers.",
+      examples: ["Adding a database MCP server"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/mcp/mcp-overview.md"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Plan mode is read-only exploration and strategy; Act mode executes the plan with full context.",
+      examples: ["Planning a refactor in Plan mode and executing it in Act mode"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/core-workflows/plan-and-act.md"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Supports workspace rules (.clinerules/) and global rules (Documents/Cline/Rules on Windows, ~/Documents/Cline/Rules on macOS/Linux).",
+      examples: ["A global rule for commit messages plus workspace rules"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.cline.bot/customization/cline-rules.md"]
+    }
+  ]
+}

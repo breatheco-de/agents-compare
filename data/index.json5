@@ -18,10 +18,17 @@
   "agents": [
     "aider",
     "claude-code",
+    "cline",
     "cursor",
     "devin-ai",
+    "devin-desktop",
+    "gemini-cli",
     "github-copilot",
+    "google-antigravity",
     "google-jules",
+    "kiro",
+    "openai-codex",
+    "opencode",
     "replit-agent",
     "zed-ai"
   ],

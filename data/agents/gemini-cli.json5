@@ -1,0 +1,24 @@
+{
+  "id": "gemini-cli",
+  "name": "Gemini CLI",
+  "aliases": ["Google Gemini CLI", "gemini"],
+  "provider": "Google",
+  "website": "https://github.com/google-gemini/gemini-cli",
+  "supported_ide": ["Terminal / CLI", "VSCode (Companion extension)", "JetBrains (ACP)", "Zed (ACP)"],
+  "updated_at": "2026-09-30",
+  "description": "Gemini CLI is Google's open-source (Apache-2.0) AI agent that brings Gemini models directly into your terminal. It has built-in tools for file operations, shell commands, web fetch, and Google Search grounding, supports MCP servers and GEMINI.md context files, and uses Gemini 3 models with a 1M token context window. It integrates with VS Code-compatible editors through the Gemini CLI Companion extension and with JetBrains IDEs and Zed through the ACP Agent Registry.",
+  "faq": [
+    {
+      "question": "Is Gemini CLI free?",
+      "answer": "Yes, within quotas: signing in with a Google account gives 60 requests per minute and 1,000 requests per day, and a Gemini API key gives 1,000 requests per day. Paid usage-based billing and Vertex AI options offer higher limits."
+    },
+    {
+      "question": "How do I install Gemini CLI?",
+      "answer": "Run it without installing via npx @google/gemini-cli, or install it globally with npm install -g @google/gemini-cli. It is also available via Homebrew, MacPorts, and Anaconda."
+    },
+    {
+      "question": "What is GEMINI.md?",
+      "answer": "GEMINI.md files provide instructional context. Gemini CLI loads a global ~/.gemini/GEMINI.md, GEMINI.md files in your workspace directories and their parents, and, just in time, GEMINI.md files in directories that tools access. Use /memory show to see the loaded context."
+    }
+  ]
+}

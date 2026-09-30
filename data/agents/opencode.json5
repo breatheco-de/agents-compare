@@ -1,0 +1,24 @@
+{
+  "id": "opencode",
+  "name": "OpenCode",
+  "aliases": ["opencode", "OpenCode AI"],
+  "provider": "anomalyco (open source)",
+  "website": "https://opencode.ai",
+  "supported_ide": ["Terminal (TUI)", "Desktop app", "Web", "VSCode", "Cursor", "Windsurf", "VSCodium"],
+  "updated_at": "2026-09-30",
+  "description": "OpenCode is an open-source (MIT) AI coding agent with a terminal UI, a desktop app for macOS, Windows, and Linux, a web interface, and IDE integration for VS Code and its forks. It works with any LLM provider through your own API keys and offers two built-in agents: Build, with full access, and Plan, a read-only mode that suggests how to implement a change. It supports AGENTS.md rules, MCP servers, and LSP servers, and is one of the most-starred coding agents on GitHub, with more than 200,000 stars.",
+  "faq": [
+    {
+      "question": "Is OpenCode free?",
+      "answer": "OpenCode itself is open source under the MIT license. You connect it to any LLM provider by configuring their API keys, and OpenCode Zen offers a curated list of recommended models."
+    },
+    {
+      "question": "What is the difference between Build and Plan?",
+      "answer": "Build is the default agent with full access. Plan mode disables its ability to make changes and instead suggests how it will implement the feature; switch between them with the Tab key."
+    },
+    {
+      "question": "Where does OpenCode read project instructions from?",
+      "answer": "Run /init to create an AGENTS.md in the project root. Global rules go in ~/.config/opencode/AGENTS.md, and the instructions option in opencode.json can include additional rule files using glob patterns."
+    }
+  ]
+}

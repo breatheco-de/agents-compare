@@ -42,3 +42,38 @@ Cuando se verifique un dato, añádelo al JSON5 correspondiente con su enlace en
 | Aider | Lista completa de modelos soportados | ❓ | El README aún recomienda Claude 3.7 / GPT-4o; se publica lo verificado en los commits de 2026. |
 | Aider | Actividad del proyecto | — | Última versión 0.86.2 (12/02/2026); último commit en main el 22/05/2026. Revisar si sigue activo. https://pypi.org/project/aider-chat/#history |
 | Aider | `mcp-support: no` | ❓ | No reverificado. |
+
+## Herramientas nuevas
+
+### Celdas de soporte marcadas como `unknown`
+
+Estas celdas están publicadas como `unknown` con la nota "Pending verification". Hay que buscar una fuente oficial para cada una.
+
+| Herramienta | Características sin verificar |
+|---|---|
+| devin-desktop | context-window |
+| kiro | automatic-context-awareness, broad-ide-integration, console-error-integration, interactive-element-selection, live-web-preview |
+| google-antigravity | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection |
+| openai-codex | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection, live-web-preview, planner-strategy |
+| gemini-cli | automatic-context-awareness, console-error-integration, interactive-element-selection, live-web-preview, planner-strategy |
+| opencode | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection, live-web-preview |
+| cline | automatic-context-awareness, console-error-integration, context-window, interactive-element-selection |
+
+### Datos no publicados
+
+| Herramienta | Dato | Estado | Referencia |
+|---|---|---|---|
+| Devin Desktop | Soporte de agentes de terceros vía ACP (Codex, Claude Agent, OpenCode) | ⚠️ | https://tech-insider.org/windsurf-devin-desktop-vs-cursor-2026/ |
+| Devin Desktop | Versiones concretas de Claude/GPT disponibles | ❓ | https://docs.devin.ai/cli/models.md no las enumera |
+| Kiro | Fecha formal de GA ("noviembre de 2025") | ❓ | Verificado solo: sin lista de espera desde la semana del 20/10/2025 (https://aws.amazon.com/blogs/aws/aws-weekly-roundup-kiro-waitlist-ebs-volume-clones-ec2-capacity-manager-and-more-october-20-2025) |
+| Kiro | Base del IDE (¿Code OSS?) y sistemas operativos soportados | ❓ | — |
+| Kiro | Qué es exactamente "Kiro Crew" (aparece en la página de precios) | ❓ | https://kiro.dev/pricing/ |
+| Google Antigravity | Fecha de Antigravity 2.0 (19/05/2026) y nombre del comando de la CLI (`agy`) | ⚠️ | https://thenextweb.com/news/google-antigravity-2-desktop-cli-sdk-io-2026 |
+| Google Antigravity | Precios en $ de Google AI Pro / Ultra para Antigravity | ❓ | https://antigravity.google/pricing no da cifras |
+| OpenAI Codex | Si Codex está incluido en ChatGPT Free o Go | ❓ | https://github.com/openai/codex lista Plus, Pro, Business, Edu, Enterprise |
+| OpenAI Codex | Modo de planificación | ❓ | No hay página dedicada en la documentación |
+| Gemini CLI | Tarifas del uso de pago | ❓ | Solo "usage-based billing" |
+| Gemini CLI | Si admite modelos que no sean Gemini | ❓ | — |
+| OpenCode | Empresa detrás del proyecto (el repo pertenece a "anomalyco") y última versión publicada | ❓ | https://github.com/sst/opencode |
+| OpenCode | Número de estrellas (≈211k el 30/09/2026) — cambiará con el tiempo | — | https://github.com/sst/opencode |
+| Cline | Empresa proveedora, última versión y modelos Claude concretos | ❓ | https://docs.cline.bot/provider-config/anthropic.md no enumera versiones |

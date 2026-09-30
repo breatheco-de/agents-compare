@@ -1,0 +1,103 @@
+// Support matrix for Gemini CLI
+// This file defines how well Gemini CLI supports various features
+{
+  agent_id: "gemini-cli",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "yes",
+      notes: "Integrates with VS Code, Antigravity, and other VS Code-compatible editors through the Gemini CLI Companion extension, and with JetBrains IDEs and Zed through the ACP Agent Registry.",
+      examples: ["Installing Gemini CLI from the ACP registry in IntelliJ IDEA"],
+      last_verified: "2026-09-30",
+      sources: ["https://www.geminicli.com/docs/ide-integration"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "Uses Gemini 3 models with a 1M token context window.",
+      examples: ["Querying a large codebase in a single session"],
+      last_verified: "2026-09-30",
+      sources: ["https://github.com/google-gemini/gemini-cli"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "GEMINI.md context files tailor the agent behavior for your projects.",
+      examples: ["Documenting build commands in a project GEMINI.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://www.geminicli.com/docs/cli/gemini-md"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "Built-in tools include file system operations and shell commands.",
+      examples: ["Letting Gemini CLI edit files and run the test suite"],
+      last_verified: "2026-09-30",
+      sources: ["https://github.com/google-gemini/gemini-cli"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "partial",
+      notes: "GEMINI.md files in subdirectories are loaded just in time when tools access those directories (directory scoping). File-pattern targeting is not documented.",
+      examples: ["A GEMINI.md inside docs/ with writing guidelines"],
+      last_verified: "2026-09-30",
+      sources: ["https://www.geminicli.com/docs/cli/gemini-md"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "Supports MCP servers for custom integrations, configured in ~/.gemini/settings.json.",
+      examples: ["Adding a GitHub MCP server in settings.json"],
+      last_verified: "2026-09-30",
+      sources: ["https://github.com/google-gemini/gemini-cli"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "unknown",
+      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Context is hierarchical: a global ~/.gemini/GEMINI.md, workspace GEMINI.md files, and just-in-time directory-level files are concatenated.",
+      examples: ["Global preferences in ~/.gemini/GEMINI.md plus project rules"],
+      last_verified: "2026-09-30",
+      sources: ["https://www.geminicli.com/docs/cli/gemini-md"]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "kiro",
+  "name": "Kiro",
+  "aliases": ["Kiro IDE", "Kiro CLI", "AWS Kiro"],
+  "provider": "Amazon Web Services",
+  "website": "https://kiro.dev",
+  "supported_ide": ["Kiro IDE", "Terminal / CLI", "Web"],
+  "updated_at": "2026-09-30",
+  "description": "Kiro is an agentic development environment from AWS, available as an IDE, a CLI, and on the web, built for spec-driven development: it turns a feature request into requirements, a technical design, and implementation tasks before writing code. It supports steering files (including AGENTS.md), agent hooks, MCP servers, and an Autopilot mode that can create and modify files autonomously. AWS recommends Kiro as the successor to Amazon Q Developer.",
+  "faq": [
+    {
+      "question": "How much does Kiro cost?",
+      "answer": "Kiro offers Free ($0/month, 50 credits), Pro ($20/user/month, 1,000 credits), Pro+ ($40/user/month, 2,000 credits), Pro Max ($100/user/month, 5,000 credits), and Power ($200/user/month, 10,000 credits). Paid tiers can buy extra credits at $0.04 per credit. Credits are consumed across the IDE, CLI, and web. See https://kiro.dev/pricing/ for details."
+    },
+    {
+      "question": "Which AI models does Kiro support?",
+      "answer": "Paid plans include Auto (an agent that uses a mix of frontier models), Claude Sonnet 5, and Claude Opus 5, and Kiro has since added Claude Opus 5.5, Claude Fable 5.1, and GPT-5.6 (with a 1M token context window). The Free plan includes open-weight models such as Qwen3 Coder Next, DeepSeek 3.2, and MiniMax M2.1, plus Claude Sonnet 4.5."
+    },
+    {
+      "question": "What is spec-driven development in Kiro?",
+      "answer": "Specs are structured artifacts that formalize the development of features and bug fixes. Kiro works through requirements (requirements.md), a technical design (design.md), and a list of implementation tasks (tasks.md) with built-in progress tracking."
+    },
+    {
+      "question": "How does Kiro relate to Amazon Q Developer?",
+      "answer": "AWS announced the end of support for the Amazon Q Developer IDE plugins and paid subscriptions: new signups were blocked on May 15, 2026, and support ends on April 30, 2027. AWS advises customers to transition to Kiro during that period."
+    }
+  ]
+}
