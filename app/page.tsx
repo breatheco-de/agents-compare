@@ -68,7 +68,11 @@ export default async function HomePage() {
                   
                   return (
                     <TableCell key={feature.id} className="text-center">
-                      <SupportLevelIcon level={level as 'yes' | 'partial' | 'no' | 'unknown'} />
+                      <SupportLevelIcon
+                        level={level as 'yes' | 'partial' | 'no' | 'unknown'}
+                        context={`${agent.name} · ${feature.name}`}
+                        notes={support?.notes}
+                      />
                     </TableCell>
                   )
                 })}

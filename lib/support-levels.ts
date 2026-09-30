@@ -19,3 +19,16 @@ export const SUPPORT_LEVEL_TEXT: Record<SupportLevelKey, { full: string; short: 
   no: { full: 'Not supported', short: 'No' },
   unknown: { full: 'Unknown (not verified)', short: 'Unknown' }
 }
+
+// Longer description of each level, shown in tooltips
+export const SUPPORT_LEVEL_DESCRIPTIONS: Record<SupportLevelKey, string> = {
+  yes: 'Full support - This feature is fully implemented and documented',
+  partial: 'Partial support - This feature has limited implementation or requires workarounds',
+  no: 'Not supported - This feature is not available in this agent',
+  unknown: 'Unknown - Support status has not been verified'
+}
+
+export const SUPPORT_DATA_DISCLAIMER =
+  'Support information is sourced from official documentation and public information. ' +
+  'While we strive for accuracy, there may be human or machine errors. ' +
+  'Please verify critical features directly with the vendor.'

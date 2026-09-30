@@ -121,9 +121,9 @@ export function ComparisonCards({ agents, features, supportMatrix, selectedSuppo
                                 <button
                                   type="button"
                                   onClick={() => setSelectedCell({ agent, feature, support })}
-                                  className="group/cell flex w-full items-center gap-3 px-4 py-2 text-left text-sm text-gray-300 hover:bg-gray-750"
+                                  className="flex w-full items-center gap-3 px-4 py-2 text-left text-sm text-gray-300 hover:bg-gray-750"
                                 >
-                                  <SupportLevelIcon level={level} />
+                                  <SupportLevelIcon level={level} showTooltip={false} />
                                   <span>{feature.name}</span>
                                 </button>
                               </li>

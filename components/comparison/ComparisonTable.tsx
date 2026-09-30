@@ -272,14 +272,14 @@ export function ComparisonTable({
                                 key={agent.id} 
                                 className="p-0 text-center border-r border-gray-600 hover:bg-gray-700 transition-colors"
                               >
-                                <button
-                                  type="button"
+                                <SupportLevelIcon
+                                  level={supportLevel as SupportLevel}
+                                  context={`${agent.name} · ${feature.name}`}
+                                  notes={support?.notes}
                                   onClick={() => openCellModal(agent, feature)}
-                                  aria-label={`${agent.name}, ${feature.name}: ${SUPPORT_LEVEL_TEXT[supportLevel as SupportLevel].full}. Show details`}
-                                  className="group/cell w-full px-2 sm:px-4 py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500"
-                                >
-                                  <SupportLevelIcon level={supportLevel as SupportLevel} />
-                                </button>
+                                  buttonLabel={`${agent.name}, ${feature.name}: ${SUPPORT_LEVEL_TEXT[supportLevel as SupportLevel].full}. Show details`}
+                                  buttonClassName="w-full px-2 sm:px-4 py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500"
+                                />
                               </td>
                             )
                           })}
