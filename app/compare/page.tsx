@@ -1,6 +1,7 @@
+import { Suspense } from 'react'
 import { Metadata } from 'next'
 import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-loader'
-import { ComparePageClient } from '@/components/comparison/ComparisonContent'
+import { ComparePageClient, ComparePageFromUrl } from '@/components/comparison/ComparisonContent'
 import PageContainer from '@/components/layout/PageContainer'
 import type { Agent, Feature, AgentFeatureSupport } from '@/types'
 
@@ -99,12 +100,24 @@ export default async function ComparePage() {
       />
       
       <PageContainer>
-        <ComparePageClient 
-          agents={data.agents}
-          features={data.features}
-          supportMatrix={data.supportMatrix}
-          statistics={data.statistics}
-        />
+        {/* The fallback (full table) is what gets prerendered; the URL selection applies on the client */}
+        <Suspense
+          fallback={
+            <ComparePageClient
+              agents={data.agents}
+              features={data.features}
+              supportMatrix={data.supportMatrix}
+              statistics={data.statistics}
+            />
+          }
+        >
+          <ComparePageFromUrl
+            agents={data.agents}
+            features={data.features}
+            supportMatrix={data.supportMatrix}
+            statistics={data.statistics}
+          />
+        </Suspense>
       </PageContainer>
     </>
   )
