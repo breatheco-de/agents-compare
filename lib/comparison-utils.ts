@@ -1,4 +1,4 @@
-import { Agent, Feature, SupportLevel } from '@/types';
+import { Agent, AgentFeatureSupport, Feature, SupportLevel } from '@/types';
 import { ComparisonMatrix } from '@/types/comparison';
 
 export function calculateAgentStatistics(
@@ -58,3 +58,19 @@ export function calculateFeatureStatistics(
 
   return { supportCounts, supportedAgents };
 } 
+
+// Support percentage for one agent over the given features: yes = 1, partial = 0.5, no/unknown = 0.
+// Only support entries for the given features are counted.
+export function getAgentSupportStats(
+  agentId: string,
+  features: Feature[],
+  supportMatrix: AgentFeatureSupport[]
+): { total: number; supported: number; partial: number; percentage: number } {
+  const featureIds = new Set(features.map(f => f.id));
+  const agentSupport = supportMatrix.filter(s => s.agent_id === agentId && featureIds.has(s.feature_id));
+  const supported = agentSupport.filter(s => s.support_level === 'yes').length;
+  const partial = agentSupport.filter(s => s.support_level === 'partial').length;
+  const total = features.length;
+  const percentage = total > 0 ? Math.round(((supported + partial * 0.5) / total) * 100) : 0;
+  return { total, supported, partial, percentage };
+}

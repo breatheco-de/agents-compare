@@ -3,7 +3,9 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+import { SupportLevelIcon, SUPPORT_LEVEL_TEXT } from '@/components/ui/SupportLevelBadge'
+import { getAgentSupportStats } from '@/lib/comparison-utils'
+import { SupportLegend } from './SupportLegend'
 import { ComparisonCellModal } from './ComparisonCellModal'
 import type { Agent, Feature, AgentFeatureSupport, SupportLevel } from '@/types'
 import type { ComparisonMatrix } from '@/types/comparison'
@@ -136,15 +138,7 @@ export function ComparisonTable({
   }
 
   // Calculate support statistics for an agent
-  const getAgentStats = (agentId: string) => {
-    const agentSupport = supportMatrix.filter(s => s.agent_id === agentId)
-    const total = filteredFeatures.length
-    const supported = agentSupport.filter(s => s.support_level === 'yes').length
-    const partial = agentSupport.filter(s => s.support_level === 'partial').length
-    const percentage = Math.round((supported + partial * 0.5) / total * 100)
-    
-    return { total, supported, partial, percentage }
-  }
+  const getAgentStats = (agentId: string) => getAgentSupportStats(agentId, filteredFeatures, supportMatrix)
 
   // Calculate support statistics for a feature
   const getFeatureStats = (featureId: string) => {
@@ -178,6 +172,9 @@ export function ComparisonTable({
 
   return (
     <>
+      {/* Desktop only: small screens use ComparisonCards instead */}
+      <div className="hidden md:block">
+      <SupportLegend className="mb-4" />
       <div className="bg-gray-800 rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -273,13 +270,16 @@ export function ComparisonTable({
                             return (
                               <td 
                                 key={agent.id} 
-                                className="px-2 sm:px-4 py-4 text-center border-r border-gray-600 cursor-pointer hover:bg-gray-700 transition-colors"
-                                onClick={() => openCellModal(agent, feature)}
+                                className="p-0 text-center border-r border-gray-600 hover:bg-gray-700 transition-colors"
                               >
-                                <SupportLevelBadge 
-                                  level={supportLevel as SupportLevel}
-                                  showIcon={true}
-                                />
+                                <button
+                                  type="button"
+                                  onClick={() => openCellModal(agent, feature)}
+                                  aria-label={`${agent.name}, ${feature.name}: ${SUPPORT_LEVEL_TEXT[supportLevel as SupportLevel].full}. Show details`}
+                                  className="group/cell w-full px-2 sm:px-4 py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500"
+                                >
+                                  <SupportLevelIcon level={supportLevel as SupportLevel} />
+                                </button>
                               </td>
                             )
                           })}
@@ -292,6 +292,7 @@ export function ComparisonTable({
             </tbody>
           </table>
         </div>
+      </div>
       </div>
 
       {/* Cell Detail Modal */}
