@@ -30,7 +30,7 @@
     },
     {
       "question": "Is Cursor free to use, and what are the limitations of the free tier?",
-      "answer": "Cursor offers a free Hobby plan (no credit card required) with limited Agent requests. Individual plans are Pro ($20/month), Pro Plus ($60/month), and Ultra ($200/month), each with a monthly pool for Cursor Models and another for third-party models charged at API rates. Teams costs $40/user/month and adds centralized billing, SSO, and Bugbot code reviews; Enterprise has custom pricing. See https://cursor.com/pricing for details."
+      "answer": "Cursor offers a free Hobby plan (no credit card required) with limited Agent requests. Individual plans are Pro ($20/month), Pro Plus ($60/month), and Ultra ($200/month), each with a monthly pool for Cursor Models and another for third-party models charged at API rates. Teams offers Standard seats ($40/user/month) and Premium seats ($120/user/month, with 5x Standard's Agent limits), and adds centralized billing, SAML/OIDC SSO, and Bugbot code reviews; on team plans, third-party model requests carry an extra Cursor Token Rate of $0.25 per million tokens. Enterprise has custom pricing. See https://cursor.com/pricing for details."
     },
     {
       "question": "Can Cursor work with my existing codebases, including private repositories?",

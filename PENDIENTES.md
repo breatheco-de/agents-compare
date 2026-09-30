@@ -26,7 +26,7 @@ Cuando se verifique un dato, añádelo al JSON5 correspondiente con su enlace en
 | Claude Code | Precio exacto de Max 20x | ❓ | https://claude.com/pricing solo indica "From $100"; se publica "Max (from $100/month)". |
 | Claude Code | Versión del alias `haiku` | ❓ | https://code.claude.com/docs/en/model-config solo dice "the fast and efficient Haiku model"; se quitó "Haiku 4.5" de la ficha. |
 | Claude Code | FAQ de buenas prácticas ("/think", memoria con "#tags") | ❓ | Texto anterior no reverificado; no se modificó. |
-| Cursor | Plan Teams Premium ($120/usuario) | ⚠️ | https://www.lowcode.agency/blog/cursor-ai-pricing — no publicado. |
+| Cursor | Plan Teams Premium ($120/usuario) | ✅ | Resuelto: confirmado en https://cursor.com/docs/models-and-pricing (5x los límites de Agent de Standard); publicado. |
 | Cursor | Proveedor / "operación con SpaceX" (Grok como modelo propio) | ⚠️ | Solo prensa; `provider` sin cambios. |
 | Cursor | Multiplicadores de crédito "3x" (Pro+) y "20x" (Ultra) | ❓ | No aparecen en la página oficial; se quitaron. |
 | Cursor | FAQ "Background Agents" (la página de precios ahora dice "Cloud agents") | ❓ | No modificada. |
@@ -109,4 +109,5 @@ La primera verificación usó una herramienta que resume las páginas, y en Curs
 - Todas las páginas se pudieron leer completas. La más larga (catálogo de modelos de Devin Desktop, ~256 KB) es una lista estructurada y se extrajeron todos sus campos `label`.
 - https://claude.com/pricing se sirve en euros según la ubicación; los precios en USD publicados se verificaron en el HTML de la misma página.
 - Correcciones: Cline (faltaban la cuenta de Cline y ClinePass de $9.99/mes), Copilot (versiones exactas), Devin Desktop (catálogo y soporte de Claude), Jules (límites por plan), Antigravity (la lista de modelos es la del plan gratuito), Claude Code (versión de Haiku no documentada), Devin (texto de la promoción SWE-2 Free), Zed (sobrecoste del 10 %), Aider (Sonnet 4.6), Replit (MCP).
-- Sin cambios: Codex, Gemini CLI, OpenCode.
+- Sin cambios: Codex, Gemini CLI, OpenCode, Kiro (su página de precios lista literalmente los modelos publicados).
+- Cursor: la tabla completa de modelos solo aparece tras pulsar "Mostrar más modelos" en la página renderizada; se comprobó así y coincide con la ficha. También se confirmó Teams Premium ($120/usuario/mes).
