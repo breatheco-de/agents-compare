@@ -37,11 +37,11 @@
     },
     {
       feature_id: "context-window",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The window depends on the selected model; the model catalog includes 1M-context variants such as Claude Opus 4.6 1M and Claude Sonnet 4.6 1M.",
+      examples: ["Selecting Claude Sonnet 4.6 1M for a large refactor"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://docs.devin.ai/desktop/models"]
     },
     {
       feature_id: "dedicated-instruction-file",

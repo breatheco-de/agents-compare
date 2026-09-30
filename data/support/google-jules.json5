@@ -22,10 +22,10 @@
     {
       feature_id: "claude-latest-support",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://jules.google/docs/) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. The changelog and plan docs only mention Gemini models.",
       examples: [],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://jules.google/docs/changelog/", "https://jules.google/docs/usage-limits/"]
     },
     {
       feature_id: "console-error-integration",

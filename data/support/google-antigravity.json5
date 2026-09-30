@@ -5,11 +5,11 @@
   feature_support: [
     {
       feature_id: "automatic-context-awareness",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "partial",
+      notes: "In /boost mode the orchestrator inspects workspace context automatically before planning. General automatic context gathering outside /boost is not described.",
+      examples: ["/boost Add pagination to the orders API"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://antigravity.google/docs/boost"]
     },
     {
       feature_id: "broad-ide-integration",
@@ -30,18 +30,18 @@
     {
       feature_id: "console-error-integration",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://antigravity.google/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. An optional Chrome DevTools skills package covers debugging and performance, but console error capture is not described.",
       examples: [],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://antigravity.google/docs/build-with-google"]
     },
     {
       feature_id: "context-window",
-      support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The window depends on the selected model; Antigravity compacts context automatically, sizing summaries from the model's full context window.",
+      examples: ["Long session continuing after automatic compaction"],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://antigravity.google/docs/changelog"]
     },
     {
       feature_id: "dedicated-instruction-file",
@@ -70,10 +70,10 @@
     {
       feature_id: "interactive-element-selection",
       support_level: "unknown",
-      notes: "Pending verification: not confirmed in official documentation as of 2026-09-30.",
+      notes: "Not documented: the full official documentation (https://antigravity.google/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. The /browser subagent can inspect DOM elements itself, but selecting elements for the agent is not described.",
       examples: [],
       last_verified: "2026-09-30",
-      sources: []
+      sources: ["https://antigravity.google/docs/slash-commands"]
     },
     {
       feature_id: "live-web-preview",

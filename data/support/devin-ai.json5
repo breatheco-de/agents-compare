@@ -21,11 +21,11 @@
     },
     {
       feature_id: "claude-latest-support",
-      support_level: "unknown",
-      notes: "Claude models are available on Pro and higher plans, but the specific Claude versions are not documented. Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The capability picker names the models used: Ultra uses Fable 5.1 and GPT-6 Astra, and Normal lists Fable 5.1, Opus 5, and GPT-6 Astra.",
+      examples: ["Starting a session in Normal mode"],
       last_verified: "2026-09-30",
-      sources: ["https://devin.ai/pricing"]
+      sources: ["https://docs.devin.ai/release-notes/2026"]
     },
     {
       feature_id: "console-error-integration",

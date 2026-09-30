@@ -10,7 +10,7 @@
   "faq": [
     {
       "question": "Which plans include Codex?",
-      "answer": "Codex is included in the ChatGPT Plus, Pro, Business, Edu, and Enterprise plans."
+      "answer": "Codex is included in the ChatGPT Plus, Pro, Business, Edu, and Enterprise plans. Free and Go plans can also use Codex in the ChatGPT desktop app with GPT-6 Luna, where available."
     },
     {
       "question": "How do I install the Codex CLI?",
