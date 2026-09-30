@@ -22,7 +22,7 @@
     {
       feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Antigravity provides Claude Sonnet 4.6 and Claude Opus 4.6 alongside Gemini models.",
+      notes: "The free Individual plan includes Claude Sonnet 4.6 and Claude Opus 4.6 as agent models, alongside Gemini models.",
       examples: ["Switching the agent to Claude Opus 4.6"],
       last_verified: "2026-09-30",
       sources: ["https://antigravity.google/pricing"]

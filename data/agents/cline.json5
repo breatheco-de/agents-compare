@@ -2,7 +2,7 @@
   "id": "cline",
   "name": "Cline",
   "aliases": ["Cline Bot", "Cline CLI"],
-  "provider": "Cline (open source)",
+  "provider": "Cline Bot Inc. (open source)",
   "website": "https://cline.bot",
   "supported_ide": ["VSCode", "Cursor", "Devin Desktop (formerly Windsurf)", "JetBrains", "Antigravity", "Zed", "Neovim", "Terminal / CLI", "Desktop app"],
   "updated_at": "2026-09-30",
@@ -10,7 +10,7 @@
   "faq": [
     {
       "question": "Is Cline free?",
-      "answer": "Cline is open source under the Apache 2.0 license. You pay only for the model provider you connect, such as Anthropic, OpenAI, Google Gemini, or AWS Bedrock; local models via Ollama or LM Studio have no API costs. Cline can also be configured with a Claude Code subscription."
+      "answer": "Cline is open source under the Apache 2.0 license. There are three ways to access models: a Cline account with usage-based billing and free model options, ClinePass (a flat $9.99/month subscription with 2-5x the usage on popular open coding models compared to standard API rates), or your own provider credentials (Anthropic, OpenAI, Google Gemini, AWS Bedrock, OpenRouter, and others, or local models via Ollama and LM Studio). Cline can also be configured with a Claude Code subscription."
     },
     {
       "question": "What are Plan and Act modes?",

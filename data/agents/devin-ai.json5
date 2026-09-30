@@ -14,11 +14,11 @@
     },
     {
       "question": "Which AI model powers Devin?",
-      "answer": "Devin supports models from several providers: Anthropic (Claude), OpenAI (GPT), Google (Gemini), SpaceX AI, open-source models such as DeepSeek, Kimi, and GLM, and Cognition's own SWE models. The Free plan has limited model access; Pro and higher unlock full model availability, including complimentary SWE-2 access through October 16, 2026."
+      "answer": "Devin supports models from several providers: Anthropic (Claude), OpenAI (GPT), Google (Gemini), SpaceXAI, open-source models such as DeepSeek, Kimi, and GLM, and Cognition's own SWE models. The Free plan has limited model availability; Pro and higher unlock full model availability, and Pro includes free use of SWE-2 Free in Devin Desktop and the CLI through October 16, 2026."
     },
     {
       "question": "How much does Devin cost?",
-      "answer": "Devin's plans are shared with Devin Desktop: Free ($0, light agent quota and unlimited Tab completions and inline edits), Pro ($20/month, higher quotas, full model availability, and cloud agents), Max ($200/month, significantly higher quotas), Teams ($80/month base plus $40/month per developer seat, up to 200 users), and Enterprise (custom pricing, SSO, and VPC deployment). Costs vary by model and task complexity. See https://devin.ai/pricing for details."
+      "answer": "Devin's plans are shared with Devin Desktop: Free ($0, light agent quota and unlimited Tab completions and inline edits), Pro ($20/month, increased quotas, full model availability, and cloud agents), Max ($200/month, significantly higher quotas), Teams ($80/month base plus $40/month per developer seat, up to 200 users), and Enterprise (custom pricing, SSO, and VPC deployment). Costs vary by model and task complexity. See https://devin.ai/pricing for details."
     },
     {
       "question": "What kinds of tasks can Devin handle autonomously?",

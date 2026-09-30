@@ -21,11 +21,11 @@
     },
     {
       feature_id: "claude-latest-support",
-      support_level: "unknown",
-      notes: "Claude models are listed among the models available in Devin Desktop, but the specific Claude versions are not documented. Pending verification: not confirmed in official documentation as of 2026-09-30.",
-      examples: [],
+      support_level: "yes",
+      notes: "The Devin Desktop model catalog includes Claude Opus 4.5, 4.6, 4.7, 4.8, 5, and 5.5, Claude Sonnet 4.5, 4.6, and 5, Claude Haiku 4.5, and Claude Fable 5 and 5.1.",
+      examples: ["Selecting Claude Opus 5.5 in Devin Desktop"],
       last_verified: "2026-09-30",
-      sources: ["https://docs.devin.ai/_llms/en/desktop.md"]
+      sources: ["https://docs.devin.ai/desktop/models.md"]
     },
     {
       feature_id: "console-error-integration",

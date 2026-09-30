@@ -18,7 +18,7 @@
     },
     {
       "question": "Which AI models does Devin Desktop use?",
-      "answer": "Devin Desktop offers models including Cognition's SWE-2, Claude, and GPT. Pro and higher plans include full model availability across OpenAI, Claude, Gemini, SpaceX AI, and open-source models."
+      "answer": "The Devin Desktop model catalog includes Cognition's SWE-2, SWE-1.7, and SWE-1.6 plus the Adaptive router; Anthropic Claude Opus 4.5 to 5.5, Sonnet 4.5, 4.6, and 5, Haiku 4.5, and Fable 5 and 5.1; OpenAI models from GPT-4o and GPT-4.1 up to GPT-5.6 (Sol, Terra, Luna) and GPT-6 (Astra, Sol, Luna); Google Gemini 2.5 Pro, 3.1 Pro, and Flash models up to 3.8; xAI Grok; DeepSeek V4; Moonshot Kimi K2.6, K2.7, and K3; Z.ai GLM-5.2 and 5.3; and NVIDIA Nemotron 3 Ultra. Availability depends on your plan: the Free plan has limited model availability."
     },
     {
       "question": "What agents are included in Devin Desktop?",

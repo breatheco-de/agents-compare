@@ -18,7 +18,7 @@
     },
     {
       "question": "Is Zed AI free to use?",
-      "answer": "Zed's Personal plan is free forever and includes 2,000 accepted edit predictions, plus unlimited use with your own API keys or external agents. Pro costs $10/month (14-day free trial) and includes unlimited edit predictions and $5 of monthly token credits for Zed-hosted models, with usage-based billing beyond that. Business costs $30/seat/month and adds org-wide AI model policies and data governance. See https://zed.dev/pricing for details."
+      "answer": "Zed's Personal plan is free forever and includes 2,000 accepted edit predictions, plus unlimited use with your own API keys or external agents. Pro costs $10/month (14-day free trial) and includes unlimited edit predictions and $5 of monthly token credits for Zed-hosted models, with usage beyond that billed at API list price plus 10%. Business costs $30/seat/month and adds org-wide AI model policies and data governance. See https://zed.dev/pricing for details."
     },
     {
       "question": "What is Zed's agentic mode?",

@@ -18,7 +18,7 @@
     },
     {
       "question": "Is Google Jules free to use?",
-      "answer": "Jules has been generally available since August 6, 2025 and can be used with a Google account at jules.google. Google AI Pro and Ultra subscriptions unlock higher task limits."
+      "answer": "Jules has been generally available since August 6, 2025 and can be used with a Google account at jules.google. The free plan allows 15 tasks per rolling 24 hours and 3 concurrent tasks; Jules in Pro (included with Google AI Pro) allows 100 daily and 15 concurrent tasks; Jules in Ultra (included with Google AI Ultra) allows 300 daily and 60 concurrent tasks. See https://jules.google/docs/usage-limits/ for details."
     },
     {
       "question": "Does Jules work with any GitHub repository?",

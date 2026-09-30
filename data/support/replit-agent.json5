@@ -85,11 +85,11 @@
     },
     {
       feature_id: "mcp-support",
-      support_level: "no",
-      notes: "Replit Agent does not support MCP (Model Context Protocol) servers. It operates within Replit's own tool ecosystem (shell, editor, webview, database) and does not use the MCP standard for external tool integration.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: []
+      support_level: "yes",
+      notes: "Agent can connect to external services through MCP; Replit maintains an MCP directory (for example, Airwallex Developer for building and testing payment integrations).",
+      examples: ["Connecting Agent to Airwallex through MCP to build a payment integration"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.replit.com/updates"]
     },
     {
       feature_id: "planner-strategy",

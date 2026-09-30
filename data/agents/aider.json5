@@ -14,7 +14,7 @@
     },
     {
       "question": "Which AI models does Aider support?",
-      "answer": "Aider can connect to almost any LLM, including local models. Recent development added model settings for Claude Opus 4.7 (including via Bedrock, Vertex, and OpenRouter) and GPT-5.5, and maps the opus and sonnet aliases to the latest Claude models. You specify the model with the --model flag."
+      "answer": "Aider can connect to almost any LLM, including local models. Recent development added support for Claude Sonnet 4.6 and Claude Opus 4.7 (including Opus 4.7 via Bedrock, Vertex, and OpenRouter) and GPT-5.5, and maps the opus and sonnet aliases to the latest Claude models. You specify the model with the --model flag."
     },
     {
       "question": "Is Aider free to use?",

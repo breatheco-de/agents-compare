@@ -6,7 +6,7 @@
   "website": "https://code.claude.com",
   "supported_ide": ["Terminal / CLI", "VSCode", "Cursor", "JetBrains", "Desktop app", "Web", "Mobile (iOS/Android)"],
   "updated_at": "2026-09-30",
-  "description": "Claude Code is an agentic coding tool by Anthropic that reads your codebase, edits files, runs commands, and integrates with your development tools. It is available in the terminal, VS Code (and Cursor), JetBrains IDEs, a desktop app, the web, and the Claude mobile app. It defaults to Claude Opus 5.5 on most plans, can switch to Sonnet 5.5, Fable 5.1, or Haiku 4.5, and supports a native 1M token context window on Opus 5.5, Sonnet 5.5, and Fable. It can spawn multiple sub-agents in parallel and run scheduled cloud routines.",
+  "description": "Claude Code is an agentic coding tool by Anthropic that reads your codebase, edits files, runs commands, and integrates with your development tools. It is available in the terminal, VS Code (and Cursor), JetBrains IDEs, a desktop app, the web, and the Claude mobile app. It defaults to Claude Opus 5.5 on most plans, can switch to Sonnet 5.5, Fable 5.1, or Haiku, and supports a native 1M token context window on Opus 5.5, Sonnet 5.5, and Fable. It can spawn multiple sub-agents in parallel and run scheduled cloud routines.",
   "faq": [
     {
       "question": "How does Claude Code integrate with my development environment?",
@@ -70,7 +70,7 @@
     },
     {
       "question": "Which AI models does Claude Code use?",
-      "answer": "On the Anthropic API and on the Pro, Max, Team, and Enterprise plans, Claude Code defaults to Claude Opus 5.5. You can switch models with /model using aliases: opus (Opus 5.5), sonnet (Sonnet 5.5), fable (Fable 5.1), haiku (Haiku 4.5), best (Fable where available), and opusplan (Opus for planning, Sonnet for execution). Model mappings differ on Bedrock, Google Cloud, and Microsoft Foundry."
+      "answer": "On the Anthropic API and on the Pro, Max, Team, and Enterprise plans, Claude Code defaults to Claude Opus 5.5. You can switch models with /model using aliases: opus (Opus 5.5), sonnet (Sonnet 5.5), fable (Fable 5.1), haiku (the fast Haiku model), best (Fable where available), and opusplan (Opus for planning, Sonnet for execution). Model mappings differ on Bedrock, Google Cloud, and Microsoft Foundry."
     }
   ]
 }

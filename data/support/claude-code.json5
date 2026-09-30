@@ -22,7 +22,7 @@
     {
       feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Defaults to Claude Opus 5.5 and supports Sonnet 5.5, Fable 5.1, and Haiku 4.5 through the /model aliases.",
+      notes: "Defaults to Claude Opus 5.5 on the Anthropic API and paid plans, and supports Sonnet 5.5, Fable 5.1, and Haiku through the /model aliases.",
       examples: ["Switching to Fable for a long, complex task with /model fable"],
       last_verified: "2026-09-30",
       sources: ["https://code.claude.com/docs/en/model-config"]

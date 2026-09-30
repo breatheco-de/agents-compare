@@ -10,11 +10,11 @@
   "faq": [
     {
       "question": "How much does Google Antigravity cost?",
-      "answer": "The Individual plan is free and includes multiple models, unlimited Tab completions and command requests, and weekly rate limits. Google AI Pro adds more generous rate limits and a flexible AI credit pool, and Google AI Ultra adds higher access to the latest Gemini models. Organizations can use it through Google Cloud with consumption-based pricing. See https://antigravity.google/pricing for details."
+      "answer": "Antigravity is generally available. The Individual plan is free and includes agent models, unlimited Tab completions and command requests, and basic weekly rate limits. Google AI Pro adds more generous rate limits and a flexible AI credit pool, and Google AI Ultra adds higher access to the latest Gemini models. Organizations can use it through Google Cloud with consumption-based pricing. See https://antigravity.google/pricing for details."
     },
     {
       "question": "Which AI models does Antigravity support?",
-      "answer": "Antigravity provides Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.1 Pro, Claude Sonnet 4.6, Claude Opus 4.6, and gpt-oss-120b."
+      "answer": "The free Individual plan includes Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.1 Pro, Claude Sonnet 4.6, Claude Opus 4.6, and gpt-oss-120b as agent models. Google AI Ultra adds higher access to the latest Gemini models."
     },
     {
       "question": "Which operating systems does Antigravity support?",
