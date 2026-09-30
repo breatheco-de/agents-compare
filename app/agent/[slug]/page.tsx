@@ -164,7 +164,7 @@ export default async function AgentDetailPage({ params }: PageProps) {
           <section className="mb-8">
             <div className="flex gap-4 flex-wrap justify-center">
               <a
-                href={`/compare/${agent.id}-vs-`}
+                href={`/compare?agents=${agent.id}`}
                 className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
               >
                 Compare with another agent

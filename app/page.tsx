@@ -105,8 +105,14 @@ export default async function HomePage() {
             <h3 className="font-semibold mb-2">Direct Comparisons</h3>
             <p className="text-sm text-gray-400 mb-4">Head-to-head agent comparisons</p>
             <div className="space-y-2">
-              <a href="/compare/claude-code-vs-cursor" className="block text-sm text-blue-400 hover:underline">
+              <a href="/compare?agents=claude-code,cursor" className="block text-sm text-blue-400 hover:underline">
                 Claude Code vs Cursor
+              </a>
+              <a href="/compare?agents=github-copilot,cursor" className="block text-sm text-blue-400 hover:underline">
+                GitHub Copilot vs Cursor
+              </a>
+              <a href="/compare?agents=github-copilot,claude-code" className="block text-sm text-blue-400 hover:underline">
+                GitHub Copilot vs Claude Code
               </a>
             </div>
           </div>

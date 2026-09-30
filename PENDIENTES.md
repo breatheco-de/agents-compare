@@ -92,3 +92,8 @@ Otros efectos de este cambio:
 
 - Las URL `/feature/claude3-support` y `/feature/claude-4-support` dejarán de existir (404). No se añadieron redirects porque no estaban en el plan aprobado; se pueden añadir en `next.config.js` hacia `/feature/claude-latest-support`.
 - `overview.md` (inventario del apéndice y ejemplo de `index.json5`) y `memory-bank/v0-requirements.md` siguen citando las características antiguas y agentes como windsurf. Son documentos internos que ya estaban desactualizados antes de este cambio; no se modificaron.
+
+## Enlaces y rutas
+
+- ✅ Arreglado: los enlaces `/compare/<a>-vs-<b>` de la portada y el botón "Compare with another agent" de cada ficha de agente apuntaban a una ruta que no existe. Ahora usan `/compare?agents=a,b`, que la página de comparación ya interpreta.
+- ❓ No arreglado (fuera del alcance): los rewrites `.json` de `next.config.js` apuntan a rutas de API que no existen. `/agent/:slug.json` va a `/api/agents/:slug` y `/feature/:slug.json` a `/api/features/:slug`, pero las carpetas se llaman `api/agent` y `api/feature`. `/compare/:slugs.json` va a `/api/compare/:slugs`, que no tiene ruta dinámica.
