@@ -7,6 +7,7 @@ import { ComparisonFilters } from './ComparisonFilters';
 import { ComparisonTable } from './ComparisonTable';
 import { ComparisonStatistics } from './ComparisonStatistics';
 import { ComparisonStats } from './ComparisonStats';
+import { ComparisonCards } from './ComparisonCards';
 import { ComparisonMatrix } from '@/types/comparison';
 import { SupportLevel } from '@/types';
 import type { Agent, Feature, AgentFeatureSupport } from '@/types';
@@ -223,6 +224,12 @@ export function ComparePageClient({
           matrix={{}}
           viewMode={viewMode}
           showNotes={showNotes}
+          selectedSupportLevels={selectedSupportLevels}
+        />
+        <ComparisonCards
+          agents={filteredAgents}
+          features={filteredFeatures}
+          supportMatrix={filteredSupportMatrix}
           selectedSupportLevels={selectedSupportLevels}
         />
       </div>
