@@ -14,7 +14,7 @@
     },
     {
       "question": "Which AI models does Kiro support?",
-      "answer": "Paid plans include Auto (an agent that uses a mix of frontier models), Claude Sonnet 5, and Claude Opus 5, and Kiro has since added Claude Opus 5.5, Claude Fable 5.1, and GPT-5.6 (with a 1M token context window). The Free plan includes open-weight models such as Qwen3 Coder Next, DeepSeek 3.2, and MiniMax M2.1, plus Claude Sonnet 4.5."
+      "answer": "Paid plans (Pro, Pro+, Pro Max, and Power) include Auto (an agent that uses a mix of frontier models), Claude Sonnet 5, Claude Opus 5, Claude Opus 4.8, Claude Sonnet 4.6, Claude Haiku 4.5, GPT-5.6 (Sol, Terra, and Luna, with a 1M token context window), and open-weight models such as DeepSeek 3.2, MiniMax M2.5, GLM-5, and Qwen3 Coder Next. Claude Opus 5.5 has been rolling out to paid plans since September 28, 2026 as an experimental model in selected AWS regions. Claude Fable 5.1 is available only to enterprise customers with Model Governance enabled. The Free plan includes Claude Sonnet 4.5 and open-weight models such as Qwen3 Coder Next, DeepSeek 3.2, and MiniMax M2.1."
     },
     {
       "question": "What is spec-driven development in Kiro?",

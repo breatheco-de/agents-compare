@@ -18,7 +18,7 @@
     },
     {
       "question": "Which models does Codex use?",
-      "answer": "OpenAI is rolling out GPT-6 Sol and GPT-6 Luna in Codex and recommends GPT-6.1 Sol for complex work."
+      "answer": "Since late September 2026, OpenAI has been rolling out GPT-6 Sol and GPT-6 Luna in Codex, at lower token prices than their GPT-5.6 predecessors. For complex coding and professional work, OpenAI recommends GPT-6.1 Sol. The documentation does not name a single default model."
     },
     {
       "question": "Is Codex safe to run on my machine?",

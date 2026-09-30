@@ -22,8 +22,8 @@
     {
       feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Offers Claude Opus 4.7 and 4.6, Claude Sonnet 4.6 and 4.5, and Claude Haiku in the Other Models pool, billed at API rates on Pro and higher.",
-      examples: ["Selecting Claude Opus 4.7 for an architectural refactor"],
+      notes: "Offers Claude Opus 5.5, 5, 4.8, 4.7, 4.6, and 4.5, Claude Sonnet 5.5, 5, 4.6, and 4.5, Claude Haiku 4.5, and Claude Fable 5.1 and 5 in the Other Models pool, billed at API rates on Pro and higher.",
+      examples: ["Selecting Claude Opus 5.5 for an architectural refactor"],
       last_verified: "2026-09-30",
       sources: ["https://cursor.com/docs/models-and-pricing"]
     },

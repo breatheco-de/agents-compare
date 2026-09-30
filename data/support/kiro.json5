@@ -22,10 +22,10 @@
     {
       feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Paid plans include Claude Sonnet 5 and Claude Opus 5, Kiro added Claude Fable 5.1 and Claude Opus 5.5 in September 2026, and the Free plan includes Claude Sonnet 4.5.",
-      examples: ["Selecting Claude Opus 5.5 for a spec implementation"],
+      notes: "Paid plans include Claude Sonnet 5, Claude Opus 5, Claude Opus 4.8, Claude Sonnet 4.6, and Claude Haiku 4.5, and Claude Opus 5.5 has been rolling out to paid plans since September 28, 2026 (experimental). Claude Fable 5.1 is limited to enterprise customers with Model Governance. The Free plan includes Claude Sonnet 4.5.",
+      examples: ["Selecting Claude Opus 5 for a spec implementation"],
       last_verified: "2026-09-30",
-      sources: ["https://kiro.dev/pricing/", "https://kiro.dev/blog/"]
+      sources: ["https://kiro.dev/pricing/", "https://kiro.dev/blog/opus-5-5/", "https://kiro.dev/blog/fable-5-1/"]
     },
     {
       feature_id: "console-error-integration",
@@ -41,7 +41,7 @@
       notes: "The context window depends on the selected model; GPT-5.6 models support a 1 million token context window in Kiro.",
       examples: ["Using GPT-5.6 with a 1M token context for a large codebase"],
       last_verified: "2026-09-30",
-      sources: ["https://kiro.dev/blog/"]
+      sources: ["https://kiro.dev/blog/gpt-5-6-1m-context/"]
     },
     {
       feature_id: "dedicated-instruction-file",

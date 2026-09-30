@@ -42,7 +42,7 @@
     },
     {
       "question": "How does Claude Code compare to other AI coding assistants like GitHub Copilot?",
-      "answer": "Claude Code is highly agentic, performing complex tasks like editing files, running tests, and managing git workflows through natural language commands. Unlike GitHub Copilot, which focuses on code suggestions within the IDE, Claude Code offers comprehensive assistance by understanding the entire codebase and executing tasks autonomously."
+      "answer": "Claude Code is highly agentic, performing complex tasks like editing files, running tests, and managing git workflows through natural language commands. GitHub Copilot also offers an Agent Mode for multi-file tasks, but it is primarily an extension inside existing IDEs, while Claude Code is terminal-first and also available in IDEs, a desktop app, and the web."
     },
     {
       "question": "What are some best practices for using Claude Code effectively?",

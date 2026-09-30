@@ -10,11 +10,11 @@
   "faq": [
     {
       "question": "What models does Cursor support?",
-      "answer": "Cursor offers two usage pools. Cursor Models (with more included usage): Composer 2.5 and Grok 4.7, 4.6, and 4.5. Other Models, billed at API rates on Pro and higher: Anthropic (Claude Opus 4.7/4.6, Sonnet 4.6/4.5, Haiku), OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini), Google (Gemini 3.1 Pro, Gemini 3.8 Flash), plus Moonshot Kimi, Z.ai GLM, and Meta Muse models. You can switch models per conversation."
+      "answer": "Cursor offers two usage pools. Cursor Models (with more included usage): Composer 2.5 and Grok 4.7 (including a 500k-context variant), Grok 4.6, and Grok 4.5, each with a Fast variant. Other Models, billed at API rates on Pro and higher: Anthropic (Claude Opus 5.5, 5, 4.8, 4.7, 4.6, and 4.5; Sonnet 5.5, 5, 4.6, 4.5, and 4; Haiku 4.5; Fable 5.1 and 5), OpenAI (GPT-5.6 Sol, Terra, and Luna; GPT-5.5; GPT-5.4, Mini, and Nano; and earlier GPT-5 and Codex models), Google (Gemini 3.1 Pro, Gemini 3 Pro, and Gemini Flash models up to 3.8), Z.ai (GLM 5.3 and 5.2), Moonshot (Kimi K3 and Kimi K2.7 Code), and Meta (Muse Spark 1.3). You can switch models per conversation."
     },
     {
       "question": "How does Cursor differ from GitHub Copilot?",
-      "answer": "Cursor provides a full IDE experience with integrated chat, multi-file editing, and more advanced AI features. It's a fork of VSCode with AI deeply integrated, while Copilot is an extension that focuses primarily on code completion."
+      "answer": "Cursor provides a full IDE experience with integrated chat, multi-file editing, and more advanced AI features. It's a fork of VSCode with AI deeply integrated, while Copilot is an extension that works inside many existing IDEs (VS Code, JetBrains IDEs, Visual Studio, and others) and also offers Agent Mode for autonomous multi-file tasks."
     },
     {
       "question": "Can Cursor work with my existing VSCode extensions?",
@@ -26,7 +26,7 @@
     },
     {
       "question": "Which AI models does Cursor use?",
-      "answer": "Cursor combines its own models (Composer 2.5 and Grok 4.7/4.6/4.5, in the Cursor Models pool) with third-party frontier models from Anthropic, OpenAI, Google, Moonshot, Z.ai, and Meta, allowing users to select models for specific tasks."
+      "answer": "Cursor combines its own models (Composer 2.5 and Grok 4.7, 4.6, and 4.5, in the Cursor Models pool) with third-party models from Anthropic (up to Claude Opus 5.5, Sonnet 5.5, and Fable 5.1), OpenAI (up to GPT-5.6), Google (Gemini 3.1 Pro and Gemini Flash up to 3.8), Z.ai, Moonshot, and Meta, allowing users to select models for specific tasks."
     },
     {
       "question": "Is Cursor free to use, and what are the limitations of the free tier?",
