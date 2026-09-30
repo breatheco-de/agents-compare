@@ -160,7 +160,7 @@ export function ComparisonFilters({
               <div className="flex flex-wrap gap-2">
                 {[
                   { value: 'yes', label: 'Yes ✅', color: 'bg-green-600' },
-                  { value: 'partial', label: 'Partial 🟡', color: 'bg-yellow-600' },
+                  { value: 'partial', label: 'Partial ⚠️', color: 'bg-yellow-600' },
                   { value: 'no', label: 'No ❌', color: 'bg-red-600' },
                   { value: 'unknown', label: 'Unknown ❓', color: 'bg-gray-600' }
                 ].map(level => (
