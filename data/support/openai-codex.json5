@@ -14,7 +14,7 @@
     {
       feature_id: "broad-ide-integration",
       support_level: "partial",
-      notes: "The Codex IDE extension supports VS Code and VS Code-based editors such as Cursor and Windsurf. Other IDE families are not listed.",
+      notes: "The Codex IDE extension supports VS Code and VS Code-based editors such as Cursor and Devin Desktop (formerly Windsurf). Other IDE families are not listed.",
       examples: ["Using the Codex extension inside Cursor"],
       last_verified: "2026-09-30",
       sources: ["https://github.com/openai/codex"]

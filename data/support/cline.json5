@@ -14,7 +14,7 @@
     {
       feature_id: "broad-ide-integration",
       support_level: "yes",
-      notes: "Available for VS Code, Cursor, Windsurf, JetBrains IDEs (IntelliJ, PyCharm, WebStorm), Antigravity, Zed, and Neovim, plus a CLI and a desktop app.",
+      notes: "Available for VS Code, Cursor, Devin Desktop (formerly Windsurf), JetBrains IDEs (IntelliJ, PyCharm, WebStorm), Antigravity, Zed, and Neovim, plus a CLI and a desktop app.",
       examples: ["Using Cline in PyCharm"],
       last_verified: "2026-09-30",
       sources: ["https://docs.cline.bot/", "https://github.com/cline/cline"]

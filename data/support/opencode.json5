@@ -14,7 +14,7 @@
     {
       feature_id: "broad-ide-integration",
       support_level: "partial",
-      notes: "Integrates with VS Code and popular forks such as Cursor, Windsurf, and VSCodium, and can run in any IDE that has a terminal.",
+      notes: "Integrates with VS Code and popular forks such as Cursor, Devin Desktop (formerly Windsurf), and VSCodium, and can run in any IDE that has a terminal.",
       examples: ["Launching OpenCode from the VS Code integrated terminal"],
       last_verified: "2026-09-30",
       sources: ["https://opencode.ai/docs/ide/"]

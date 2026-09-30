@@ -4,7 +4,7 @@
   "aliases": ["opencode", "OpenCode AI"],
   "provider": "anomalyco (open source)",
   "website": "https://opencode.ai",
-  "supported_ide": ["Terminal (TUI)", "Desktop app", "Web", "VSCode", "Cursor", "Windsurf", "VSCodium"],
+  "supported_ide": ["Terminal (TUI)", "Desktop app", "Web", "VSCode", "Cursor", "Devin Desktop (formerly Windsurf)", "VSCodium"],
   "updated_at": "2026-09-30",
   "description": "OpenCode is an open-source (MIT) AI coding agent with a terminal UI, a desktop app for macOS, Windows, and Linux, a web interface, and IDE integration for VS Code and its forks. It works with any LLM provider through your own API keys and offers two built-in agents: Build, with full access, and Plan, a read-only mode that suggests how to implement a change. It supports AGENTS.md rules, MCP servers, and LSP servers, and is one of the most-starred coding agents on GitHub, with more than 200,000 stars.",
   "faq": [

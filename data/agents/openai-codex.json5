@@ -4,9 +4,9 @@
   "aliases": ["Codex", "Codex CLI", "Codex IDE extension"],
   "provider": "OpenAI",
   "website": "https://chatgpt.com/codex",
-  "supported_ide": ["Terminal / CLI", "VSCode", "Cursor", "Devin Desktop (Windsurf)", "Desktop app", "Web"],
+  "supported_ide": ["Terminal / CLI", "VSCode", "Cursor", "Devin Desktop (formerly Windsurf)", "Desktop app", "Web"],
   "updated_at": "2026-09-30",
-  "description": "OpenAI Codex is OpenAI's coding agent. The open-source Codex CLI (Apache-2.0) runs locally in your terminal on macOS, Linux, and Windows, and Codex is also available as an IDE extension (VS Code, Cursor, and Windsurf), in the desktop app, and in the cloud at chatgpt.com/codex, with GitHub and Slack integrations. By default it can read files, make edits, and run commands inside a sandboxed workspace, asking for approval before editing outside it or accessing the network.",
+  "description": "OpenAI Codex is OpenAI's coding agent. The open-source Codex CLI (Apache-2.0) runs locally in your terminal on macOS, Linux, and Windows, and Codex is also available as an IDE extension (VS Code, Cursor, and Devin Desktop (formerly Windsurf)), in the desktop app, and in the cloud at chatgpt.com/codex, with GitHub and Slack integrations. By default it can read files, make edits, and run commands inside a sandboxed workspace, asking for approval before editing outside it or accessing the network.",
   "faq": [
     {
       "question": "Which plans include Codex?",

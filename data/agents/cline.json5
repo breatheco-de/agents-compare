@@ -4,7 +4,7 @@
   "aliases": ["Cline Bot", "Cline CLI"],
   "provider": "Cline (open source)",
   "website": "https://cline.bot",
-  "supported_ide": ["VSCode", "Cursor", "Windsurf", "JetBrains", "Antigravity", "Zed", "Neovim", "Terminal / CLI", "Desktop app"],
+  "supported_ide": ["VSCode", "Cursor", "Devin Desktop (formerly Windsurf)", "JetBrains", "Antigravity", "Zed", "Neovim", "Terminal / CLI", "Desktop app"],
   "updated_at": "2026-09-30",
   "description": "Cline is an open-source (Apache-2.0) autonomous coding agent available in VS Code and compatible editors, JetBrains IDEs, Zed, Neovim, a CLI, and a desktop app for macOS and Windows. It reads and writes files, runs terminal commands, and can use a browser, with every action requiring your explicit approval. It separates planning from execution with Plan and Act modes, supports .clinerules (as well as .cursorrules, .windsurfrules, and AGENTS.md), and connects to MCP servers. You bring your own API key for providers such as Anthropic, OpenAI, Google Gemini, and AWS Bedrock, or use local models via Ollama and LM Studio.",
   "faq": [
