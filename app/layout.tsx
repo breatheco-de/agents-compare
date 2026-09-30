@@ -60,14 +60,16 @@ export default function RootLayout({
         <div className="relative flex min-h-screen flex-col">
           <header className="sticky top-0 z-50 w-full border-b border-gray-600 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
             <div className="container flex h-14 items-center">
-              <div className="mr-4 hidden md:flex">
-                <a className="mr-6 flex items-center space-x-2" href="/">
+              <div className="mr-2 sm:mr-4 flex">
+                <a className="mr-1 sm:mr-2 md:mr-6 flex items-center space-x-2" href="/">
+                  {/* Short label on small screens so the home link always fits */}
+                  <span className="font-bold whitespace-nowrap sm:hidden">AI Agents</span>
                   <span className="hidden font-bold sm:inline-block">
                     AI Agent Comparison
                   </span>
                 </a>
               </div>
-              <nav className="flex items-center space-x-6 text-sm font-medium">
+              <nav className="flex items-center space-x-3 sm:space-x-6 text-sm font-medium">
                 <a href="/agent" className="transition-colors hover:text-white/80 text-white/60">
                   Agents
                 </a>
