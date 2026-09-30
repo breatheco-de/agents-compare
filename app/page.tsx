@@ -1,6 +1,8 @@
 import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-loader'
 import { Table, TableHeader, TableBody, TableRow, TableCell } from '@/components/tables/Table'
-import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+import { SupportLevelIcon } from '@/components/ui/SupportLevelBadge'
+import { SupportLegend } from '@/components/comparison/SupportLegend'
+import { ComparisonCards } from '@/components/comparison/ComparisonCards'
 import PageContainer from '@/components/layout/PageContainer'
 import { CompareSelector } from '@/components/home/CompareSelector'
 
@@ -27,6 +29,9 @@ export default async function HomePage() {
       {/* Preview Comparison Table (3x5) */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Quick Feature Comparison</h2>
+        {/* Desktop table; small screens use the card layout below */}
+        <div className="hidden md:block">
+        <SupportLegend className="mb-4" />
         <Table ariaLabel="Quick comparison of AI coding agents and their feature support">
           <TableHeader>
             <TableRow isHeader>
@@ -62,8 +67,8 @@ export default async function HomePage() {
                   const level = support?.support_level || 'unknown'
                   
                   return (
-                    <TableCell key={feature.id}>
-                      <SupportLevelBadge level={level as 'yes' | 'partial' | 'no' | 'unknown'} showIcon />
+                    <TableCell key={feature.id} className="text-center">
+                      <SupportLevelIcon level={level as 'yes' | 'partial' | 'no' | 'unknown'} />
                     </TableCell>
                   )
                 })}
@@ -71,6 +76,13 @@ export default async function HomePage() {
             ))}
           </TableBody>
         </Table>
+        </div>
+        <ComparisonCards
+          agents={agents}
+          features={features}
+          supportMatrix={supportMatrix}
+          selectedSupportLevels={[]}
+        />
       </section>
 
       {/* Quick Links */}
