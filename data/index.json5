@@ -17,22 +17,17 @@
   ],
   "agents": [
     "aider",
-    "amazon-q-developer",
     "claude-code",
     "cursor",
     "devin-ai",
     "github-copilot",
     "google-jules",
     "replit-agent",
-    "windsurf",
     "zed-ai"
   ],
   "comparisons": [
     "claude-code-vs-cursor",
-    "claude-code-vs-windsurf",
-    "cursor-vs-windsurf",
     "github-copilot-vs-cursor",
-    "github-copilot-vs-windsurf",
     "github-copilot-vs-claude-code"
   ]
 }

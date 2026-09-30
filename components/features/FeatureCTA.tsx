@@ -82,8 +82,8 @@ export default function FeatureCTA({ currentFeature, relatedFeatures }: FeatureC
               Cursor
             </Link>
             <span className="text-gray-600">•</span>
-            <Link href="/agent/windsurf" className="text-blue-400 hover:underline">
-              Windsurf
+            <Link href="/agent/github-copilot" className="text-blue-400 hover:underline">
+              GitHub Copilot
             </Link>
             <span className="text-gray-600">•</span>
             <Link href="/agent/claude-code" className="text-blue-400 hover:underline">

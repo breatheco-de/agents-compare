@@ -17,7 +17,7 @@ export default async function HomePage() {
           Compare AI Coding Agents Feature by Feature
         </h1>
                  <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-          Find the perfect AI coding assistant for your needs. Compare agents like Cursor, Windsurf, and Claude Dev across key features including MCP support, context windows, and planning capabilities.
+          Find the perfect AI coding assistant for your needs. Compare agents like Cursor, GitHub Copilot, and Claude Dev across key features including MCP support, context windows, and planning capabilities.
         </p>
         
         {/* Compare Selector */}
@@ -105,14 +105,8 @@ export default async function HomePage() {
             <h3 className="font-semibold mb-2">Direct Comparisons</h3>
             <p className="text-sm text-gray-400 mb-4">Head-to-head agent comparisons</p>
             <div className="space-y-2">
-              <a href="/compare/cursor-vs-windsurf" className="block text-sm text-blue-400 hover:underline">
-                Cursor vs Windsurf
-              </a>
               <a href="/compare/claude-code-vs-cursor" className="block text-sm text-blue-400 hover:underline">
                 Claude Dev vs Cursor
-              </a>
-              <a href="/compare/claude-code-vs-windsurf" className="block text-sm text-blue-400 hover:underline">
-                Claude Dev vs Windsurf
               </a>
             </div>
           </div>
