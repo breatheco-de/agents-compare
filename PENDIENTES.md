@@ -1,0 +1,115 @@
+# Datos pendientes de verificar
+
+Actualización de agentes de septiembre de 2026 (rama `update-agents-2026-09`).
+
+Aquí están los datos que **no** se han publicado en la web por no estar confirmados en una fuente oficial.
+Leyenda:
+
+- ⚠️ **Fuente secundaria**: prensa, blogs o resultados de búsqueda; no confirmado en la página oficial.
+- ❓ **Pendiente**: no encontrado en ninguna fuente, o fuentes contradictorias.
+
+Cuando se verifique un dato, añádelo al JSON5 correspondiente con su enlace en `sources` y bórralo de esta lista.
+
+## Herramientas eliminadas
+
+| Herramienta | Dato | Estado | Referencia |
+|---|---|---|---|
+| Windsurf → Devin Desktop | Fecha exacta del cambio de nombre (02/06/2026) | ⚠️ | https://tech-insider.org/windsurf-devin-desktop-vs-cursor-2026/ |
+| Amazon Q Developer | Q Developer en la consola de AWS no se retira; solo se retiran los plugins de IDE y las suscripciones de pago. Si en el futuro se quiere comparar la versión de consola, habría que crear un registro nuevo. | — | https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/ |
+
+## Herramientas actualizadas
+
+| Herramienta | Dato | Estado | Qué se hizo / referencia |
+|---|---|---|---|
+| Claude Code | Soporte de Neovim (claude-code.nvim) | ❓ | No aparece en la documentación oficial; se quitó de `supported_ide` y de las notas. |
+| Claude Code | Nombre "Agent Teams" | ❓ | La documentación habla de subagentes y agentes en segundo plano; se quitó la FAQ "What is Agent Teams". |
+| Claude Code | Precio exacto de Max 20x | ❓ | https://claude.com/pricing solo indica "From $100"; se publica "Max (from $100/month)". |
+| Claude Code | Versión del alias `haiku` | ❓ | https://code.claude.com/docs/en/model-config solo dice "the fast and efficient Haiku model"; se quitó "Haiku 4.5" de la ficha. |
+| Claude Code | FAQ de buenas prácticas ("/think", memoria con "#tags") | ❓ | Texto anterior no reverificado; no se modificó. |
+| Cursor | Plan Teams Premium ($120/usuario) | ✅ | Resuelto: confirmado en https://cursor.com/docs/models-and-pricing (5x los límites de Agent de Standard); publicado. |
+| Cursor | Proveedor / "operación con SpaceX" (Grok como modelo propio) | ⚠️ | Solo prensa; `provider` sin cambios. |
+| Cursor | Multiplicadores de crédito "3x" (Pro+) y "20x" (Ultra) | ❓ | No aparecen en la página oficial; se quitaron. |
+| Cursor | FAQ "Background Agents" (la página de precios ahora dice "Cloud agents") | ❓ | No modificada. |
+| Cursor | Tamaño de la ventana de contexto por modelo | ❓ | La nota de `context-window` ya no da cifras. |
+| Devin | `mcp-support: no` | ❓ | La documentación de Devin CLI/Desktop tiene páginas de MCP (https://docs.devin.ai/llms.txt); falta confirmar para el agente en la nube. |
+| GitHub Copilot | Versiones exactas de los modelos | ✅ | Resuelto: la página de planes completa sí las lista; se publican (https://docs.github.com/en/copilot/get-started/plans). |
+| GitHub Copilot | Estado de Copilot Workspace | ❓ | Fuentes contradictorias; se quitaron las menciones. |
+| GitHub Copilot | `supported_ide` Neovim / Emacs y la entrada `context-window` (last_verified 2024-01-15) | ❓ | Datos antiguos no reverificados. |
+| Google Jules | Límites de tareas por plan | ✅ | Resuelto: 15/3, 100/15 y 300/60 tareas diarias/simultáneas (https://jules.google/docs/usage-limits/). |
+| Google Jules | Modelo del plan gratuito | ❓ | La tabla de límites dice "Gemini 2.5 Pro", pero el changelog (30/01/2026) dice que Gemini 3 Flash es el modelo base de todos los planes. Se publica lo del changelog. |
+| Google Jules | Disponibilidad por región | ❓ | — |
+| Replit Agent | Nombre o versión actual del Agent (Agent 3, 4…) | ❓ | No figura en precios ni en novedades. |
+| Replit Agent | Plan Teams | ❓ | No aparece en https://replit.com/pricing; se quitó la mención. |
+| Replit Agent | `mcp-support: no` | ✅ | Corregido a `yes`: el changelog menciona conectar Agent a Airwallex vía MCP y un directorio MCP (https://docs.replit.com/updates). |
+| Replit Agent | Opciones de Pro de $215, $425, $825 y $2,000/mes | ❓ | Aparecen en https://replit.com/pricing sin explicar qué incluyen; no se publican. |
+| Aider | Lista completa de modelos soportados | ❓ | El README aún recomienda Claude 3.7 / GPT-4o; se publica lo verificado en los commits de 2026. |
+| Aider | Actividad del proyecto | — | Última versión 0.86.2 (12/02/2026); último commit en main el 22/05/2026. Revisar si sigue activo. https://pypi.org/project/aider-chat/#history |
+| Aider | `mcp-support: no` | ❓ | No reverificado. |
+
+## Herramientas nuevas
+
+### Celdas de soporte en `unknown` (revisadas el 30/09/2026 con la documentación completa)
+
+Se leyó la documentación oficial completa de cada herramienta (llms-full.txt o todas las páginas del índice). De las 36 celdas `unknown`, 20 se resolvieron con fuente. Las 16 restantes no aparecen en ninguna parte de la documentación oficial; en la web figuran como "Not documented", lo que no significa que la herramienta no lo tenga.
+
+| Herramienta | Características no documentadas |
+|---|---|
+| cline | console-error-integration, interactive-element-selection |
+| gemini-cli | console-error-integration, interactive-element-selection, claude-latest-support |
+| google-antigravity | console-error-integration, interactive-element-selection |
+| google-jules | claude-latest-support |
+| kiro | console-error-integration, interactive-element-selection, live-web-preview |
+| openai-codex | context-window, claude-latest-support |
+| opencode | console-error-integration, interactive-element-selection, live-web-preview |
+
+Contradicción encontrada: una página de buenas prácticas de Devin Desktop (https://docs.devin.ai/desktop/best-practices/use-cases) dice "context length for a single LLM call is 16,000 tokens", pero su catálogo de modelos incluye variantes de 1M (Claude Opus 4.6 1M, Claude Sonnet 4.6 1M). Se publica lo del catálogo.
+
+### Datos no publicados
+
+| Herramienta | Dato | Estado | Referencia |
+|---|---|---|---|
+| Devin Desktop | Soporte de agentes de terceros vía ACP (Codex, Claude Agent, OpenCode) | ⚠️ | https://tech-insider.org/windsurf-devin-desktop-vs-cursor-2026/ |
+| Devin Desktop | Versiones concretas de Claude/GPT disponibles | ✅ | Resuelto: el catálogo https://docs.devin.ai/desktop/models.md las lista; se publican y `claude-latest-support` pasa a `yes`. |
+| Kiro | Fecha formal de GA ("noviembre de 2025") | ❓ | Verificado solo: sin lista de espera desde la semana del 20/10/2025 (https://aws.amazon.com/blogs/aws/aws-weekly-roundup-kiro-waitlist-ebs-volume-clones-ec2-capacity-manager-and-more-october-20-2025) |
+| Kiro | Base del IDE (¿Code OSS?) y sistemas operativos soportados | ❓ | — |
+| Kiro | Qué es exactamente "Kiro Crew" (aparece en la página de precios) | ❓ | https://kiro.dev/pricing/ |
+| Google Antigravity | Fecha de Antigravity 2.0 (19/05/2026) y nombre del comando de la CLI (`agy`) | ⚠️ | https://thenextweb.com/news/google-antigravity-2-desktop-cli-sdk-io-2026 |
+| Google Antigravity | Precios en $ de Google AI Pro / Ultra para Antigravity | ❓ | https://antigravity.google/pricing no da cifras |
+| OpenAI Codex | Si Codex está incluido en ChatGPT Free o Go | ✅ | Resuelto: sí, en la app de escritorio con GPT-6 Luna (https://learn.chatgpt.com/docs/models). |
+| OpenAI Codex | Modo de planificación | ❓ | No hay página dedicada en la documentación |
+| Gemini CLI | Tarifas del uso de pago | ❓ | Solo "usage-based billing" |
+| Gemini CLI | Si admite modelos que no sean Gemini | ❓ | — |
+| OpenCode | Empresa detrás del proyecto (el repo pertenece a "anomalyco") y última versión publicada | ❓ | https://github.com/sst/opencode |
+| OpenCode | Número de estrellas (≈211k el 30/09/2026) — cambiará con el tiempo | — | https://github.com/sst/opencode |
+| Cline | Empresa proveedora | ✅ | Resuelto: "Cline Bot Inc." (licencia en https://github.com/cline/cline). |
+| Cline | Última versión y modelos Claude concretos | ❓ | El README solo dice "Claude Opus, Sonnet, Haiku", sin versiones. |
+
+## Característica `claude-latest-support`
+
+Sustituye a `claude3-support` y `claude-4-support`. Criterio: el agente permite usar modelos Claude 4.5 o posteriores.
+
+| Herramienta | Estado publicado | Qué falta |
+|---|---|---|
+| devin-ai | ✅ yes | Resuelto: las notas de versión de 2026 nombran Fable 5.1 y Opus 5 (https://docs.devin.ai/release-notes/2026). |
+| cline, opencode | ✅ yes | Resuelto: Cline documenta Claude Sonnet 4.6 y Opus 4.5; OpenCode usa claude-sonnet-4-5 y claude-haiku-4-5 en su configuración. |
+| google-jules, openai-codex, gemini-cli | unknown ("Not documented") | Revisada toda su documentación: solo mencionan sus propios modelos (Gemini / GPT). |
+
+Otros efectos de este cambio:
+
+- ✅ Resuelto: `/feature/claude3-support` y `/feature/claude-4-support` redirigen con un 301 a `/feature/claude-latest-support` (`next.config.js`).
+- ✅ Resuelto: `overview.md` refleja el inventario actual (15 agentes, 13 características). `memory-bank/v0-requirements.md` sigue citando `claude3-support`, pero es el documento histórico de requisitos de la v0 y no se ha modificado.
+
+## Enlaces y rutas
+
+- ✅ Arreglado: los enlaces `/compare/<a>-vs-<b>` de la portada y el botón "Compare with another agent" de cada ficha de agente apuntaban a una ruta que no existe. Ahora usan `/compare?agents=a,b`, que la página de comparación ya interpreta.
+- ❓ No arreglado (fuera del alcance): los rewrites `.json` de `next.config.js` apuntan a rutas de API que no existen. `/agent/:slug.json` va a `/api/agents/:slug` y `/feature/:slug.json` a `/api/features/:slug`, pero las carpetas se llaman `api/agent` y `api/feature`. `/compare/:slugs.json` va a `/api/compare/:slugs`, que no tiene ruta dinámica.
+
+## Revisión con texto completo (30/09/2026)
+
+La primera verificación usó una herramienta que resume las páginas, y en Cursor eso ocultó parte de la lista de modelos. Se volvieron a leer las listas de modelos y precios de todas las fichas con el texto completo de cada página (renderizada en Chrome headless o descargada en bruto), buscando literalmente cada dato.
+
+- Todas las páginas se pudieron leer completas. La más larga (catálogo de modelos de Devin Desktop, ~256 KB) es una lista estructurada y se extrajeron todos sus campos `label`.
+- https://claude.com/pricing se sirve en euros según la ubicación; los precios en USD publicados se verificaron en el HTML de la misma página.
+- Correcciones: Cline (faltaban la cuenta de Cline y ClinePass de $9.99/mes), Copilot (versiones exactas), Devin Desktop (catálogo y soporte de Claude), Jules (límites por plan), Antigravity (la lista de modelos es la del plan gratuito), Claude Code (versión de Haiku no documentada), Devin (texto de la promoción SWE-2 Free), Zed (sobrecoste del 10 %), Aider (Sonnet 4.6), Replit (MCP).
+- Sin cambios: Codex, Gemini CLI, OpenCode, Kiro (su página de precios lista literalmente los modelos publicados).
+- Cursor: la tabla completa de modelos solo aparece tras pulsar "Mostrar más modelos" en la página renderizada; se comprobó así y coincide con la ficha. También se confirmó Teams Premium ($120/usuario/mes).

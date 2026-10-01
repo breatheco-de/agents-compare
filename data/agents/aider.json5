@@ -5,8 +5,8 @@
   "provider": "Paul Gauthier (open source)",
   "website": "https://aider.chat",
   "supported_ide": ["Terminal / CLI"],
-  "updated_at": "2026-03-16",
-  "description": "Aider is a free, open-source AI pair programming tool that runs in your terminal. It works directly with your git repository, supports all major LLM providers (Anthropic, OpenAI, Google, Ollama, and more), and specializes in multi-file edits with automatic git commits. It is the most popular open-source CLI coding agent.",
+  "updated_at": "2026-09-30",
+  "description": "Aider is a free, open-source AI pair programming tool that runs in your terminal. It works directly with your git repository, supports all major LLM providers (Anthropic, OpenAI, Google, Ollama, and more), and specializes in multi-file edits with automatic git commits.",
   "faq": [
     {
       "question": "What is Aider and how does it work?",
@@ -14,7 +14,7 @@
     },
     {
       "question": "Which AI models does Aider support?",
-      "answer": "Aider supports a wide range of models: Anthropic (Claude Sonnet 4.6, Opus 4.6, Haiku 4.5), OpenAI (GPT-4.1, GPT-4o, o3), Google (Gemini 2.0 Flash, Gemini 2.0 Pro), DeepSeek, Groq, Ollama (local models), and many others via LiteLLM. You specify the model with the --model flag."
+      "answer": "Aider can connect to almost any LLM, including local models. Recent development added support for Claude Sonnet 4.6 and Claude Opus 4.7 (including Opus 4.7 via Bedrock, Vertex, and OpenRouter) and GPT-5.5, and maps the opus and sonnet aliases to the latest Claude models. You specify the model with the --model flag."
     },
     {
       "question": "Is Aider free to use?",
@@ -42,7 +42,7 @@
     },
     {
       "question": "How does Aider compare to Claude Code?",
-      "answer": "Both are CLI-based coding agents. Claude Code is a proprietary tool from Anthropic, tightly integrated with Claude models only. Aider is open-source and model-agnostic, supporting dozens of LLMs. Aider is free (API costs aside), while Claude Code requires an Anthropic subscription."
+      "answer": "Both are CLI-based coding agents. Claude Code is a proprietary tool from Anthropic, tightly integrated with Claude models only. Aider is open-source and model-agnostic, supporting dozens of LLMs. Aider is free (API costs aside), while Claude Code requires a paid Claude subscription or an Anthropic Console account."
     },
     {
       "question": "Does Aider support coding conventions or style guides?",

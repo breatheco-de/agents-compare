@@ -4,9 +4,9 @@
   "aliases": ["Devin AI", "Cognition Devin", "Devin software engineer"],
   "provider": "Cognition AI",
   "website": "https://devin.ai",
-  "supported_ide": ["Browser", "Slack", "VS Code (remote)"],
-  "updated_at": "2026-03-16",
-  "description": "Devin is an autonomous AI software engineer by Cognition AI, marketed as the first AI agent capable of completing end-to-end software engineering tasks independently. Devin works in a fully isolated cloud environment equipped with a shell, code editor, and browser. It can plan and execute complex, multi-step engineering tasks — from cloning a repo and writing code to deploying applications and fixing bugs — with minimal human intervention. Devin is accessible via web, Slack integration, and a VS Code extension.",
+  "supported_ide": ["Browser", "Slack", "VS Code (remote)", "Devin Desktop"],
+  "updated_at": "2026-09-30",
+  "description": "Devin is an autonomous AI software engineer by Cognition AI, marketed as the first AI agent capable of completing end-to-end software engineering tasks independently. Devin works in a fully isolated cloud environment equipped with a shell, code editor, and browser. It can plan and execute complex, multi-step engineering tasks — from cloning a repo and writing code to deploying applications and fixing bugs — with minimal human intervention. Devin is accessible via web, Slack integration, and a VS Code extension, and cloud sessions can be managed from Devin Desktop (formerly Windsurf).",
   "faq": [
     {
       "question": "What is Devin and what makes it different from other AI coding tools?",
@@ -14,11 +14,11 @@
     },
     {
       "question": "Which AI model powers Devin?",
-      "answer": "Cognition AI has not publicly disclosed which underlying model(s) power Devin. Cognition has trained Devin using reinforcement learning on software engineering tasks, and the system may use a combination of proprietary fine-tuned models and external LLMs."
+      "answer": "Devin supports models from several providers: Anthropic (Claude), OpenAI (GPT), Google (Gemini), SpaceXAI, open-source models such as DeepSeek, Kimi, and GLM, and Cognition's own SWE models. The Free plan has limited model availability; Pro and higher unlock full model availability, and Pro includes free use of SWE-2 Free in Devin Desktop and the CLI through October 16, 2026."
     },
     {
       "question": "How much does Devin cost?",
-      "answer": "Devin uses a session-based pricing model. As of early 2026, pricing is approximately $500/month for a Teams plan that includes a set number of agent compute units (ACUs) representing task runtime. Enterprise pricing is available. A free trial is offered. See devin.ai for current pricing."
+      "answer": "Devin's plans are shared with Devin Desktop: Free ($0, light agent quota and unlimited Tab completions and inline edits), Pro ($20/month, increased quotas, full model availability, and cloud agents), Max ($200/month, significantly higher quotas), Teams ($80/month base plus $40/month per developer seat, up to 200 users), and Enterprise (custom pricing, SSO, and VPC deployment). Costs vary by model and task complexity. See https://devin.ai/pricing for details."
     },
     {
       "question": "What kinds of tasks can Devin handle autonomously?",

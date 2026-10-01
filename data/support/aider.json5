@@ -20,20 +20,12 @@
       sources: ["https://aider.chat/docs/usage/tips.html"]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Aider supports Claude Sonnet 4.6 and Claude Opus 4.6 via the Anthropic API. These are the recommended models for best results. Use --model anthropic/claude-sonnet-4-6 or --model anthropic/claude-opus-4-6.",
-      examples: ["aider --model anthropic/claude-opus-4-6 for complex refactors", "aider --model anthropic/claude-sonnet-4-6 for everyday coding tasks"],
-      last_verified: "2026-03-16",
-      sources: ["https://aider.chat/docs/llms/anthropic.html"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "Aider supports Claude 3 models (Haiku, Sonnet, Opus) via the Anthropic API using the --model flag.",
-      examples: ["aider --model anthropic/claude-3-5-sonnet-20241022"],
-      last_verified: "2026-03-16",
-      sources: ["https://aider.chat/docs/llms/anthropic.html"]
+      notes: "Aider maps its opus and sonnet aliases to the latest Claude models and added model settings for Claude Opus 4.7 (including via Bedrock, Vertex, and OpenRouter) in April 2026.",
+      examples: ["aider --model opus"],
+      last_verified: "2026-09-30",
+      sources: ["https://github.com/Aider-AI/aider/commits/main"]
     },
     {
       feature_id: "console-error-integration",

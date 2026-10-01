@@ -1,0 +1,24 @@
+{
+  "id": "cline",
+  "name": "Cline",
+  "aliases": ["Cline Bot", "Cline CLI"],
+  "provider": "Cline Bot Inc. (open source)",
+  "website": "https://cline.bot",
+  "supported_ide": ["VSCode", "Cursor", "Devin Desktop (formerly Windsurf)", "JetBrains", "Antigravity", "Zed", "Neovim", "Terminal / CLI", "Desktop app"],
+  "updated_at": "2026-09-30",
+  "description": "Cline is an open-source (Apache-2.0) autonomous coding agent available in VS Code and compatible editors, JetBrains IDEs, Zed, Neovim, a CLI, and a desktop app for macOS and Windows. It reads and writes files, runs terminal commands, and can use a browser, with every action requiring your explicit approval. It separates planning from execution with Plan and Act modes, supports .clinerules (as well as .cursorrules, .windsurfrules, and AGENTS.md), and connects to MCP servers. You bring your own API key for providers such as Anthropic, OpenAI, Google Gemini, and AWS Bedrock, or use local models via Ollama and LM Studio.",
+  "faq": [
+    {
+      "question": "Is Cline free?",
+      "answer": "Cline is open source under the Apache 2.0 license. There are three ways to access models: a Cline account with usage-based billing and free model options, ClinePass (a flat $9.99/month subscription with 2-5x the usage on popular open coding models compared to standard API rates), or your own provider credentials (Anthropic, OpenAI, Google Gemini, AWS Bedrock, OpenRouter, and others, or local models via Ollama and LM Studio). Cline can also be configured with a Claude Code subscription."
+    },
+    {
+      "question": "What are Plan and Act modes?",
+      "answer": "In Plan mode, Cline can read your codebase, run searches, and discuss strategy, but cannot modify files or execute commands. In Act mode, it keeps the full context from planning and can modify files, run commands, and execute the strategy."
+    },
+    {
+      "question": "Does Cline work with rules from other tools?",
+      "answer": "Yes. Besides .clinerules/ (or .cline/rules/), Cline recognizes .cursorrules, .windsurfrules, and AGENTS.md, and shows all detected rules together in its Rules panel."
+    }
+  ]
+}

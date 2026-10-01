@@ -1,0 +1,111 @@
+// Support matrix for OpenCode
+// This file defines how well OpenCode supports various features
+{
+  agent_id: "opencode",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "partial",
+      notes: "OpenCode can use LSP diagnostics as automatic feedback for the agent. Project-level understanding comes from running /init, which analyzes the project and writes AGENTS.md.",
+      examples: ["Letting LSP diagnostics flag a type error after an edit"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/lsp/", "https://opencode.ai/docs/"]
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "partial",
+      notes: "Integrates with VS Code and popular forks such as Cursor, Devin Desktop (formerly Windsurf), and VSCodium, and can run in any IDE that has a terminal.",
+      examples: ["Launching OpenCode from the VS Code integrated terminal"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/ide/"]
+    },
+    {
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "Anthropic is a supported provider, and the configuration docs use anthropic/claude-sonnet-4-5 and anthropic/claude-haiku-4-5 as models.",
+      examples: ["\"model\": \"anthropic/claude-sonnet-4-5\""],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/config/", "https://opencode.ai/docs/providers/"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://opencode.ai/docs/) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "The window depends on the selected model. A hidden compaction agent automatically summarizes long context when needed, and the compaction option controls this behavior.",
+      examples: ["Configuring \"compaction\": { \"auto\": true } in opencode.json"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/agents/", "https://opencode.ai/docs/config/"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Uses an AGENTS.md file in the project root, which /init can generate by analyzing the project.",
+      examples: ["Running /init to generate AGENTS.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/rules/"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "The Build agent has full access to make changes; Plan mode disables file changes.",
+      examples: ["Letting the Build agent implement a feature"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "partial",
+      notes: "Project AGENTS.md rules apply to the directory and its subdirectories, and the instructions option in opencode.json accepts glob patterns (for example packages/*/AGENTS.md) to load additional rule files. Rules are not targeted at individual file types.",
+      examples: ["Loading per-package AGENTS.md files in a monorepo"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/rules/"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://opencode.ai/docs/) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://opencode.ai/docs/) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "OpenCode supports both local and remote MCP servers.",
+      examples: ["Adding a remote MCP server to opencode.json"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/mcp-servers/"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Plan mode suggests how the agent will implement a feature without making changes, before switching to Build.",
+      examples: ["Reviewing a Plan-mode proposal before building"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Supports global rules in ~/.config/opencode/AGENTS.md and project rules in the project AGENTS.md.",
+      examples: ["Personal preferences in the global AGENTS.md plus project rules"],
+      last_verified: "2026-09-30",
+      sources: ["https://opencode.ai/docs/rules/"]
+    }
+  ]
+}

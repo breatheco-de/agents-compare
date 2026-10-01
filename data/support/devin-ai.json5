@@ -20,20 +20,12 @@
       sources: ["https://devin.ai/docs"]
     },
     {
-      feature_id: "claude-4-support",
-      support_level: "no",
-      notes: "Devin uses Cognition AI's proprietary models. It does not support Anthropic's Claude Sonnet 4.6 or Claude Opus 4.6 models, nor does it offer a user-facing model picker.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://devin.ai"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "no",
-      notes: "Devin uses Cognition AI's proprietary internal models and does not support Claude 3 or any Anthropic model family.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://devin.ai"]
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "The capability picker names the models used: Ultra uses Fable 5.1 and GPT-6 Astra, and Normal lists Fable 5.1, Opus 5, and GPT-6 Astra.",
+      examples: ["Starting a session in Normal mode"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/release-notes/2026"]
     },
     {
       feature_id: "console-error-integration",

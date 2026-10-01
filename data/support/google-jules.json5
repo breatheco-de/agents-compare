@@ -14,26 +14,18 @@
     {
       feature_id: "broad-ide-integration",
       support_level: "no",
-      notes: "Jules operates entirely through a web interface at jules.google and through GitHub. It has no IDE plugin or extension for VS Code, JetBrains, or any other editor. Interaction is via browser or GitHub issues.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
+      notes: "Jules is used through its web interface at jules.google, GitHub, the Jules Tools command-line interface, and the Jules REST API (both launched in October 2025). It has no IDE plugin or extension for VS Code, JetBrains, or any other editor.",
+      examples: ["Starting a Jules task from the terminal with Jules Tools"],
+      last_verified: "2026-09-30",
+      sources: ["https://jules.google/docs/changelog/"]
     },
     {
-      feature_id: "claude-4-support",
-      support_level: "no",
-      notes: "Jules is powered exclusively by Google's Gemini 2.0 model family. It does not support Anthropic's Claude models.",
+      feature_id: "claude-latest-support",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://jules.google/docs/) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. The changelog and plan docs only mention Gemini models.",
       examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "no",
-      notes: "Jules uses Google's Gemini 2.0 models only. Anthropic Claude models are not supported.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
+      last_verified: "2026-09-30",
+      sources: ["https://jules.google/docs/changelog/", "https://jules.google/docs/usage-limits/"]
     },
     {
       feature_id: "console-error-integration",
@@ -46,10 +38,10 @@
     {
       feature_id: "context-window",
       support_level: "yes",
-      notes: "Jules ingests the full repository into its context using Gemini 2.0's large context window (up to 1M tokens). This enables it to reason across very large codebases in a single pass.",
+      notes: "Jules clones the full repository into its cloud sandbox and reasons over it with Gemini 3 Flash (all tiers) or Gemini 3.1 Pro (Google AI Pro plan).",
       examples: ["Processing a large monorepo to understand the full dependency graph before making changes"],
-      last_verified: "2026-03-16",
-      sources: ["https://jules.google"]
+      last_verified: "2026-09-30",
+      sources: ["https://jules.google/docs/changelog/"]
     },
     {
       feature_id: "dedicated-instruction-file",
@@ -93,11 +85,11 @@
     },
     {
       feature_id: "mcp-support",
-      support_level: "no",
-      notes: "Jules does not support MCP (Model Context Protocol) servers. It operates in an isolated cloud sandbox and does not connect to external tools via MCP.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: []
+      support_level: "yes",
+      notes: "Since February 2, 2026, Jules supports Model Context Protocol integrations for Linear, Stitch, Neon, Tinybird, Context7, and Supabase, authenticated with API keys.",
+      examples: ["Connecting Jules to Supabase via MCP to inspect a database schema"],
+      last_verified: "2026-09-30",
+      sources: ["https://jules.google/docs/changelog/"]
     },
     {
       feature_id: "planner-strategy",

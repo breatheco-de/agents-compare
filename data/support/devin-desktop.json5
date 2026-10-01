@@ -1,0 +1,111 @@
+// Support matrix for Devin Desktop
+// This file defines how well Devin Desktop supports various features
+{
+  agent_id: "devin-desktop",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "yes",
+      notes: "Devin Desktop's RAG-based context engine indexes your codebase to provide relevant context to suggestions and agents.",
+      examples: ["Asking Cascade about a function defined in another module"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/_llms/en/desktop.md"]
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "partial",
+      notes: "Devin Desktop is a standalone IDE. The Windsurf plugin for JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, and more) remains available; support for other editors is not documented on the product page.",
+      examples: ["Using the Windsurf plugin inside IntelliJ IDEA"],
+      last_verified: "2026-09-30",
+      sources: ["https://devin.ai/desktop"]
+    },
+    {
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "The Devin Desktop model catalog includes Claude Opus 4.5, 4.6, 4.7, 4.8, 5, and 5.5, Claude Sonnet 4.5, 4.6, and 5, Claude Haiku 4.5, and Claude Fable 5 and 5.1.",
+      examples: ["Selecting Claude Opus 5.5 in Devin Desktop"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/models.md"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "yes",
+      notes: "Previews run your web app locally in Devin Desktop or the browser with error capture sent directly to the agent.",
+      examples: ["Sending a captured runtime error from the preview to Cascade"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/previews.md"]
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "The window depends on the selected model; the model catalog includes 1M-context variants such as Claude Opus 4.6 1M and Claude Sonnet 4.6 1M.",
+      examples: ["Selecting Claude Sonnet 4.6 1M for a large refactor"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/models"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Supports AGENTS.md files that provide directory-scoped instructions, plus user-defined rules.",
+      examples: ["Adding an AGENTS.md at the repository root with coding conventions"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/agents-md.md"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "Cascade's Code mode can create and modify files in your codebase; the Devin Local agent adds sandboxing and permissions.",
+      examples: ["Letting Cascade implement a feature across several files"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/cascade.md", "https://docs.devin.ai/desktop/devin-local.md"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "partial",
+      notes: "AGENTS.md instructions apply automatically based on the file location in the project (directory scoping). File-pattern (glob) targeting is not confirmed.",
+      examples: ["Placing an AGENTS.md in a frontend/ folder with UI-specific rules"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/agents-md.md"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "yes",
+      notes: "Previews support selecting elements of the running web app and sending them to the agent.",
+      examples: ["Selecting a button in the preview and asking Cascade to restyle it"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/previews.md"]
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "yes",
+      notes: "Previews let you view your web app locally inside the Devin Desktop IDE or in the browser.",
+      examples: ["Previewing a local dev server inside the IDE"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/previews.md"]
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "MCP servers can be configured for the Cascade agent in mcp_config.json (for tools such as GitHub and databases), with admin controls for Teams.",
+      examples: ["Connecting a GitHub MCP server to Cascade"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/mcp.md"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Cascade has built-in planning and creates a Todo list to track progress on complex tasks; the Devin Local agent offers a plan mode.",
+      examples: ["Cascade creating a Todo list for a multi-file refactor"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/cascade.md", "https://docs.devin.ai/desktop/devin-local.md"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Rules can be defined at global, workspace, and system (enterprise) levels, alongside auto-generated memories.",
+      examples: ["Defining a global rule for commit message style and a workspace rule for a specific project"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.devin.ai/desktop/cascade/memories.md"]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  // Current Claude Model Support (replaces claude3-support and claude-4-support)
+  id: "claude-latest-support",
+  name: "Latest Claude Model Support",
+  aliases: ["Claude support", "Anthropic Claude", "Claude Opus", "Claude Sonnet", "Claude Haiku", "Claude Fable", "Claude 4", "Claude 5"],
+  category: "Model Support",
+  description: "Native support for current-generation Anthropic Claude models (Claude 4.5 or later, such as Opus, Sonnet, Haiku, and Fable) for code generation and analysis.",
+
+  // Extended information for feature pages
+  overview: "Latest Claude model support means an AI coding agent lets you use Anthropic's current Claude models, version 4.5 or later, either natively or through your own Anthropic API key. Because Anthropic releases new model versions frequently, this feature tracks whether an agent keeps up with the current generation rather than a specific version number.",
+
+  importance: "Coding agents built on older model generations miss improvements in reasoning, long-context handling, and tool use. Support for current Claude models lets you pick the model that best fits each task, from fast and inexpensive models for simple edits to the most capable models for complex refactoring and planning.",
+
+  use_cases: [
+    "Using a top-tier Claude model for architectural planning and complex refactors",
+    "Switching to a faster, cheaper Claude model for routine edits",
+    "Working with long-context Claude models on large codebases",
+    "Comparing Claude against other providers' models on the same task"
+  ],
+
+  // FAQ section for SEO and user information
+  faq: [
+    {
+      question: "What counts as latest Claude model support?",
+      answer: "An agent qualifies when it lets you use Anthropic Claude models of version 4.5 or later, either natively or through your own Anthropic API key. Support for older generations only does not count."
+    },
+    {
+      question: "Why did this feature replace Claude 3 Support and Claude 4 Support?",
+      answer: "Anthropic now ships new Claude versions frequently, so features tied to a single generation quickly go out of date. A single feature that tracks current-generation Claude support stays meaningful as new versions are released."
+    },
+    {
+      question: "Does supporting Claude require an Anthropic account?",
+      answer: "It depends on the agent. Some agents include Claude models in their own subscription, while others require you to bring your own Anthropic API key or use a cloud provider such as Amazon Bedrock or Google Cloud."
+    }
+  ]
+}

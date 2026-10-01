@@ -137,7 +137,7 @@ export default function SupportLevelBadge({
   return (
     <div className="relative inline-block" ref={badgeRef}>
       <span 
-        className={`px-2 py-1 rounded text-xs font-medium border ${config.className} cursor-help`}
+        className={`inline-block whitespace-nowrap px-2 py-1 rounded text-xs font-medium border ${config.className} cursor-help`}
         onMouseEnter={() => showTooltip && setIsHovered(true)}
         onMouseLeave={() => showTooltip && setIsHovered(false)}
         aria-describedby={isHovered ? `tooltip-${level}` : undefined}

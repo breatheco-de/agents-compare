@@ -20,20 +20,12 @@
       sources: ["https://zed.dev"]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Zed AI supports Claude Sonnet 4.6 and Claude Opus 4.6 via Anthropic API integration. Users can select these models in the model picker in the assistant panel.",
-      examples: ["Selecting Claude Sonnet 4.6 for inline edits", "Using Claude Opus 4.6 for complex agentic tasks"],
-      last_verified: "2026-03-16",
-      sources: ["https://zed.dev/docs/assistant/model-selection"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "Zed AI supports Claude 3 models (Haiku, Sonnet, Opus) via the Anthropic API. Users can switch between model generations in the model picker.",
-      examples: ["Using Claude 3.5 Sonnet for code generation tasks"],
-      last_verified: "2026-03-16",
-      sources: ["https://zed.dev/docs/assistant/model-selection"]
+      notes: "Zed supports Anthropic (and Amazon Bedrock) as bring-your-own-key providers and can run Claude Agent as an external agent.",
+      examples: ["Running Claude Agent inside Zed"],
+      last_verified: "2026-09-30",
+      sources: ["https://zed.dev/pricing"]
     },
     {
       feature_id: "console-error-integration",

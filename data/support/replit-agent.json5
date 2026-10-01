@@ -20,20 +20,12 @@
       sources: ["https://replit.com/ai"]
     },
     {
-      feature_id: "claude-4-support",
+      feature_id: "claude-latest-support",
       support_level: "yes",
-      notes: "Replit uses Anthropic Claude models as part of its model routing layer, including Claude Sonnet 4.6 and Claude Haiku 4.5 for code generation and agent tasks. The specific model used may vary by task type as Replit routes to the best available model.",
-      examples: ["Claude Sonnet 4.6 used for complex code generation tasks within Replit Agent"],
-      last_verified: "2026-03-16",
-      sources: ["https://docs.replit.com/replit-ai/models"]
-    },
-    {
-      feature_id: "claude3-support",
-      support_level: "yes",
-      notes: "Replit has historically used Claude 3 models (Haiku, Sonnet) as part of its AI stack. Claude 3.5 Sonnet has been available in Replit's model selection.",
-      examples: ["Using Claude 3.5 Sonnet for code generation in Replit"],
-      last_verified: "2026-03-16",
-      sources: ["https://docs.replit.com/replit-ai/models"]
+      notes: "Since September 2026, users can choose Claude Opus 5.5 when building with Agent, depending on plan and workspace policies.",
+      examples: ["Building an app with Agent using Claude Opus 5.5"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.replit.com/updates"]
     },
     {
       feature_id: "console-error-integration",
@@ -93,11 +85,11 @@
     },
     {
       feature_id: "mcp-support",
-      support_level: "no",
-      notes: "Replit Agent does not support MCP (Model Context Protocol) servers. It operates within Replit's own tool ecosystem (shell, editor, webview, database) and does not use the MCP standard for external tool integration.",
-      examples: [],
-      last_verified: "2026-03-16",
-      sources: []
+      support_level: "yes",
+      notes: "Agent can connect to external services through MCP; Replit maintains an MCP directory (for example, Airwallex Developer for building and testing payment integrations).",
+      examples: ["Connecting Agent to Airwallex through MCP to build a payment integration"],
+      last_verified: "2026-09-30",
+      sources: ["https://docs.replit.com/updates"]
     },
     {
       feature_id: "planner-strategy",

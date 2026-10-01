@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Compare AI Coding Agents Feature by Feature | Agent Comparison Hub',
-  description: 'Compare AI coding agents like Cursor, Windsurf, Claude Dev, and more across features like MCP support, context windows, and planning capabilities. Find the perfect AI coding assistant for your needs.',
-  keywords: ['AI coding agents', 'code assistant comparison', 'Cursor vs Windsurf', 'Claude Dev', 'MCP support', 'coding AI'],
+  description: 'Compare AI coding agents like Cursor, GitHub Copilot, Claude Code, and more across features like MCP support, context windows, and planning capabilities. Find the perfect AI coding assistant for your needs.',
+  keywords: ['AI coding agents', 'code assistant comparison', 'Cursor vs GitHub Copilot', 'Claude Code', 'MCP support', 'coding AI'],
   authors: [{ name: '4Geeks Academy' }],
   creator: '4Geeks Academy',
   publisher: '4Geeks Academy',
@@ -60,14 +60,16 @@ export default function RootLayout({
         <div className="relative flex min-h-screen flex-col">
           <header className="sticky top-0 z-50 w-full border-b border-gray-600 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
             <div className="container flex h-14 items-center">
-              <div className="mr-4 hidden md:flex">
-                <a className="mr-6 flex items-center space-x-2" href="/">
+              <div className="mr-2 sm:mr-4 flex">
+                <a className="mr-1 sm:mr-2 md:mr-6 flex items-center space-x-2" href="/">
+                  {/* Short label on small screens so the home link always fits */}
+                  <span className="font-bold whitespace-nowrap sm:hidden">AI Agents</span>
                   <span className="hidden font-bold sm:inline-block">
                     AI Agent Comparison
                   </span>
                 </a>
               </div>
-              <nav className="flex items-center space-x-6 text-sm font-medium">
+              <nav className="flex items-center space-x-3 sm:space-x-6 text-sm font-medium">
                 <a href="/agent" className="transition-colors hover:text-white/80 text-white/60">
                   Agents
                 </a>

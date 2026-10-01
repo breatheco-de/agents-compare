@@ -51,7 +51,7 @@ export default async function AgentsIndexPage() {
     description: 'Comprehensive directory of AI coding agents with feature comparison and compatibility information.',
     url: 'https://agents.4geeks.com/agent',
     numberOfItems: totalAgents,
-    keywords: 'AI coding agents, Cursor, Claude, Windsurf, comparison, features, IDE compatibility',
+    keywords: 'AI coding agents, Cursor, Claude, GitHub Copilot, comparison, features, IDE compatibility',
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: totalAgents,

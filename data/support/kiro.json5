@@ -1,0 +1,111 @@
+// Support matrix for Kiro
+// This file defines how well Kiro supports various features
+{
+  agent_id: "kiro",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "yes",
+      notes: "Kiro automatically analyzes open files in the editor, including their dependencies and structure; #codebase lets it find relevant files across the project.",
+      examples: ["#codebase explain the authentication flow"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/ide/chat/"]
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "yes",
+      notes: "Besides the Kiro IDE, CLI, Web, and Mobile apps, compatible editors such as JetBrains IDEs and Zed can use Kiro as their agent through the Agent Client Protocol (ACP).",
+      examples: ["Using Kiro as the agent inside a JetBrains IDE"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/how-kiro-works/"]
+    },
+    {
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "Paid plans include Claude Sonnet 5, Claude Opus 5, Claude Opus 4.8, Claude Sonnet 4.6, and Claude Haiku 4.5, and Claude Opus 5.5 has been rolling out to paid plans since September 28, 2026 (experimental). Claude Fable 5.1 is limited to enterprise customers with Model Governance. The Free plan includes Claude Sonnet 4.5.",
+      examples: ["Selecting Claude Opus 5 for a spec implementation"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/pricing/", "https://kiro.dev/blog/opus-5-5/", "https://kiro.dev/blog/fable-5-1/"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://kiro.dev/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "The context window depends on the selected model; GPT-5.6 models support a 1 million token context window in Kiro.",
+      examples: ["Using GPT-5.6 with a 1M token context for a large codebase"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/blog/gpt-5-6-1m-context/"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Steering files in .kiro/steering/ provide persistent project guidance (for example product.md, tech.md, and structure.md). AGENTS.md files are also recognized and always included.",
+      examples: ["Describing the tech stack in .kiro/steering/tech.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "In Autopilot mode Kiro can create files, modify code across multiple locations, and run commands without asking for approval at each step; changes can be viewed or reverted.",
+      examples: ["Letting Kiro implement all tasks of a spec in Autopilot mode"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/ide/chat/autopilot/"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Steering files support inclusion modes: always, fileMatch with glob patterns (for example \"components/**/*.tsx\"), manual (#steering-file-name), and auto (description matching).",
+      examples: ["A steering file that only loads for **/*.test.ts files"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://kiro.dev/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: []
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://kiro.dev/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. Dev server support runs long-running processes but no in-editor preview is described.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/ide/chat/dev-servers/"]
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "MCP servers can be configured in workspace or user MCP configuration files and are supported across the IDE, CLI, and web.",
+      examples: ["Connecting an AWS documentation MCP server"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/mcp/"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "Specs formalize planning into requirements, design, and implementation tasks with progress tracking before and during implementation.",
+      examples: ["Generating requirements.md, design.md, and tasks.md for a new feature"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/specs/"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Steering can be defined per workspace (.kiro/steering/) or globally (~/.kiro/steering/); workspace steering takes priority on conflicts.",
+      examples: ["A global steering file for personal coding style plus workspace steering per project"],
+      last_verified: "2026-09-30",
+      sources: ["https://kiro.dev/docs/steering/"]
+    }
+  ]
+}

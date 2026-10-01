@@ -1,0 +1,28 @@
+{
+  "id": "google-antigravity",
+  "name": "Google Antigravity",
+  "aliases": ["Antigravity", "Antigravity IDE", "Google Antigravity 2.0"],
+  "provider": "Google",
+  "website": "https://antigravity.google",
+  "supported_ide": ["Antigravity (desktop IDE)", "Terminal / CLI", "VSCode", "Visual Studio", "JetBrains", "Zed", "Xcode"],
+  "updated_at": "2026-09-30",
+  "description": "Google Antigravity is Google's agentic development platform, announced on November 20, 2025. It combines an AI-powered IDE with an agent-first Manager surface where you can spawn, orchestrate, and observe multiple agents working asynchronously across workspaces. Agents can autonomously plan and execute tasks across the editor, terminal, and browser, and report progress through artifacts such as implementation plans, screenshots, and walkthroughs. It is also available as a CLI, an SDK, and extensions for VS Code, Visual Studio, JetBrains, Zed, and Xcode.",
+  "faq": [
+    {
+      "question": "How much does Google Antigravity cost?",
+      "answer": "Antigravity is generally available. The Individual plan is free and includes agent models, unlimited Tab completions and command requests, and basic weekly rate limits. Google AI Pro adds more generous rate limits and a flexible AI credit pool, and Google AI Ultra adds higher access to the latest Gemini models. Organizations can use it through Google Cloud with consumption-based pricing. See https://antigravity.google/pricing for details."
+    },
+    {
+      "question": "Which AI models does Antigravity support?",
+      "answer": "The free Individual plan includes Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.1 Pro, Claude Sonnet 4.6, Claude Opus 4.6, and gpt-oss-120b as agent models. Google AI Ultra adds higher access to the latest Gemini models."
+    },
+    {
+      "question": "Which operating systems does Antigravity support?",
+      "answer": "Antigravity is cross-platform and runs on macOS, Windows, and Linux."
+    },
+    {
+      "question": "What is the Agent Manager?",
+      "answer": "The Manager surface is a dedicated interface where you can spawn, orchestrate, and observe multiple agents working asynchronously across different workspaces."
+    }
+  ]
+}

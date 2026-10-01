@@ -9,17 +9,17 @@ import FeaturesCTA from '@/components/features/FeaturesCTA'
 
 export const metadata: Metadata = {
   title: 'AI Coding Agent Features - Complete Comparison Index',
-  description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, Windsurf, and more. Filter by category, search capabilities.',
+  description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, GitHub Copilot, and more. Filter by category, search capabilities.',
   openGraph: {
     title: 'AI Coding Agent Features Comparison',
-    description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, Windsurf, and more.',
+    description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, GitHub Copilot, and more.',
     type: 'website',
     url: '/feature',
   },
   twitter: {
     card: 'summary',
     title: 'AI Coding Agent Features Comparison',
-    description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, Windsurf, and more.',
+    description: 'Explore all AI coding agent features. Compare support across Cursor, Claude, GitHub Copilot, and more.',
   },
   alternates: {
     canonical: '/feature',
@@ -57,7 +57,7 @@ export default async function FeaturesIndexPage() {
     description: 'Comprehensive collection of AI coding agent features with support comparison across multiple agents.',
     url: 'https://agents.4geeks.com/feature',
     numberOfItems: totalFeatures,
-    keywords: 'AI coding agents, features comparison, Cursor, Claude, Windsurf, MCP support, context window',
+    keywords: 'AI coding agents, features comparison, Cursor, Claude, GitHub Copilot, MCP support, context window',
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: totalFeatures,

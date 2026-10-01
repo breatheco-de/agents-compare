@@ -4,9 +4,9 @@
   "aliases": ["Jules", "Jules by Google", "Google Jules agent"],
   "provider": "Google",
   "website": "https://jules.google",
-  "supported_ide": ["GitHub (web)", "Browser"],
-  "updated_at": "2026-03-16",
-  "description": "Google Jules is an asynchronous AI coding agent by Google, powered by Gemini 2.0. Unlike real-time pair programmers, Jules works autonomously in the background on GitHub issues and pull requests. You assign it a task (bug fix, feature, refactor), Jules clones your repo into a sandboxed cloud environment, implements the changes, runs tests, and opens a pull request for your review. Jules is in public beta as of early 2026.",
+  "supported_ide": ["GitHub (web)", "Browser", "Jules Tools (CLI)", "Jules API"],
+  "updated_at": "2026-09-30",
+  "description": "Google Jules is an asynchronous AI coding agent by Google, powered by Gemini 3 Flash (all tiers) and Gemini 3.1 Pro (Google AI Pro plan). Unlike real-time pair programmers, Jules works autonomously in the background on GitHub issues and pull requests. You assign it a task (bug fix, feature, refactor), Jules clones your repo into a sandboxed cloud environment, implements the changes, runs tests, and opens a pull request for your review. Jules has been generally available since August 2025 and also offers a command-line tool (Jules Tools), a REST API, scheduled tasks, automatic CI fixes, and MCP integrations.",
   "faq": [
     {
       "question": "What is Google Jules and how does it work?",
@@ -14,11 +14,11 @@
     },
     {
       "question": "Which AI model powers Google Jules?",
-      "answer": "Jules is powered by Google's Gemini 2.0 model family. It uses Gemini 2.0 Flash for efficient task execution and can leverage Gemini 2.0 Pro for complex reasoning tasks."
+      "answer": "Since January 30, 2026, Gemini 3 Flash is the base model in Jules for all users on all tiers. Since March 9, 2026, Gemini 3.1 Pro is available as the default model for complex problem-solving for Google AI Pro plan users."
     },
     {
       "question": "Is Google Jules free to use?",
-      "answer": "Jules is currently in public beta (as of early 2026) and is free to use during the beta period. Pricing for general availability has not been announced. Access is available via jules.google with a Google account."
+      "answer": "Jules has been generally available since August 6, 2025 and can be used with a Google account at jules.google. The free plan allows 15 tasks per rolling 24 hours and 3 concurrent tasks; Jules in Pro (included with Google AI Pro) allows 100 daily and 15 concurrent tasks; Jules in Ultra (included with Google AI Ultra) allows 300 daily and 60 concurrent tasks. See https://jules.google/docs/usage-limits/ for details."
     },
     {
       "question": "Does Jules work with any GitHub repository?",
@@ -42,11 +42,11 @@
     },
     {
       "question": "Is Jules available outside the United States?",
-      "answer": "As of early 2026, Jules is in public beta with access open globally, though it initially launched in the United States. Availability may vary. Check jules.google for the latest access information."
+      "answer": "Jules has been generally available since August 6, 2025. Check jules.google for the latest access information in your region."
     },
     {
       "question": "Does Jules support languages other than English?",
-      "answer": "Jules understands task descriptions written in multiple languages, as Gemini 2.0 is a multilingual model. However, the Jules interface and documentation are primarily in English."
+      "answer": "Jules understands task descriptions written in multiple languages, as the underlying Gemini models are multilingual. However, the Jules interface and documentation are primarily in English."
     }
   ]
 }

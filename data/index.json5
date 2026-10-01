@@ -2,8 +2,7 @@
   "features": [
     "automatic-context-awareness",
     "broad-ide-integration",
-    "claude-4-support",
-    "claude3-support",
+    "claude-latest-support",
     "console-error-integration",
     "context-window",
     "dedicated-instruction-file",
@@ -17,22 +16,24 @@
   ],
   "agents": [
     "aider",
-    "amazon-q-developer",
     "claude-code",
+    "cline",
     "cursor",
     "devin-ai",
+    "devin-desktop",
+    "gemini-cli",
     "github-copilot",
+    "google-antigravity",
     "google-jules",
+    "kiro",
+    "openai-codex",
+    "opencode",
     "replit-agent",
-    "windsurf",
     "zed-ai"
   ],
   "comparisons": [
     "claude-code-vs-cursor",
-    "claude-code-vs-windsurf",
-    "cursor-vs-windsurf",
     "github-copilot-vs-cursor",
-    "github-copilot-vs-windsurf",
     "github-copilot-vs-claude-code"
   ]
 }

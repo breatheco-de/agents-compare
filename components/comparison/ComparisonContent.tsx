@@ -113,19 +113,87 @@ interface ComparePageClientProps {
   }
 }
 
-export function ComparePageClient({ agents, features, supportMatrix, statistics }: ComparePageClientProps) {
-  const [selectedAgents, setSelectedAgents] = useState<string[]>([]);
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+interface ComparePageClientSelection {
+  initialAgentIds?: string[]
+  initialFeatureIds?: string[]
+  ignoredAgentIds?: string[]
+  ignoredFeatureIds?: string[]
+}
+
+// Splits a comma-separated query value into ids that exist and ids that don't.
+function parseIdList(value: string | null, validIds: string[]) {
+  const ids = Array.from(new Set((value || '').split(',').map(id => id.trim()).filter(Boolean)));
+  return {
+    valid: ids.filter(id => validIds.includes(id)),
+    ignored: ids.filter(id => !validIds.includes(id))
+  };
+}
+
+// Reads ?agents= and ?features= from the URL and preselects them.
+// Must be rendered inside a <Suspense> boundary because it uses useSearchParams.
+export function ComparePageFromUrl(props: ComparePageClientProps) {
+  const searchParams = useSearchParams();
+  const agentIds = parseIdList(searchParams.get('agents'), props.agents.map(a => a.id));
+  const featureIds = parseIdList(searchParams.get('features'), props.features.map(f => f.id));
+
+  return (
+    <ComparePageClient
+      // Remount when the query changes so the initial selection is re-applied
+      key={searchParams.toString()}
+      {...props}
+      initialAgentIds={agentIds.valid}
+      initialFeatureIds={featureIds.valid}
+      ignoredAgentIds={agentIds.ignored}
+      ignoredFeatureIds={featureIds.ignored}
+    />
+  );
+}
+
+export function ComparePageClient({
+  agents,
+  features,
+  supportMatrix,
+  statistics,
+  initialAgentIds = [],
+  initialFeatureIds = [],
+  ignoredAgentIds = [],
+  ignoredFeatureIds = []
+}: ComparePageClientProps & ComparePageClientSelection) {
+  const [selectedAgents, setSelectedAgents] = useState<string[]>(initialAgentIds);
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(initialFeatureIds);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedSupportLevels, setSelectedSupportLevels] = useState<SupportLevel[]>(['yes', 'partial', 'no', 'unknown']);
   const [viewMode, setViewMode] = useState<'compact' | 'expanded'>('expanded');
   const [showNotes, setShowNotes] = useState(true);
 
+  // An empty selection means "show everything"
+  const filteredAgents = selectedAgents.length > 0
+    ? agents.filter(agent => selectedAgents.includes(agent.id))
+    : agents;
+
+  const filteredFeatures = features.filter(feature =>
+    (selectedFeatures.length === 0 || selectedFeatures.includes(feature.id)) &&
+    (selectedCategories.length === 0 || selectedCategories.includes(feature.category))
+  );
+
+  const filteredSupportMatrix = supportMatrix.filter(s =>
+    filteredAgents.some(a => a.id === s.agent_id) &&
+    filteredFeatures.some(f => f.id === s.feature_id)
+  );
+
+  const ignoredIds = [...ignoredAgentIds, ...ignoredFeatureIds];
+
   return (
     <div className="min-h-screen text-white">
       {/* Header Section */}
       <ComparisonHeader statistics={statistics} />
-      
+
+      {ignoredIds.length > 0 && (
+        <div role="alert" className="mb-6 rounded-lg border border-yellow-600/50 bg-yellow-900/20 px-4 py-3 text-sm text-yellow-200">
+          Ignored unknown {ignoredIds.length > 1 ? 'ids' : 'id'} in the URL: {ignoredIds.join(', ')}.
+        </div>
+      )}
+
       {/* Filters Section */}
       <ComparisonFilters 
         agents={agents} 
@@ -148,22 +216,22 @@ export function ComparePageClient({ agents, features, supportMatrix, statistics 
       
       {/* Main Comparison Table */}
       <div className="mb-12">
-        <ComparisonTable 
-          agents={agents}
-          features={features}
-          supportMatrix={supportMatrix}
+        <ComparisonTable
+          agents={filteredAgents}
+          features={filteredFeatures}
+          supportMatrix={filteredSupportMatrix}
           matrix={{}}
           viewMode={viewMode}
           showNotes={showNotes}
           selectedSupportLevels={selectedSupportLevels}
         />
       </div>
-      
+
       {/* Statistics Section */}
-      <ComparisonStats 
-        agents={agents}
-        features={features}
-        supportMatrix={supportMatrix}
+      <ComparisonStats
+        agents={filteredAgents}
+        features={filteredFeatures}
+        supportMatrix={filteredSupportMatrix}
       />
     </div>
   );

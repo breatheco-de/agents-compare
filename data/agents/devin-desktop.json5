@@ -1,0 +1,28 @@
+{
+  "id": "devin-desktop",
+  "name": "Devin Desktop",
+  "aliases": ["Windsurf", "Windsurf IDE", "Devin IDE"],
+  "provider": "Cognition AI",
+  "website": "https://devin.ai/desktop",
+  "supported_ide": ["Devin Desktop (custom IDE)", "JetBrains (Windsurf plugin)"],
+  "updated_at": "2026-09-30",
+  "description": "Devin Desktop is the new name for Windsurf, the AI-native IDE from Cognition AI. Built on the Windsurf IDE foundation, it puts an Agent Command Center front and center, with Spaces for sharing context and Git worktrees across agents and a Kanban view of agent sessions, while keeping the full IDE experience, including Tab completions, the Cascade agent, and the Devin Local agent. Local work can be handed off to Devin cloud agents.",
+  "faq": [
+    {
+      "question": "Is Devin Desktop the same as Windsurf?",
+      "answer": "Yes. Devin Desktop is the new name for Windsurf. Existing installations were updated automatically with no changes to plans, pricing, extensions, or settings, and the Windsurf plugin for JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, and more) remains available for download."
+    },
+    {
+      "question": "How much does Devin Desktop cost?",
+      "answer": "Devin Desktop shares its plans with Devin: Free ($0, light agent quota and unlimited Tab completions and inline edits), Pro ($20/month), Max ($200/month), Teams ($80/month base plus $40/month per developer seat), and Enterprise (custom pricing). See https://devin.ai/pricing for details."
+    },
+    {
+      "question": "Which AI models does Devin Desktop use?",
+      "answer": "The Devin Desktop model catalog includes Cognition's SWE-2, SWE-1.7, and SWE-1.6 plus the Adaptive router; Anthropic Claude Opus 4.5 to 5.5, Sonnet 4.5, 4.6, and 5, Haiku 4.5, and Fable 5 and 5.1; OpenAI models from GPT-4o and GPT-4.1 up to GPT-5.6 (Sol, Terra, Luna) and GPT-6 (Astra, Sol, Luna); Google Gemini 2.5 Pro, 3.1 Pro, and Flash models up to 3.8; xAI Grok; DeepSeek V4; Moonshot Kimi K2.6, K2.7, and K3; Z.ai GLM-5.2 and 5.3; and NVIDIA Nemotron 3 Ultra. Availability depends on your plan: the Free plan has limited model availability."
+    },
+    {
+      "question": "What agents are included in Devin Desktop?",
+      "answer": "Devin Desktop includes Cascade, an agentic assistant with Code and Chat modes, tool calling, checkpoints, and built-in planning, and the Devin Local agent, which brings the Devin CLI harness with subagents, sandboxing, plan mode, worktrees, and permissions. Work can also be handed off to Devin cloud agents."
+    }
+  ]
+}

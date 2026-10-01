@@ -255,7 +255,7 @@ export async function getFeaturedFeatures(): Promise<Feature[]> {
   const featuredIds = [
     'mcp-support',
     'context-window',
-    'claude3-support',
+    'claude-latest-support',
     'filesystem-access',
     'planner-strategy'
   ]

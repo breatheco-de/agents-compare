@@ -1,0 +1,111 @@
+// Support matrix for Google Antigravity
+// This file defines how well Google Antigravity supports various features
+{
+  agent_id: "google-antigravity",
+  feature_support: [
+    {
+      feature_id: "automatic-context-awareness",
+      support_level: "partial",
+      notes: "In /boost mode the orchestrator inspects workspace context automatically before planning. General automatic context gathering outside /boost is not described.",
+      examples: ["/boost Add pagination to the orders API"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/boost"]
+    },
+    {
+      feature_id: "broad-ide-integration",
+      support_level: "yes",
+      notes: "Besides its own desktop IDE and CLI, Antigravity offers extensions for VS Code, Visual Studio, JetBrains, Zed, and Xcode with agent side panels, inline diffs, and interactive implementation plans.",
+      examples: ["Using the Antigravity extension in a JetBrains IDE"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/ide/extensions/"]
+    },
+    {
+      feature_id: "claude-latest-support",
+      support_level: "yes",
+      notes: "The free Individual plan includes Claude Sonnet 4.6 and Claude Opus 4.6 as agent models, alongside Gemini models.",
+      examples: ["Switching the agent to Claude Opus 4.6"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/pricing"]
+    },
+    {
+      feature_id: "console-error-integration",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://antigravity.google/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. An optional Chrome DevTools skills package covers debugging and performance, but console error capture is not described.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/build-with-google"]
+    },
+    {
+      feature_id: "context-window",
+      support_level: "yes",
+      notes: "The window depends on the selected model; Antigravity compacts context automatically, sizing summaries from the model's full context window.",
+      examples: ["Long session continuing after automatic compaction"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/changelog"]
+    },
+    {
+      feature_id: "dedicated-instruction-file",
+      support_level: "yes",
+      notes: "Workspace rules can be placed in AGENTS.md or GEMINI.md files (at the root or any subdirectory) or in .agents/rules/*.md files.",
+      examples: ["Adding an AGENTS.md at the repository root"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/rules/"]
+    },
+    {
+      feature_id: "filesystem-access",
+      support_level: "yes",
+      notes: "Agents can autonomously plan and execute tasks across the editor, terminal, and browser, modifying the codebase and reporting progress through artifacts.",
+      examples: ["An agent implementing a feature and producing a walkthrough artifact"],
+      last_verified: "2026-09-30",
+      sources: ["https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/"]
+    },
+    {
+      feature_id: "fine-grained-instruction-control",
+      support_level: "yes",
+      notes: "Rules support activation modes: always_on, glob (file patterns), model_decision (loaded when the task matches the description), and manual.",
+      examples: ["A rule that only activates for *.tsx files"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/rules/"]
+    },
+    {
+      feature_id: "interactive-element-selection",
+      support_level: "unknown",
+      notes: "Not documented: the full official documentation (https://antigravity.google/llms.txt) was searched on 2026-09-30 without finding this capability. This does not mean the tool lacks it. The /browser subagent can inspect DOM elements itself, but selecting elements for the agent is not described.",
+      examples: [],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/slash-commands"]
+    },
+    {
+      feature_id: "live-web-preview",
+      support_level: "partial",
+      notes: "The browser agent can open, read, and actuate a local Chrome browser to test development websites, capture screenshots, and record actions. This runs in Chrome rather than as a preview panel inside the editor.",
+      examples: ["The agent opening the local dev server in Chrome to verify a change"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/ide/browser/"]
+    },
+    {
+      feature_id: "mcp-support",
+      support_level: "yes",
+      notes: "Antigravity supports MCP servers, configured in Settings (Antigravity 2.0), the MCP Store (IDE), or mcp_config.json at global (~/.gemini/config/) or workspace (.agents/) level for the CLI.",
+      examples: ["Connecting a database MCP server to the agent"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/mcp/"]
+    },
+    {
+      feature_id: "planner-strategy",
+      support_level: "yes",
+      notes: "The agent uses an Implementation Plan artifact to architect changes before executing them; you can trigger planning with /plan and comment on the plan.",
+      examples: ["Reviewing and commenting on an implementation plan before the agent starts"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/implementation-plan/"]
+    },
+    {
+      feature_id: "supports-scoped-instructions",
+      support_level: "yes",
+      notes: "Rules are cumulative across global (~/.gemini/AGENTS.md, ~/.gemini/GEMINI.md, ~/.gemini/config/rules/) and workspace scopes, with more specific directory-level rules taking precedence.",
+      examples: ["A global rule for personal preferences plus a directory-level AGENTS.md"],
+      last_verified: "2026-09-30",
+      sources: ["https://antigravity.google/docs/rules/"]
+    }
+  ]
+}
