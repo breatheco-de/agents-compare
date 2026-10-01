@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getAllFeaturesWithStats, getFeatureCategories } from '@/lib/data-loader'
+import { documentedSupportPercentage } from '@/lib/comparison-utils'
 
 export async function GET() {
   try {
@@ -20,7 +21,8 @@ export async function GET() {
         partial: supportStats.partialCount,
         notSupported: supportStats.notSupportedCount,
         unknown: supportStats.unknownCount,
-        percentage: Math.round((supportStats.supportedCount / supportStats.totalAgents) * 100)
+        // Documented support, same formula as the rest of the site
+        percentage: documentedSupportPercentage(supportStats.supportedCount, supportStats.partialCount, supportStats.totalAgents)
       }
     }))
 

@@ -99,7 +99,8 @@ export default async function ComparePage() {
         }}
       />
       
-      <PageContainer>
+      {/* Full width so the comparison matrix can use all available space */}
+      <PageContainer maxWidth="full">
         {/* The fallback (full table) is what gets prerendered; the URL selection applies on the client */}
         <Suspense
           fallback={

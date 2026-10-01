@@ -1,6 +1,5 @@
 import { loadAgents, loadFeatures, loadAgentFeatureSupport } from '@/lib/data-loader'
-import { Table, TableHeader, TableBody, TableRow, TableCell } from '@/components/tables/Table'
-import SupportLevelBadge from '@/components/ui/SupportLevelBadge'
+import { AgentFeatureMatrix } from '@/components/comparison/AgentFeatureMatrix'
 import PageContainer from '@/components/layout/PageContainer'
 import { CompareSelector } from '@/components/home/CompareSelector'
 
@@ -10,6 +9,7 @@ export default async function HomePage() {
   const supportMatrix = await loadAgentFeatureSupport()
 
   return (
+    <>
     <PageContainer>
       {/* Hero Section */}
       <section className="text-center mb-12">
@@ -24,55 +24,15 @@ export default async function HomePage() {
         <CompareSelector agents={agents} features={features} />
       </section>
 
-      {/* Preview Comparison Table (3x5) */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-center">Quick Feature Comparison</h2>
-        <Table ariaLabel="Quick comparison of AI coding agents and their feature support">
-          <TableHeader>
-            <TableRow isHeader>
-              <TableCell isHeader scope="col">Agent</TableCell>
-              {features.map(feature => (
-                <TableCell 
-                  key={feature.id} 
-                  isHeader 
-                  scope="col" 
-                  className="min-w-[120px]"
-                >
-                  {feature.name}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {agents.map(agent => (
-              <TableRow key={agent.id} className="group">
-                <TableCell className="font-medium">
-                  <div>
-                    <a 
-                      href={`/agent/${agent.id}`}
-                      className="font-semibold text-blue-400 hover:text-blue-300 group-hover:text-blue-300 hover:underline group-hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
-                    >
-                      {agent.name}
-                    </a>
-                    <div className="text-sm text-gray-400">{agent.provider}</div>
-                  </div>
-                </TableCell>
-                {features.map(feature => {
-                  const support = supportMatrix.find(s => s.agent_id === agent.id && s.feature_id === feature.id)
-                  const level = support?.support_level || 'unknown'
-                  
-                  return (
-                    <TableCell key={feature.id}>
-                      <SupportLevelBadge level={level as 'yes' | 'partial' | 'no' | 'unknown'} showIcon />
-                    </TableCell>
-                  )
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </section>
+    </PageContainer>
 
+    {/* Full-width comparison: matrix on desktop, cards on mobile */}
+    <section className="mx-auto mb-4 w-full max-w-[1920px] px-4 md:px-6">
+      <h2 className="mb-6 text-center text-2xl font-bold">Quick Feature Comparison</h2>
+      <AgentFeatureMatrix agents={agents} features={features} supportMatrix={supportMatrix} />
+    </section>
+
+    <PageContainer>
       {/* Quick Links */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Explore More</h2>
@@ -154,5 +114,6 @@ export default async function HomePage() {
         </div>
       </section>
     </PageContainer>
+    </>
   )
 } 

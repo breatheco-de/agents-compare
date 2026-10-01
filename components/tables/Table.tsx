@@ -7,6 +7,8 @@ interface TableProps {
   children: React.ReactNode
   className?: string
   ariaLabel?: string
+  // Render only the <table>, without the horizontal scroll wrapper (for use inside a custom scroll container)
+  bare?: boolean
 }
 
 interface TableHeaderProps {
@@ -39,7 +41,15 @@ interface TableCellProps {
 }
 
 // Main Table Component
-export function Table({ children, className = '', ariaLabel }: TableProps) {
+export function Table({ children, className = '', ariaLabel, bare = false }: TableProps) {
+  if (bare) {
+    return (
+      <table role="table" aria-label={ariaLabel} className={className}>
+        {children}
+      </table>
+    )
+  }
+
   return (
     <div className="overflow-x-auto">
       <table 

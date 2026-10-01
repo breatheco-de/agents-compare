@@ -1,6 +1,17 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
+import { HoverTooltip } from './HoverTooltip'
+import { SupportStatusIcon } from './SupportStatusIcon'
+import {
+  SUPPORT_LEVEL_DESCRIPTIONS,
+  SUPPORT_DATA_DISCLAIMER,
+  type SupportLevelKey
+} from '@/lib/support-levels'
+
+// Re-exported for existing client-side imports
+export { SUPPORT_LEVELS, SUPPORT_LEVEL_ORDER, SUPPORT_LEVEL_TEXT } from '@/lib/support-levels'
+export type { SupportLevelKey } from '@/lib/support-levels'
 
 // Support Level Badge Component for consistency across the entire app
 interface SupportLevelBadgeProps {
@@ -11,12 +22,7 @@ interface SupportLevelBadgeProps {
 }
 
 // Support level descriptions for tooltips
-const supportLevelDescriptions = {
-  yes: 'Full support - This feature is fully implemented and documented',
-  partial: 'Partial support - This feature has limited implementation or requires workarounds',
-  no: 'Not supported - This feature is not available in this agent',
-  unknown: 'Unknown - Support status has not been verified'
-}
+const supportLevelDescriptions = SUPPORT_LEVEL_DESCRIPTIONS
 
 export default function SupportLevelBadge({ 
   level, 
@@ -142,7 +148,7 @@ export default function SupportLevelBadge({
         onMouseLeave={() => showTooltip && setIsHovered(false)}
         aria-describedby={isHovered ? `tooltip-${level}` : undefined}
       >
-        {showIcon && `${config.icon} `}
+        {showIcon && <SupportStatusIcon level={level} size={14} label={null} className="-mt-0.5 mr-1 align-middle" />}
         {children || config.label}
       </span>
       
@@ -159,9 +165,7 @@ export default function SupportLevelBadge({
               {supportLevelDescriptions[level]}
             </p>
             <p className="text-gray-400 text-xs border-t border-gray-700 pt-2">
-              ℹ️ Support information is sourced from official documentation and public information. 
-              While we strive for accuracy, there may be human or machine errors. 
-              Please verify critical features directly with the vendor.
+              ℹ️ {SUPPORT_DATA_DISCLAIMER}
             </p>
           </div>
           
@@ -173,10 +177,56 @@ export default function SupportLevelBadge({
   )
 }
 
-// Export the support level configurations for consistent usage
-export const SUPPORT_LEVELS = {
-  yes: { icon: '✅', text: 'Yes', label: 'Full Support' },
-  partial: { icon: '⚠️', text: 'Partial', label: 'Partial' },
-  no: { icon: '❌', text: 'No', label: 'No Support' },
-  unknown: { icon: '❓', text: 'Unknown', label: 'Unknown' }
-} as const 
+interface SupportLevelIconProps {
+  level: SupportLevelKey
+  className?: string
+  // Tooltip heading, e.g. "Cursor · MCP Server Support"
+  context?: string
+  // Support notes for this agent/feature, shown in the tooltip
+  notes?: string
+  // When set, the icon renders as a button (keyboard focus also shows the tooltip)
+  onClick?: () => void
+  buttonLabel?: string
+  buttonClassName?: string
+  showTooltip?: boolean
+  size?: number
+}
+
+// Status icon (SVG shape per level) with an accessible label and a detailed tooltip
+export function SupportLevelIcon({
+  level,
+  className = '',
+  context,
+  notes,
+  onClick,
+  buttonLabel,
+  buttonClassName = '',
+  showTooltip = true,
+  size = 20
+}: SupportLevelIconProps) {
+  const content = (
+    <>
+      {context && <p className="font-semibold text-gray-100">{context}</p>}
+      <p className="flex items-center gap-2 text-gray-200">
+        <SupportStatusIcon level={level} size={16} label={null} />
+        {SUPPORT_LEVEL_DESCRIPTIONS[level]}
+      </p>
+      {notes && <p className="line-clamp-4 text-xs text-gray-300">{notes}</p>}
+      <p className="border-t border-gray-700 pt-2 text-xs text-gray-400">{SUPPORT_DATA_DISCLAIMER}</p>
+    </>
+  )
+
+  if (onClick) {
+    return (
+      <HoverTooltip as="button" content={content} onClick={onClick} ariaLabel={buttonLabel} className={buttonClassName} enabled={showTooltip}>
+        <SupportStatusIcon level={level} size={size} label={null} />
+      </HoverTooltip>
+    )
+  }
+
+  return (
+    <HoverTooltip content={content} className={`inline-flex items-center justify-center ${className}`} enabled={showTooltip}>
+      <SupportStatusIcon level={level} size={size} />
+    </HoverTooltip>
+  )
+}
